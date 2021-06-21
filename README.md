@@ -1,6 +1,6 @@
 Reach For The Stars frontend website
 
-Please follow these guidlines when coding!!
+Please follow these guidelines when coding!!
 
 1. Write clean code and comments for core functions of components
 2. Create new functionality/components/pages under new branches labeled with the respective tag, eg. "page-[NAME]" or "component-[NAME]" etc.
