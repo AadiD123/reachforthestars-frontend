@@ -10,13 +10,26 @@ export const SidebarData = [
   {
     title: "Home",
     path: "/",
-    icon: <AiIcons.AiFillHome />,
-    cName: `${styles.navText}`,
+    cName: `${styles.navTextTop}`,
+  },
+  {
+    title: "Events",
+    path: "/events",
+    cName: `${styles.navTextTop}`,
+  },
+  {
+    title: "Registration",
+    path: "/registration",
+    cName: `${styles.navTextTop}`,
   },
   {
     title: "About",
     path: "/about",
-    icon: <IoIcons.IoIosPaper />,
-    cName: `${styles.navText}`,
+    cName: `${styles.navTextTop}`,
+  },
+  {
+    title: "Join Our Team",
+    path: "/join-our-team",
+    cName: `${styles.navTextTop}`,
   },
 ];

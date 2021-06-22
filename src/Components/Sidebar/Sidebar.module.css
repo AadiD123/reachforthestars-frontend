@@ -1,5 +1,4 @@
-.sidebar {
-  background-color: #060b26;
+.navbar {
   height: 80px;
   display: flex;
   justify-content: flex-start;
@@ -7,10 +6,8 @@
 }
 
 .menuBars {
-  background-color: black;
-  margin-left: 2rem;
+  margin-left: 1rem;
   font-size: 2rem;
-  background: none;
 }
 
 .navMenu {
@@ -30,16 +27,15 @@
   transition: 350ms;
 }
 
-.navText {
+.navTextTop {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 8px 0px 8px 0px;
   list-style: none;
-  height: 60px;
 }
 
-.navText a {
+.navTextTop a {
   text-decoration: none;
   color: #f5f5f5;
   font-size: 18px;
@@ -48,23 +44,25 @@
   display: flex;
   align-items: center;
   padding: 0 16px;
-  border-radius: 4px;
+  /* height: 60px; */
 }
 
-.navText a:hover {
-  background-color: #1a83ff;
-}
+/* .navTextTop a:hover {
+  background-color: #2c333a;
+} */
 
 .navMenuItems {
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .navbarToggle {
   background-color: #060b26;
-  width: 100%;
+  width: 80%;
   height: 80px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
 }
 
