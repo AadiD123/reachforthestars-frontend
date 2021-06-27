@@ -1,0 +1,50 @@
+.navbarbuttonstyling{
+    color: white;
+    background-color: #001E3D;
+    border: 1px solid #001E3D;
+    margin-left: 1vw;
+    border-radius: 0;
+    width: 10vw;
+}
+.navbarbuttonstyling:hover{
+    color: rgb(245, 239, 239);
+    background-color: #073563;
+}
+.navbar{
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    
+}
+@media screen and (max-width: 1000px) {
+    .rftstitle{
+        font-size: 80%;
+    }
+    .navbarbuttonstyling{
+        text-align: center;
+        margin-left: 1vw;
+        border-radius: 0;
+        width: 15vw;
+        font-size: 50%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .rftstitle{
+        display: none;
+    }
+    .navbarbuttonstyling{
+        text-align: center;
+        margin-left: 1vw;
+        border-radius: 0;
+        width: 15vw;
+        font-size: 50%;
+    }
+    .navbar{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .navbarSupportedContent{
+        width:auto;
+    }
+   
+}

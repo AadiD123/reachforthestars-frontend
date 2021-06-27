@@ -10,6 +10,7 @@
   font-size: 2rem;
 }
 
+
 .navMenu {
   background-color: #060b26;
   width: 250px;
@@ -69,3 +70,9 @@
 span {
   margin-left: 16px;
 }
+@media screen and (max-width: 420px) {
+  .navMenu {
+    width: 100%;
+  }
+}
+
