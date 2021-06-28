@@ -1,8 +1,3 @@
-import React from "react";
-// import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
-
 //Styles
 import styles from "./Sidebar.module.css";
 
@@ -15,6 +10,11 @@ export const SidebarData = [
   {
     title: "Events",
     path: "/events",
+    cName: `${styles.navTextTop}`,
+  },
+  {
+    title: "Blog",
+    path: "/blog",
     cName: `${styles.navTextTop}`,
   },
   {

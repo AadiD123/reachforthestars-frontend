@@ -1,15 +1,47 @@
 .navbar {
   height: 80px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.navbarbuttonstyling {
+  color: white;
+  height: 1.8rem;
+  width: 18vh;
+  background-color: #001e3d;
+  border-radius: 0;
+  padding: 0 16px 0 16px;
+  margin-left: 0.5rem;
+}
+
+.navbarbuttonstyling:hover {
+  color: rgb(245, 239, 239);
+  background-color: #073563;
+}
+
+@media screen and (max-width: 500px) {
+  .rftstitle {
+    display: none;
+  }
+  .navbarbuttonstyling {
+    text-align: center;
+    margin-left: 1vw;
+    border-radius: 0;
+    width: 15vw;
+    font-size: 50%;
+  }
+  .navbarSupportedContent {
+    width: auto;
+  }
 }
 
 .menuBars {
-  margin-left: 1rem;
   font-size: 2rem;
+  margin-right: 1.5rem;
 }
-
 
 .navMenu {
   background-color: #060b26;
@@ -75,4 +107,3 @@ span {
     width: 100%;
   }
 }
-
