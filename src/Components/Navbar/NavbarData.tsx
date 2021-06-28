@@ -8,16 +8,13 @@ export const NavbarData = [
   {
     title: "Contact",
     path: "/contact",
-    // cName: `${styles.navTextTop}`,
   },
   {
     title: "Donate",
     path: "/donate",
-    // cName: `${styles.navTextTop}`,
   },
   {
     title: "Login",
     path: "/login",
-    // cName: `${styles.navTextTop}`,
   },
 ];

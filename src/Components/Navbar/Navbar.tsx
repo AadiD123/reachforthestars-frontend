@@ -6,16 +6,22 @@
 
 import styles from "./Navbar.module.css";
 import Sidebar from "../Sidebar/Sidebar";
+import { NavbarData } from "./NavbarData";
+import { Link } from "react-router-dom";
 
 function Navbar() {
 
   return (
-    <nav className="navbar" id= "navs" style={{height: "80px"}}> 
+    <nav className="navbar" id= "navs" style={{position: "fixed", width: "100%", height: "80px"}}> 
      <Sidebar />
     <div className="navbarSupportedContent" style = {{display: 'flex', justifyContent: 'flex-end'}}> 
-        <button className={`${styles.navbarbuttonstyling} btn my-2 my-sm-0`} id = "button-one" type="button">Contact</button>
-        <button className={`${styles.navbarbuttonstyling} btn my-2 my-sm-0`} type="button">Donate</button> 
-        <button className={`${styles.navbarbuttonstyling} btn my-2 my-sm-0`} type="button">Login</button> 
+          {NavbarData.map((item, index) => {
+              return (
+                  <Link className={styles.navLink} to={item.path}>
+                     <button className={`${styles.navbarbuttonstyling} btn my-2 my-sm-0`} key={index}>{item.title}</button>
+                  </Link>
+              );
+            })}
     
     
     </div> 

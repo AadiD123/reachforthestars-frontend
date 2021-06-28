@@ -11,10 +11,12 @@
     background-color: #073563;
 }
 .navbar{
-    position: absolute;
     top: 0px;
     left: 50px;
-    
+    background-color: #073563;
+   }
+.navLink{
+    color: white;
 }
 @media screen and (max-width: 1000px) {
     .rftstitle{
