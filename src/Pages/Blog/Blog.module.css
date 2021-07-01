@@ -1,0 +1,19 @@
+
+body{
+    background-color: bisque;
+}
+
+
+.pageTitle{
+    font-size: 5rem;
+    text-align: center;
+    color:#001e3d;
+}
+.cont{
+    padding: 20px;
+}
+
+
+.subtext{
+    display: inline;
+}
