@@ -32,6 +32,9 @@ html, body { height: 100%; width: 100%; margin: 0; }
     -webkit-text-stroke-color: white;
   
   }
+  .navbar{
+    position: fixed;
+  }
   
   /* #root:before{
     background: url("http://images.unsplash.com/photo-1457364887197-9150188c107b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max") no-repeat center
