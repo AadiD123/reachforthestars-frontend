@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Components
 import Navbar from "./Components/Navbar/Navbar";
+import Footer from "./Components/Footer/Footer";
 
 //Pages
 import Home from "./Pages/Home/Home";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/join-our-team" component={JoinOurTeam} /> 
         <Route path="/login" component={Login} />
       </Switch>
+      <Footer  />
     </Router>
   );
 }
