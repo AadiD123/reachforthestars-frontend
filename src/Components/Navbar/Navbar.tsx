@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
 
   return (
-    <nav className="navbar" id= "navs" style={{position: "fixed", width: "100%", height: "80px", zIndex: 2}}> 
+    <nav className="navbar" id= "navs" style={{backgroundColor: "none", position: "absolute", marginTop: "0px", width: "100%", height: "80px", zIndex: 2}}> 
      <Sidebar />
     <div className="navbarSupportedContent" style = {{display: 'flex', justifyContent: 'flex-end'}}> 
           {NavbarData.map((item, index) => {
