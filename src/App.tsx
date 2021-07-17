@@ -10,6 +10,7 @@ import JoinOurTeam from "./Pages/JoinOurTeam/JoinOurTeam";
 import Login from "./Pages/Authentication/Login/Login";
 import Events from "./Pages/Events/Events";
 import Blog from "./Pages/Blog/Blog";
+import BlogPage from "./Pages/Blog-Page/Blog-Page";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route path="/about" component={About} />
         <Route path="/join-our-team" component={JoinOurTeam} />
         <Route path="/login" component={Login} />
+        <Route path="/blog-page" component={BlogPage} />
+
       </Switch>
     </Router>
   );
