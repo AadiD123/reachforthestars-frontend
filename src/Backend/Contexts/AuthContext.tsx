@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../Firebase";
 import firebase from "firebase";
+import { db } from "../Firebase";
 
 interface AuthContextType {
   currentUser: firebase.User | null;
@@ -22,22 +23,45 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
+// fix any type
 export function AuthProvider({ children }: any) {
   const [currentUser, setCurrentUser] = useState<firebase.User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  function signup(email: string, password: string) {
+  function signup(
+    firstName: string,
+    lastName: string,
+    grade: number,
+    timezone: string,
+    email: string,
+    password: string
+  ) {
     console.log("signup clicked in");
-    return auth.createUserWithEmailAndPassword(email, password);
+    return auth.createUserWithEmailAndPassword(email, password).then((cred) => {
+      db.collection("users")
+        .doc(cred.user?.uid)
+        .set({
+          firstName: firstName,
+          lastName: lastName,
+          grade: grade,
+          email: email,
+        })
+        .then(() => {
+          console.log("User info successfully written!");
+        })
+        .catch((error) => {
+          console.error("Error writing document: ", error);
+        });
+    });
   }
 
   function login(email: string, password: string) {
     return auth
       .signInWithEmailAndPassword(email, password)
-      .catch(function (error) {
+      .catch(function (error: any) {
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        let errorCode = error.code;
+        let errorMessage = error.message;
         if (errorCode == "auth/weak-password") {
           alert("The password is too weak.");
         } else {
