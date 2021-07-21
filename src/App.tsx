@@ -19,17 +19,19 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/events" component={Events} />
-        <Route path="/blog" component={Blog} />
-        <Route path="/about" component={About} />
-        <Route path="/join-our-team" component={JoinOurTeam} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/blog-page" component={BlogPage} />
-      </Switch>
-      {/* <AuthProvider /> */}
+      <AuthProvider>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/events" component={Events} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/about" component={About} />
+          <Route path="/join-our-team" component={JoinOurTeam} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/blog-page" component={BlogPage} />
+        </Switch>
+      </AuthProvider>
+
       <Footer />
     </Router>
   );

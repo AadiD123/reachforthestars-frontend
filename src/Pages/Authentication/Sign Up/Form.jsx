@@ -1,34 +1,28 @@
 import { useRef, useState, MutableRefObject } from "react";
 import styles from "./SignUp.module.css";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../../../Backend/Contexts/AuthContext";
+import { useAuth } from "../../../Backend/Contexts/AuthContext.jsx";
 
 export default function Form() {
-  // const initialState = {
-  //   email: "",
-  //   password: "",
-  // };
-
-  const emailRef = useRef() as MutableRefObject<any>;
-  const passwordRef = useRef() as MutableRefObject<any>;
-  const signup = useAuth().signup;
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  async function handleSubmit(e: any) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     try {
       setError("");
       setLoading(true);
-      console.log("sign up clicked");
+      // await signup(emailRef.current.value, passwordRef.current.value);
       await signup(emailRef.current.value, passwordRef.current.value);
       history.push("/blog");
     } catch {
       setError("Failed to log in");
     }
-
     setLoading(false);
   }
 

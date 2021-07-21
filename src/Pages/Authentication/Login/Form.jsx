@@ -1,18 +1,12 @@
-import React, { useRef, useState, MutableRefObject } from "react";
-import { useForm } from "./useForm";
+import { useRef, useState, MutableRefObject } from "react";
 import styles from "./Login.module.css";
-import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../../../Backend/Contexts/AuthContext";
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../../../Backend/Contexts/AuthContext.jsx";
 
 export default function Form() {
-  // const initialState = {
-  //   email: "",
-  //   password: "",
-  // };
-
   const emailRef = useRef();
   const passwordRef = useRef();
-  const login = useAuth();
+  const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -32,19 +26,6 @@ export default function Form() {
 
     setLoading(false);
   }
-
-  // getting the event handlers from our custom hook
-  //   const {
-  //     onChange,
-  //     onSubmit,
-  //     formValues: values,
-  //   } = useForm(loginUserCallback, initialState);
-
-  // a submit function that will execute upon form submission
-  //   async function loginUserCallback() {
-  //     // send "values" to database
-  //     signInUser(values);
-  //   }
 
   return (
     <form onSubmit={handleSubmit}>
