@@ -1,4 +1,4 @@
-import styles from "./Login.module.css";
+import styles from "./SignUp.module.css";
 import Form from "./Form";
 
 function Login() {
@@ -7,7 +7,7 @@ function Login() {
   return (
     <div className={styles.main} style={{}}>
       <div className={styles.loginBox}>
-        <h1>Login</h1>
+        <h1>Sign Up</h1>
         <div className={styles.loginButtons}>
           <Form />
         </div>

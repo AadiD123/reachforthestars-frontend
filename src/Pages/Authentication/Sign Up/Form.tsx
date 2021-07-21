@@ -1,31 +1,32 @@
-import { useRef, useState } from "react";
-import styles from "../Login/Login.module.css";
+import { useRef, useState, MutableRefObject } from "react";
+import styles from "./SignUp.module.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../Backend/Contexts/AuthContext";
 
-export default function SignUp() {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
+export default function Form() {
+  // const initialState = {
+  //   email: "",
+  //   password: "",
+  // };
+
+  const emailRef = useRef() as MutableRefObject<any>;
+  const passwordRef = useRef() as MutableRefObject<any>;
+  const signup = useAuth().signup;
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
-
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passwords do not match");
-    }
 
     try {
       setError("");
       setLoading(true);
+      console.log("sign up clicked");
       await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
-    } catch (err) {
-      setError(err.message);
+      history.push("/blog");
+    } catch {
+      setError("Failed to log in");
     }
 
     setLoading(false);
@@ -40,6 +41,7 @@ export default function SignUp() {
         placeholder="Email"
         required
         className={styles.typingInput}
+        ref={emailRef}
       />
 
       <input
@@ -49,6 +51,7 @@ export default function SignUp() {
         placeholder="Password"
         required
         className={styles.typingInput}
+        ref={passwordRef}
       />
       <input
         name="rememberMe"
@@ -57,8 +60,8 @@ export default function SignUp() {
         className={styles.checkingInput}
       />
       <span className={styles.rememberMe}>Remember Me</span>
-      <button className={styles.submitButton} type="submit">
-        Login
+      <button disabled={loading} className={styles.submitButton} type="submit">
+        Sign Up
       </button>
     </form>
   );

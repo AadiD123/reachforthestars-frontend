@@ -12,7 +12,8 @@ import Login from "./Pages/Authentication/Login/Login";
 import Events from "./Pages/Events/Events";
 import Blog from "./Pages/Blog/Blog";
 import BlogPage from "./Pages/Blog-Page/Blog-Page";
-import SignUp from "./Pages/Authentication/SignUp/SignUp";
+import SignUp from "./Pages/Authentication/Sign Up/SignUp";
+import { AuthProvider } from "./Backend/Contexts/AuthContext";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/blog-page" component={BlogPage} />
       </Switch>
+      {/* <AuthProvider /> */}
       <Footer />
     </Router>
   );

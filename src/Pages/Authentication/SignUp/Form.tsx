@@ -1,5 +1,4 @@
 import React, { useRef, useState, MutableRefObject } from "react";
-import { useForm } from "./useForm";
 import styles from "./Login.module.css";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../../Backend/Contexts/AuthContext";
@@ -10,21 +9,21 @@ export default function Form() {
   //   password: "",
   // };
 
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const login = useAuth();
+  const emailRef = useRef() as MutableRefObject<any>;
+  const passwordRef = useRef() as MutableRefObject<any>;
+  const login = useAuth().login;
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
 
     try {
       setError("");
       setLoading(true);
       console.log("login clicked");
-      await login(emailRef.current.value, passwordRef.current.value);
+      await signup(emailRef.current.value, passwordRef.current.value);
       history.push("/blog");
     } catch {
       setError("Failed to log in");
@@ -75,7 +74,7 @@ export default function Form() {
       />
       <span className={styles.rememberMe}>Remember Me</span>
       <button disabled={loading} className={styles.submitButton} type="submit">
-        Login
+        Sign Up
       </button>
     </form>
   );
