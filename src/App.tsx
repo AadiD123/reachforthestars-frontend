@@ -13,7 +13,8 @@ import Events from "./Pages/Events/Events";
 import Blog from "./Pages/Blog/Blog";
 import BlogPage from "./Pages/Blog-Page/Blog-Page";
 import SignUp from "./Pages/Authentication/Sign Up/SignUp";
-import { AuthProvider } from "./Backend/Contexts/AuthContext";
+import { AuthProvider, useAuth } from "./Backend/Contexts/AuthContext";
+import PrivateRoute from "./PrivateAuth";
 
 function App() {
   return (
@@ -21,9 +22,13 @@ function App() {
       <Navbar />
       <AuthProvider>
         <Switch>
+          <PrivateRoute
+            isAuthenticated={useAuth().currentUser != null}
+            path="/blog"
+            component={Blog}
+          />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
-          <Route path="/blog" component={Blog} />
           <Route path="/about" component={About} />
           <Route path="/join-our-team" component={JoinOurTeam} />
           <Route path="/login" component={Login} />

@@ -2,6 +2,7 @@ import { useRef, useState, MutableRefObject } from "react";
 import styles from "./Login.module.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../Backend/Contexts/AuthContext";
+import { db } from "../../../Backend/Firebase";
 
 export default function Form() {
   const emailRef = useRef() as MutableRefObject<any>;
@@ -37,7 +38,6 @@ export default function Form() {
         className={styles.typingInput}
         ref={emailRef}
       />
-
       <input
         name="password"
         id="password"

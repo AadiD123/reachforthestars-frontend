@@ -1,22 +1,17 @@
-// import * as React from "react";
-// import { Route, Redirect } from "react-router-dom";
-// import { useAuth } from "./Backend/Contexts/AuthContext";
+import * as React from "react";
+import { Route, Redirect, RouteProps } from "react-router-dom";
 
-// export default function PrivateRoute(component: React.Component, ...rest) {
-//   const currentUser = useAuth().currentUser;
+export interface ProtectedRouteProps extends RouteProps {
+  isAuthenticated: boolean;
+}
 
-//   return (
-//     <Route
-//       {...rest}
-//       {(props) => {
-//         return currentUser != null ? (
-//           <component {...props} />
-//         ) : (
-//           <Redirect to="/login" />
-//         );
-//       }}
-//     ></Route>
-//   );
-// }
-
-export {};
+export default function PrivateRoute({
+  isAuthenticated,
+  ...routeProps
+}: ProtectedRouteProps) {
+  if (isAuthenticated) {
+    return <Route {...routeProps} />;
+  } else {
+    return <Redirect to="/login" />;
+  }
+}
