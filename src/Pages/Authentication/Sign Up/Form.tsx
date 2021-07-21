@@ -1,12 +1,12 @@
 import { useRef, useState, MutableRefObject } from "react";
-import styles from "./Login.module.css";
+import styles from "./SignUp.module.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../Backend/Contexts/AuthContext";
 
 export default function Form() {
   const emailRef = useRef() as MutableRefObject<any>;
   const passwordRef = useRef() as MutableRefObject<any>;
-  const { login } = useAuth();
+  const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -17,12 +17,12 @@ export default function Form() {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+      // await signup(emailRef.current.value, passwordRef.current.value);
+      await signup(emailRef.current.value, passwordRef.current.value);
       history.push("/blog");
     } catch {
       setError("Failed to log in");
     }
-
     setLoading(false);
   }
 
@@ -55,7 +55,7 @@ export default function Form() {
       />
       <span className={styles.rememberMe}>Remember Me</span>
       <button disabled={loading} className={styles.submitButton} type="submit">
-        Login
+        Sign Up
       </button>
     </form>
   );
