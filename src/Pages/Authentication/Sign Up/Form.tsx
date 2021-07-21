@@ -1,17 +1,17 @@
 import { useRef, useState, MutableRefObject } from "react";
 import styles from "./SignUp.module.css";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../../../Backend/Contexts/AuthContext.jsx";
+import { useAuth } from "../../../Backend/Contexts/AuthContext";
 
 export default function Form() {
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const emailRef = useRef() as MutableRefObject<any>;
+  const passwordRef = useRef() as MutableRefObject<any>;
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
 
     try {

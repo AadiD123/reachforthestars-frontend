@@ -1,23 +1,22 @@
 import { useRef, useState, MutableRefObject } from "react";
 import styles from "./Login.module.css";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../../../Backend/Contexts/AuthContext.jsx";
+import { useAuth } from "../../../Backend/Contexts/AuthContext";
 
 export default function Form() {
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const emailRef = useRef() as MutableRefObject<any>;
+  const passwordRef = useRef() as MutableRefObject<any>;
   const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
 
     try {
       setError("");
       setLoading(true);
-      console.log("login clicked");
       await login(emailRef.current.value, passwordRef.current.value);
       history.push("/blog");
     } catch {
