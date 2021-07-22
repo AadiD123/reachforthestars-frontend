@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth } from "../Firebase";
+import { auth, db } from "../Firebase";
 import firebase from "firebase";
-import { db } from "../Firebase";
 
 interface AuthContextType {
   currentUser: firebase.User | null;
@@ -23,7 +22,6 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-// fix any type
 export function AuthProvider({ children }: any) {
   const [currentUser, setCurrentUser] = useState<firebase.User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -32,7 +30,6 @@ export function AuthProvider({ children }: any) {
     firstName: string,
     lastName: string,
     grade: number,
-    timezone: string,
     email: string,
     password: string
   ) {
@@ -58,11 +55,11 @@ export function AuthProvider({ children }: any) {
   function login(email: string, password: string) {
     return auth
       .signInWithEmailAndPassword(email, password)
-      .catch(function (error: any) {
+      .catch(function (error) {
         // Handle Errors here.
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        if (errorCode == "auth/weak-password") {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === "auth/weak-password") {
           alert("The password is too weak.");
         } else {
           alert(errorMessage);

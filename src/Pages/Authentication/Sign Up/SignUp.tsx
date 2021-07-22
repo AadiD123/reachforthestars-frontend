@@ -1,7 +1,7 @@
 import styles from "./SignUp.module.css";
 import Form from "./Form";
 
-function SignUp() {
+function Login() {
   // defining the initial state for the form
 
   return (
@@ -22,4 +22,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Login;
