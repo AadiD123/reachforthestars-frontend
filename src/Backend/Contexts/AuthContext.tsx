@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth, db } from "../Firebase";
 import firebase from "firebase";
+import { addStudent, addTutor } from "../db/dbfunctions";
 
 interface AuthContextType {
   currentUser: firebase.User | null;
@@ -26,33 +27,26 @@ export function AuthProvider({ children }: any) {
   const [currentUser, setCurrentUser] = useState<firebase.User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  function signup(
+  async function signup(
     firstName: string,
     lastName: string,
-    grade: number,
     email: string,
-    password: string
+    password: string,
+    grade: number,
+    timezone: string,
+    role: string
   ) {
     console.log("signup clicked in");
-    return auth.createUserWithEmailAndPassword(email, password).then((cred) => {
-      db.collection("users")
-        .doc(cred.user?.uid)
-        .set({
-          firstName: firstName,
-          lastName: lastName,
-          grade: grade,
-          email: email,
-        })
-        .then(() => {
-          console.log("User info successfully written!");
-        })
-        .catch((error) => {
-          console.error("Error writing document: ", error);
-        });
+    return auth.createUserWithEmailAndPassword(email, password).then(() => {
+      if (role == "tutor") {
+        addTutor(firstName, lastName, email, timezone, role);
+      } else if (role == "student") {
+        addStudent(firstName, lastName, email, timezone, role, grade, true);
+      }
     });
   }
 
-  function login(email: string, password: string) {
+  async function login(email: string, password: string) {
     return auth
       .signInWithEmailAndPassword(email, password)
       .catch(function (error) {

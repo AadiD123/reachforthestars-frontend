@@ -1,5 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+//Auth
+import PrivateRoute from "./PrivateAuth";
+import { AuthProvider, useAuth } from "./Backend/Contexts/AuthContext";
+
 //Components
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
@@ -13,8 +17,9 @@ import Events from "./Pages/Events/Events";
 import Blog from "./Pages/Blog/Blog";
 import BlogPage from "./Pages/Blog-Page/Blog-Page";
 import SignUp from "./Pages/Authentication/Sign Up/SignUp";
-import { AuthProvider, useAuth } from "./Backend/Contexts/AuthContext";
-import PrivateRoute from "./PrivateAuth";
+
+//Private Pages
+import Dashboard from "./Pages/PrivatePages/Dashboard";
 
 function App() {
   return (
@@ -22,11 +27,12 @@ function App() {
       <Navbar />
       <AuthProvider>
         <Switch>
-          <PrivateRoute path="/blog" component={Blog} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />
           <Route path="/join-our-team" component={JoinOurTeam} />
+          <Route path="/blog" component={Blog} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/blog-page" component={BlogPage} />

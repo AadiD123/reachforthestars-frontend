@@ -7,6 +7,7 @@ export default function Form() {
   const firstNameRef = useRef() as MutableRefObject<any>;
   const lastNameRef = useRef() as MutableRefObject<any>;
   const gradeRef = useRef() as MutableRefObject<any>;
+  const timezoneRef = useRef() as MutableRefObject<any>;
   const emailRef = useRef() as MutableRefObject<any>;
   const passwordRef = useRef() as MutableRefObject<any>;
   const { signup } = useAuth();
@@ -24,9 +25,11 @@ export default function Form() {
       await signup(
         firstNameRef.current.value,
         lastNameRef.current.value,
-        gradeRef.current.value,
         emailRef.current.value,
-        passwordRef.current.value
+        passwordRef.current.value,
+        gradeRef.current.value,
+        timezoneRef.current.value,
+        "student"
       );
       history.push("/blog");
     } catch {
@@ -63,6 +66,15 @@ export default function Form() {
         required
         className={styles.typingInput}
         ref={gradeRef}
+      />
+      <input
+        name="timezone"
+        id="timezone"
+        type="timezone"
+        placeholder="Timezone"
+        required
+        className={styles.typingInput}
+        ref={timezoneRef}
       />
       <input
         name="email"
