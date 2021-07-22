@@ -22,9 +22,13 @@ function App() {
       <Navbar />
       <AuthProvider>
         <Switch>
+          <PrivateRoute
+            isAuthenticated={useAuth().currentUser != null}
+            path="/blog"
+            component={Blog}
+          />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
-          <Route path="/blog" component={Blog} />
           <Route path="/about" component={About} />
           <Route path="/join-our-team" component={JoinOurTeam} />
           <Route path="/login" component={Login} />

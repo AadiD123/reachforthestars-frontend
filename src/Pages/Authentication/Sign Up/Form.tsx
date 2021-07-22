@@ -2,8 +2,13 @@ import { useRef, useState, MutableRefObject } from "react";
 import styles from "./SignUp.module.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../Backend/Contexts/AuthContext";
+import { db } from "../../../Backend/Firebase";
 
 export default function Form() {
+  const firstNameRef = useRef() as MutableRefObject<any>;
+  const lastNameRef = useRef() as MutableRefObject<any>;
+  const gradeRef = useRef() as MutableRefObject<any>;
+  const timezoneRef = useRef() as MutableRefObject<any>;
   const emailRef = useRef() as MutableRefObject<any>;
   const passwordRef = useRef() as MutableRefObject<any>;
   const { signup } = useAuth();
@@ -18,7 +23,14 @@ export default function Form() {
       setError("");
       setLoading(true);
       // await signup(emailRef.current.value, passwordRef.current.value);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await signup(
+        firstNameRef.current.value,
+        lastNameRef.current.value,
+        gradeRef.current.value,
+        timezoneRef.current.value,
+        emailRef.current.value,
+        passwordRef.current.value
+      );
       history.push("/blog");
     } catch {
       setError("Failed to log in");
@@ -29,6 +41,42 @@ export default function Form() {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        name="firstName"
+        id="firstName"
+        type="string"
+        placeholder="First Name"
+        required
+        className={styles.typingInput}
+        ref={firstNameRef}
+      />
+      <input
+        name="lastName"
+        id="lastName"
+        type="string"
+        placeholder="Last Name"
+        required
+        className={styles.typingInput}
+        ref={lastNameRef}
+      />
+      <input
+        name="grade"
+        id="grade"
+        type="number"
+        placeholder="Grade"
+        required
+        className={styles.typingInput}
+        ref={gradeRef}
+      />
+      <input
+        name="timezone"
+        id="timezone"
+        type="string"
+        placeholder="Timezone"
+        required
+        className={styles.typingInput}
+        ref={gradeRef}
+      />
+      <input
         name="email"
         id="email"
         type="email"
@@ -37,7 +85,6 @@ export default function Form() {
         className={styles.typingInput}
         ref={emailRef}
       />
-
       <input
         name="password"
         id="password"
