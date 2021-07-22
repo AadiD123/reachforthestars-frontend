@@ -13,7 +13,8 @@ import Events from "./Pages/Events/Events";
 import Blog from "./Pages/Blog/Blog";
 import BlogPage from "./Pages/Blog-Page/Blog-Page";
 import SignUp from "./Pages/Authentication/Sign Up/SignUp";
-import { AuthProvider } from "./Backend/Contexts/AuthContext";
+import { AuthProvider, useAuth } from "./Backend/Contexts/AuthContext";
+import PrivateRoute from "./PrivateAuth";
 
 function App() {
   return (
@@ -31,7 +32,6 @@ function App() {
           <Route path="/blog-page" component={BlogPage} />
         </Switch>
       </AuthProvider>
-
       <Footer />
     </Router>
   );
