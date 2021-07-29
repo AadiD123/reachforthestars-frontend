@@ -10,6 +10,7 @@ import Footer from "./Components/Footer/Footer";
 
 //Pages
 import Home from "./Pages/Home/Home";
+import IndividualAbout from "./Pages/IndividualAbout/IndividualAbout";
 import About from "./Pages/About/About";
 import JoinOurTeam from "./Pages/JoinOurTeam/JoinOurTeam";
 import Login from "./Pages/Authentication/Login/Login";
@@ -36,6 +37,8 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/blog-page" component={BlogPage} />
+          <Route path="/individual-about" component={IndividualAbout} />
+          
         </Switch>
       </AuthProvider>
       <Footer />
