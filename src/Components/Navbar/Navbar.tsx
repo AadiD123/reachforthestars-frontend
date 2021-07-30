@@ -8,6 +8,7 @@ import styles from "./Navbar.module.css";
 import Sidebar from "../Sidebar/Sidebar";
 import { NavbarData } from "./NavbarData";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Backend/Contexts/AuthContext";
 
 function Navbar() {
   return (

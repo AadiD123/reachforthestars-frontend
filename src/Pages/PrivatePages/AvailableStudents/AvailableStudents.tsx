@@ -21,7 +21,7 @@ export default function AvailableStudents() {
   });
 
   if (loading) {
-    return <h1>loading student data</h1>;
+    return <h1>Loading Available Students</h1>;
   }
 
   return (
