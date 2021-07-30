@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Auth
-import PrivateRoute from "./PrivateAuth";
-import { AuthProvider, useAuth } from "./Backend/Contexts/AuthContext";
+import PrivateRoute from "./Backend/PrivateAuth";
+import { AuthProvider } from "./Backend/Contexts/AuthContext";
 
 //Components
 import Navbar from "./Components/Navbar/Navbar";
@@ -38,7 +38,6 @@ function App() {
           <Route path="/signup" component={SignUp} />
           <Route path="/blog-page" component={BlogPage} />
           <Route path="/individual-about" component={IndividualAbout} />
-          
         </Switch>
       </AuthProvider>
       <Footer />

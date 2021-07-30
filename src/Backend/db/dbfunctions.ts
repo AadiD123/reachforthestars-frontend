@@ -47,6 +47,36 @@ export function addTutor(
     });
 }
 
-export function readUserData(uid: any) {
-  db.collection("users").doc(uid);
+export async function getAllAvailableStudents() {
+  // db.collection("students")
+  //   .doc(email)
+  //   .get()
+  //   .then((doc) => {
+  //     if (doc.exists) {
+  //       console.log("Document data:", doc.data());
+  //       return doc.data();
+  //     } else {
+  //       // doc.data() will be undefined in this case
+  //       console.log("No such document!");
+  //       return null;
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     console.log("Error getting document:", error);
+  //     return null;
+  //   });
+  var availableStudents = new Array();
+
+  db.collection("students")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, "=>", doc.data());
+        availableStudents.push(doc.data());
+      });
+      return availableStudents;
+    })
+    .catch((error) => {
+      console.log("error getting documents: ", error);
+    });
 }
