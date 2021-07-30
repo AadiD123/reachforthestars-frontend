@@ -20,7 +20,7 @@ import BlogPage from "./Pages/Blog-Page/Blog-Page";
 import SignUp from "./Pages/Authentication/Sign Up/SignUp";
 
 //Private Pages
-import Dashboard from "./Pages/PrivatePages/Dashboard";
+import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
 
 function App() {
   return (

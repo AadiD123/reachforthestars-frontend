@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../../Backend/Contexts/AuthContext";
-import { getAllAvailableStudents } from "../../Backend/db/dbfunctions";
-import { db } from "../../Backend/Firebase";
+import { useAuth } from "../../../Backend/Contexts/AuthContext";
+import { getAllAvailableStudents } from "../../../Backend/db/dbfunctions";
+import { db } from "../../../Backend/Firebase";
 
 type StudentData = {
   id: string;
