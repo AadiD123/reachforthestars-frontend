@@ -31,7 +31,7 @@ export default function Form() {
         timezoneRef.current.value,
         "student"
       );
-      history.push("/blog");
+      history.push("/dashboard");
     } catch {
       setError("Failed to log in");
     }
