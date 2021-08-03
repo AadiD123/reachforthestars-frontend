@@ -21,7 +21,6 @@ export default function Form() {
     try {
       setError("");
       setLoading(true);
-      // await signup(emailRef.current.value, passwordRef.current.value);
       await signup(
         firstNameRef.current.value,
         lastNameRef.current.value,
@@ -94,13 +93,6 @@ export default function Form() {
         className={styles.typingInput}
         ref={passwordRef}
       />
-      <input
-        name="rememberMe"
-        id="rememberMe"
-        type="checkbox"
-        className={styles.checkingInput}
-      />
-      <span className={styles.rememberMe}>Remember Me</span>
       <button disabled={loading} className={styles.submitButton} type="submit">
         Sign Up
       </button>

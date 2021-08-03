@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Dashboard.module.css";
 import profile from "./../../../profile.svg";
+import Iframe from "react-iframe";
 
 function clickDashboard() {
   var dashboard = document.getElementById("dashboard");
@@ -183,7 +184,15 @@ function Dashboard() {
             volunteer!
           </p>
           <h1 className={styles.title}>Log Service Hours</h1>
-          <textarea className={styles.box}></textarea>
+          <Iframe
+            url="https://clockify.me/tracker"
+            width="100%"
+            height="450px"
+            id="myId"
+            className="myClassname"
+            display="block"
+            position="relative"
+          />
           <h1 className={styles.title}>Help Us Get More Students</h1>
           <p className={styles.paragraph}>
             Reach out to ALL the parents you know to help us get more students!

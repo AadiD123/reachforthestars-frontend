@@ -8,6 +8,11 @@ export const SidebarData = [
     cName: `${styles.navTextTop}`,
   },
   {
+    title: "Blog",
+    path: "/blog",
+    cName: `${styles.navTextTop}`,
+  },
+  {
     title: "Events",
     path: "/events",
     cName: `${styles.navTextTop}`,
@@ -25,11 +30,6 @@ export const SidebarData = [
   {
     title: "Join Our Team",
     path: "/join-our-team",
-    cName: `${styles.navTextTop}`,
-  },
-  {
-    title: "Blog",
-    path: "/blog",
     cName: `${styles.navTextTop}`,
   },
 ];

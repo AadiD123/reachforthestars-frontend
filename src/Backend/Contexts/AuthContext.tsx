@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth} from "../Firebase";
+import { auth } from "../Firebase";
 import firebase from "firebase";
-import { addStudent, addTutor } from "../db/dbfunctions";
+import { addStudent, addTutor, addUsers } from "../db/dbfunctions";
 
 interface AuthContextType {
   currentUser: firebase.User | null;
@@ -38,6 +38,7 @@ export function AuthProvider({ children }: any) {
   ) {
     console.log("signup clicked in");
     return auth.createUserWithEmailAndPassword(email, password).then(() => {
+      addUsers(firstName, lastName, email, role);
       if (role === "tutor") {
         addTutor(firstName, lastName, email, timezone, role);
       } else if (role === "student") {

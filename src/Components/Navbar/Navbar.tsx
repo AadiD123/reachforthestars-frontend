@@ -1,12 +1,10 @@
 import { useState } from "react";
 import styles from "./Navbar.module.css";
 import Sidebar from "../Sidebar/Sidebar";
-import { NavbarData } from "./NavbarData";
 import { Link } from "react-router-dom";
 import { auth, db } from "../../Backend/Firebase";
 
 function Navbar() {
-  const [authStatus, setAuthStatus] = useState(false);
   const [navbarData, setNavbarData] = useState([
     {
       title: "Login",
@@ -22,8 +20,7 @@ function Navbar() {
   auth.onAuthStateChanged(function (user) {
     console.log(user);
     if (user?.email) {
-      setAuthStatus(true);
-      db.collection("students")
+      db.collection("users")
         .doc(user.email)
         .get()
         .then((doc) => {
