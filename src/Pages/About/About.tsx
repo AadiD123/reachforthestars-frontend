@@ -1,14 +1,14 @@
 import styles from "./About.module.css"
-import React, { useState } from 'react';
+import { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from "../../Components/Marker/Marker"
-import InfoWindow from 'google-map-react';
+// import InfoWindow from 'google-map-react';
 const About = () => {
 
   const API_KEY = process.env.REACT_APP_GOOGLE_CLOUD_MAPS_API_KEY;
   // const Marker = ({text}: any) => <div>{text}</div>;
-  const [center, setCenter] = useState({lat: 29.127611, lng: -25});
-  const [zoom, setZoom] = useState(1);
+  const [center] = useState({lat: 29.127611, lng: -25});
+  const [zoom] = useState(1);
   const getMapOptions = (maps: any) => {
     return {
       disableDefaultUI: true,

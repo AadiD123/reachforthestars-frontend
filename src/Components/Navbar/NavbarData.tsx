@@ -7,4 +7,5 @@ export const NavbarData = [
     title: "Sign Up",
     path: "/signup",
   },
+  
 ];

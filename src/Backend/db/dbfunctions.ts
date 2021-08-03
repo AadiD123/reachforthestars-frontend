@@ -1,6 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
-import { auth, db } from "../Firebase";
-import firebase from "firebase";
+// import React, { useContext, useState, useEffect } from "react";
+import { db } from "../Firebase";
+// import firebase from "firebase";
 
 export function addStudent(
   firstName: string,

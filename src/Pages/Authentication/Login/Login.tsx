@@ -13,7 +13,7 @@ function Login() {
         </div>
         <div className={styles.oAuth}>
           <button className={styles.signInWithGoogleButton}>
-            <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png" />
+            <img alt = "google ouath" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png" />
             <span>Sign In With Google</span>
           </button>
         </div>

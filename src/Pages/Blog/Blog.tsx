@@ -9,11 +9,11 @@ const Blog = () => {
           style={{ marginTop: "20px" }}
         >
           <div className="card" style={{ padding: "20px" }}>
-            <img
+            <img alt = "img"
               className="card-img-top"
               style={{ height: "275px" }}
               src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-            ></img>
+            />
             <div className="card-body" style={{ padding: "0.5rem" }}>
               <h4 className="card-title" style={{ fontSize: "30px" }}>
                 Title
@@ -38,7 +38,7 @@ const Blog = () => {
                 laudantium dolorem voluptate expedita ipsum magnam. Harum
                 delectus neque inventore modi dicta fuga.{" "}
               </p>
-              <a href="" className="card-link">
+              <a href="index.html" className="card-link">
                 Read More
               </a>
             </div>
@@ -49,11 +49,12 @@ const Blog = () => {
           style={{ marginTop: "20px" }}
         >
           <div className="card" style={{ padding: "20px" }}>
-            <img
+            <img alt = "img"
               className="card-img-top"
               style={{ height: "275px" }}
               src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-            ></img>
+            />
+
             <div className="card-body" style={{ padding: "0.5rem" }}>
               <h4 className="card-title" style={{ fontSize: "30px" }}>
                 Title
@@ -78,7 +79,7 @@ const Blog = () => {
                 laudantium dolorem voluptate expedita ipsum magnam. Harum
                 delectus neque inventore modi dicta fuga.{" "}
               </p>
-              <a href="" className="card-link">
+              <a href="index.html" className="card-link">
                 Read More
               </a>
             </div>
@@ -89,11 +90,11 @@ const Blog = () => {
           style={{ marginTop: "20px" }}
         >
           <div className="card" style={{ padding: "20px" }}>
-            <img
+            <img alt = "img"
               className="card-img-top"
               style={{ height: "275px" }}
               src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-            ></img>
+            />
             <div className="card-body" style={{ padding: "0.5rem" }}>
               <h4 className="card-title" style={{ fontSize: "30px" }}>
                 Title
@@ -118,7 +119,7 @@ const Blog = () => {
                 laudantium dolorem voluptate expedita ipsum magnam. Harum
                 delectus neque inventore modi dicta fuga.{" "}
               </p>
-              <a href="" className="card-link">
+              <a href="index.html" className="card-link">
                 Read More
               </a>
             </div>
@@ -129,11 +130,11 @@ const Blog = () => {
           style={{ marginTop: "20px" }}
         >
           <div className="card" style={{ padding: "20px" }}>
-            <img
+            <img alt = "img"
               className="card-img-top"
               style={{ height: "275px" }}
               src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-            ></img>
+            />
             <div className="card-body" style={{ padding: "0.5rem" }}>
               <h4 className="card-title" style={{ fontSize: "30px" }}>
                 Title
@@ -158,7 +159,7 @@ const Blog = () => {
                 laudantium dolorem voluptate expedita ipsum magnam. Harum
                 delectus neque inventore modi dicta fuga.{" "}
               </p>
-              <a href="" className="card-link">
+              <a href="index.html" className="card-link">
                 Read More
               </a>
             </div>

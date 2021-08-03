@@ -21,6 +21,7 @@ import SignUp from "./Pages/Authentication/Sign Up/SignUp";
 
 //Private Pages
 import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
+import Dashboard2 from "./Pages/Dashboard2/Dashboard2";
 import AvailableStudents from "./Pages/PrivatePages/AvailableStudents/AvailableStudents";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/blog-page" component={BlogPage} />
+          <Route path = "/dashboard2" component={Dashboard2} />
           <Route path="/individual-about" component={IndividualAbout} />
         </Switch>
       </AuthProvider>

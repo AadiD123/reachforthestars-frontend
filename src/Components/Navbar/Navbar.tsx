@@ -8,7 +8,7 @@ import styles from "./Navbar.module.css";
 import Sidebar from "../Sidebar/Sidebar";
 import { NavbarData } from "./NavbarData";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../Backend/Contexts/AuthContext";
+// import { useAuth } from "../../Backend/Contexts/AuthContext";
 
 function Navbar() {
   return (
@@ -17,7 +17,7 @@ function Navbar() {
       id="navs"
       style={{
         backgroundColor: "none",
-        position: "absolute",
+        // position: "absolute",
         marginTop: "0px",
         width: "100%",
         height: "80px",

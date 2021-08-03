@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, db } from "../Firebase";
+import { auth} from "../Firebase";
 import firebase from "firebase";
 import { addStudent, addTutor } from "../db/dbfunctions";
 
@@ -38,9 +38,9 @@ export function AuthProvider({ children }: any) {
   ) {
     console.log("signup clicked in");
     return auth.createUserWithEmailAndPassword(email, password).then(() => {
-      if (role == "tutor") {
+      if (role === "tutor") {
         addTutor(firstName, lastName, email, timezone, role);
-      } else if (role == "student") {
+      } else if (role === "student") {
         addStudent(firstName, lastName, email, timezone, role, grade, true);
       }
     });

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../../../Backend/Firebase";
 
-import styles from "./AvailableStudents.module.css";
+// import styles from "./AvailableStudents.module.css";
 
 export default function AvailableStudents() {
   const [students, setStudents] = useState([]);

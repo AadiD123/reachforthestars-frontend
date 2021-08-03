@@ -5,8 +5,8 @@ const BlogPage = () => {
     return(
        
         <div className={styles.contain}>
-            <a className = {styles.back}  href="/blog" ><FaIcons.FaArrowLeft className={styles.icon}  /> Back </a>
-            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" width="100%"></img>
+            <a className = {styles.back}  href="index.html" ><FaIcons.FaArrowLeft className={styles.icon}  /> Back </a>
+            <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" width="100%" alt = "card" />
             <div className={styles.blog}>
             <h1 className={styles.title}>Title</h1>
                 <div className={styles.content}>
@@ -27,13 +27,13 @@ const BlogPage = () => {
             </div>
             <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginTop:"30px"}}>
                 <span style={{marginLeft:"1px", fontSize:"2rem"}}>Related Posts</span>
-                <a href="#">See All</a>
+                <a href="index.html">See All</a>
             </div>
             <div className="row" style={{marginTop:"20px", paddingBottom:"50px"}}>
 
         <div className="newsItem col-12 col-sm-6 col-md-4 col-lg-4" style={{marginBottom:"10px"}}>
         <div className="card" >
-                <img className="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" ></img>
+                <img alt = "card" className="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" />
             <div className="card-body">
             <h4 className="card-title">Title</h4>
             </div>
@@ -41,7 +41,7 @@ const BlogPage = () => {
         </div>
         <div className="newsItem col-12 col-sm-6 col-md-4 col-lg-4"  style={{marginBottom:"10px"}}>
         <div className="card" >
-                <img className="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" ></img>
+                <img alt = "card" className="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" />
             <div className="card-body">
             <h4 className="card-title">Title</h4>
             </div>
@@ -49,7 +49,7 @@ const BlogPage = () => {
         </div>
         <div className="newsItem col-12 col-sm-6 col-md-4 col-lg-4"  style={{marginBottom:"10px"}}>
         <div className="card" >
-                <img className="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" ></img>
+                <img alt = "card" className="card-img-top" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"  />
             <div className="card-body">
             <h4 className="card-title">Title</h4>
             </div>
@@ -59,8 +59,7 @@ const BlogPage = () => {
       
        
       </div>
-      
-        </div>
+      </div>
         
         
     );
