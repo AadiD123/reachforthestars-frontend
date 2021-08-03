@@ -1,16 +1,40 @@
-// import React, {useState } from "react";
-// import * as FaIcons from "react-icons/fa";
-// import * as AiIcons from "react-icons/ai";
-// import { Link } from "react-router-dom";
-// import { IconContext } from "react-icons";
-
+import { useState } from "react";
 import styles from "./Navbar.module.css";
 import Sidebar from "../Sidebar/Sidebar";
 import { NavbarData } from "./NavbarData";
 import { Link } from "react-router-dom";
-// import { useAuth } from "../../Backend/Contexts/AuthContext";
+import { auth, db } from "../../Backend/Firebase";
 
 function Navbar() {
+  const [authStatus, setAuthStatus] = useState(false);
+  const [navbarData, setNavbarData] = useState([
+    {
+      title: "Login",
+      path: "/login",
+    },
+    {
+      title: "Sign Up",
+      path: "/signup",
+    },
+  ]);
+
+  console.log(auth.onAuthStateChanged);
+  auth.onAuthStateChanged(function (user) {
+    console.log(user);
+    if (user?.email) {
+      setAuthStatus(true);
+      db.collection("students")
+        .doc(user.email)
+        .get()
+        .then((doc) => {
+          if (doc.data()?.firstName != null) {
+            var name = doc.data()?.firstName;
+            console.log(name);
+            setNavbarData([{ title: "Welcome, " + name, path: "./dashboard" }]);
+          }
+        });
+    }
+  });
   return (
     <nav
       className="navbar"
@@ -29,7 +53,7 @@ function Navbar() {
         className="navbarSupportedContent"
         style={{ display: "flex", justifyContent: "flex-end" }}
       >
-        {NavbarData.map((item, index) => {
+        {navbarData.map((item, index) => {
           return (
             <Link className={styles.navLink} to={item.path}>
               <button
