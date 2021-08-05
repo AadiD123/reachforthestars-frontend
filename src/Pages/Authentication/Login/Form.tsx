@@ -7,7 +7,6 @@ export default function Form() {
   const emailRef = useRef() as MutableRefObject<any>;
   const passwordRef = useRef() as MutableRefObject<any>;
   const { login } = useAuth();
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
@@ -15,12 +14,11 @@ export default function Form() {
     e.preventDefault();
 
     try {
-      setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       history.push("/dashboard");
     } catch {
-      setError("Failed to log in");
+      console.log("Failed to log in");
     }
     setLoading(false);
   }

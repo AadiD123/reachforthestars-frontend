@@ -74,9 +74,37 @@ export function addTutor(
   timezone: string,
   role: string
 ) {
-  db.collection("tutors")
+  db.collection("volunteers")
     .doc(email)
-    .set({})
+    .set({
+      firstName: firstName,
+      lastName: lastName,
+      timezone: timezone,
+      role: role,
+    })
+    .then(() => {
+      console.log("User info successfully written!");
+    })
+    .catch((error) => {
+      console.error("Error writing document: ", error);
+    });
+}
+
+export function addAdmin(
+  firstName: string,
+  lastName: string,
+  email: string,
+  timezone: string,
+  role: string
+) {
+  db.collection("admin")
+    .doc(email)
+    .set({
+      firstName: firstName,
+      lastName: lastName,
+      timezone: timezone,
+      role: role,
+    })
     .then(() => {
       console.log("User info successfully written!");
     })

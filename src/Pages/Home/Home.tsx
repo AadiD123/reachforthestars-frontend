@@ -1,18 +1,83 @@
-import React from "react";
+import { useRef } from "react";
 import styles from "./Home.module.css";
+import comet from "./comet.jpeg";
+import { Link } from "react-router-dom";
 const Home = () => {
+  const myRef = useRef();
+
+  const executeScroll = () => window.scrollTo();
+
+  // run this function from an event handler or an effect to execute scroll
+
+  const items = [
+    {
+      title: "Our Mission",
+      path: "#",
+    },
+    {
+      title: "Recruiting",
+      path: "#",
+    },
+    {
+      title: "Tutoring Resources",
+      path: "#",
+    },
+    {
+      title: "Our Programs",
+      path: "#",
+    },
+    {
+      title: "Blog",
+      path: "#",
+    },
+  ];
+
+  {
+    console.log(items);
+  }
   return (
-    <div className={styles.hero}>
-        <img style = {{zIndex: -1, width: "100%", position: "absolute", top: "0", bottom: '0', left: "0", right: "0"}} src = "http://images.unsplash.com/photo-1457364887197-9150188c107b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
-     alt = "comet" />
-      <div className={styles.heroInner}>
-        <h1 className={styles.title}>
-          The Sky's
-          <br />
-          Not the
-          <br />
-          Limit
-        </h1>
+    <div>
+      <img
+        style={{
+          zIndex: -1,
+          position: "fixed",
+          width: "100%",
+          top: "0",
+        }}
+        src={comet}
+        alt="comet"
+      />
+      <h1 className={styles.tagline}>
+        The Sky's
+        <br />
+        Not the
+        <br />
+        Limit
+      </h1>
+      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+        <div className={styles.refBar}>
+          {items.map((item, index) => {
+            <Link to={item.path}>
+              <button className={styles.button} key={index}>
+                {item.title}
+                Hi
+              </button>
+            </Link>;
+          })}
+        </div>
+      </div>
+      <div
+        style={{
+          backgroundColor: "bisque",
+          width: "100%",
+          marginTop: "400px",
+        }}
+      >
+        <div>Hello</div>
+        <div>Hello</div>
+        <div>Hello</div>
+        <div>Hello</div>
+        <div>Hello</div>
       </div>
     </div>
   );

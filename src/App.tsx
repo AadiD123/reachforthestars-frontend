@@ -45,7 +45,7 @@ function App() {
           <Route path="/individual-about" component={IndividualAbout} />
         </Switch>
       </AuthProvider>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }

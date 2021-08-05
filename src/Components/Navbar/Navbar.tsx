@@ -16,9 +16,7 @@ function Navbar() {
     },
   ]);
 
-  console.log(auth.onAuthStateChanged);
   auth.onAuthStateChanged(function (user) {
-    console.log(user);
     if (user?.email) {
       db.collection("users")
         .doc(user.email)
@@ -26,7 +24,6 @@ function Navbar() {
         .then((doc) => {
           if (doc.data()?.firstName != null) {
             var name = doc.data()?.firstName;
-            console.log(name);
             setNavbarData([{ title: "Welcome, " + name, path: "./dashboard" }]);
           }
         });
@@ -38,7 +35,6 @@ function Navbar() {
       id="navs"
       style={{
         backgroundColor: "none",
-        // position: "absolute",
         marginTop: "0px",
         width: "100%",
         height: "80px",

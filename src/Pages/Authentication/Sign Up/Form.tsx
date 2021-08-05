@@ -11,7 +11,6 @@ export default function Form() {
   const emailRef = useRef() as MutableRefObject<any>;
   const passwordRef = useRef() as MutableRefObject<any>;
   const { signup } = useAuth();
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
@@ -19,7 +18,6 @@ export default function Form() {
     e.preventDefault();
 
     try {
-      setError("");
       setLoading(true);
       await signup(
         firstNameRef.current.value,
@@ -32,7 +30,7 @@ export default function Form() {
       );
       history.push("/dashboard");
     } catch {
-      setError("Failed to log in");
+      console.log("Failed to sign up");
     }
     setLoading(false);
   }

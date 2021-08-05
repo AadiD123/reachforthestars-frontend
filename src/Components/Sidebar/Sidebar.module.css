@@ -5,11 +5,22 @@
   align-items: center;
 }
 
+.logo {
+  padding-left: 50px;
+  text-decoration: none;
+  color: black;
+}
+
+.logo:hover {
+  padding-left: 50px;
+  text-decoration: none;
+  color: black;
+}
+
 .menuBars {
   margin-left: 1rem;
   font-size: 2rem;
 }
-
 
 .navMenu {
   background-color: #060b26;
@@ -75,4 +86,3 @@ span {
     width: 100%;
   }
 }
-

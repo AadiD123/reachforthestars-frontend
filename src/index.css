@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 
-
 body {
   margin: 0;
   font-family: "Open Sans";
@@ -11,9 +10,8 @@ code {
     monospace;
 }
 
-h1 {
-  font-family: "Open Sans";
-  font-size: 1.5rem;
+.cont {
+  padding: 0 150px 150px 150px;
 }
 
 div {
@@ -21,7 +19,7 @@ div {
   font-size: 1.3rem;
 }
 
-.hidden {
+p .hidden {
   display: none;
 }
 .show {

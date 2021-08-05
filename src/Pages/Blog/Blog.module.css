@@ -1,20 +1,15 @@
-
-body{
-    background-color: bisque;
+body {
+  background-color: bisque;
+}
+.cont {
+  padding-inline: 150px;
 }
 
-
-.pageTitle{
-    font-size: 5rem;
-    text-align: center;
-    color:#001e3d;
+.pageTitle {
+  font-size: 5rem;
+  text-align: center;
+  color: #001e3d;
 }
-.cont{
-    padding: 20px;
-    margin-top: 5%;
-}
-
-
-.subtext{
-    display: inline;
+.subtext {
+  display: inline;
 }
