@@ -1,7 +1,7 @@
 import styles from "./Blog.module.css";
 const Blog = () => {
   return (
-    <div className="cont">
+    <div className={styles.cont}>
       <h1 className={styles.pageTitle}>Blog</h1>
       <div className="row" style={{ padding: "5px" }}>
         <div

@@ -2,7 +2,11 @@ body {
   background-color: bisque;
 }
 .cont {
-  padding-inline: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 2%;
 }
 
 .pageTitle {

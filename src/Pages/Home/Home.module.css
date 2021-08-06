@@ -1,14 +1,20 @@
+.image {
+  z-index: -2;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+}
 .tagline {
-  top: 50vw;
   margin-left: 5vw;
   width: 100%;
   font-size: 6.5rem;
   letter-spacing: 0.2rem;
+  margin: 13% 13% 5% 13%;
+  background: -webkit-linear-gradient(rgb(59, 52, 146), rgb(108, 139, 231));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-color: white;
 }
-
 .refBar {
   display: flex;
   justify-content: space-evenly;
@@ -20,38 +26,59 @@
   opacity: 0.7;
   min-height: 50px;
 }
-
-.items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  width: 150px;
-  color: black;
-  padding: 10px;
-}
-
 .button {
   color: white;
   background-color: #001e3d;
   border: 1px solid #001e3d;
   border-radius: 0;
-  padding: 5px;
-  width: 150px;
+  padding: 10px;
+}
+.infocards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 480px;
+  padding: 35px;
+  margin: 0;
+  text-align: center;
+  line-height: 1.6;
+}
+.contactusbutton {
+  border-radius: 30px;
+  background-color: pink;
+  width: 40%;
+  font-size: 18px;
+  height: 8%;
+  border: none;
+  font-weight: bold;
+}
+.imagecards {
+  width: 580px;
+  text-align: center;
+  min-height: 550px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  float: left;
 }
 
-.button:hover {
-  color: rgb(245, 239, 239);
-  background-color: #073563;
+@media screen and (max-width: 1000px) {
 }
 
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
+  .image {
+    height: 30%;
+  }
   .tagline {
-    font-size: 5rem;
-    text-align: center;
-    margin-left: 0;
-    background: -webkit-linear-gradient(rgb(59, 52, 146), rgb(108, 139, 231));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    margin-left: 10%;
+  }
+  .refBar {
+    width: 90%;
+  }
+  .button {
+    font-size: 10px;
+    padding: 2px;
   }
 }
