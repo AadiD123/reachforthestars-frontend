@@ -1,26 +1,9 @@
-import { useRef } from "react";
 import styles from "./Home.module.css";
 import comet from "../../Assets/Images/comet.jpeg";
 import hands from "../../Assets/Images/hands.jpeg";
 import { Link } from "react-scroll";
 
 const Home = () => {
-  const myRef = useRef();
-
-  const executeScroll = () => window.scrollTo();
-
-  // run this function from an event handler or an effect to execute scroll
-
-  // const handleOnClick = (event: any) => {
-  //   //.current is verification that your element has rendered
-  //   if (this.myDivToFocus.current) {
-  //     this.myDivToFocus.current.scrollIntoView({
-  //       behavior: "smooth",
-  //       block: "nearest",
-  //     });
-  //   }
-  // };
-
   const items = [
     {
       title: "Our Mission",
@@ -118,7 +101,7 @@ const Home = () => {
         </div>
         <div id="tutoringResources" className={styles.tutoringResources}>
           <h1>Tutoring Resources</h1>
-          <h2>Peer Tutoring, Private Tutoring, AP Peer Classes</h2>
+          <p>Peer Tutoring, Private Tutoring, AP Peer Classes</p>
           <button className={styles.registerbuttonstyling}>
             Register Here
           </button>

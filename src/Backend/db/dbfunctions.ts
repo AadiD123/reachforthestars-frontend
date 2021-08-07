@@ -23,20 +23,22 @@ export function addBlog(
       console.error("Error writing document: ", error);
     });
 }
-export async function getAllBlogs() {
+export async function getBlog(id: string) {
   var blogposts = new Array();
 
   db.collection("blogs")
+    .doc(id)
     .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, "=>", doc.data());
-        blogposts.push(doc.data());
-      });
-      return blogposts;
+    .then((doc) => {
+      if (doc.exists) {
+        return doc.data();
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
     })
     .catch((error) => {
-      console.log("error getting documents: ", error);
+      console.log("Error getting document:", error);
     });
 }
 

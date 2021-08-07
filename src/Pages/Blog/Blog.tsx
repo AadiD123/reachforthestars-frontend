@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { db } from "../../Backend/Firebase";
 import styles from "./Blog.module.css";
 
@@ -32,7 +33,12 @@ const Blog = () => {
       <div className={styles.gridcontainer} style={{ marginTop: "20px" }}>
         {blogs.length > 0 ? (
           blogs.map((blog: any) => (
-            <div key={blog.key} className="card" style={{ padding: "20px" }}>
+            <div
+              id={blog.key}
+              key={blog.key}
+              className="card"
+              style={{ padding: "20px" }}
+            >
               <img
                 alt="img"
                 className="card-img-top"
@@ -70,9 +76,10 @@ const Blog = () => {
                   <p className="card-text">{blog.content}</p>
                 </div>
 
-                <a href="#" className="card-link">
+                {/* <a href="#" className="card-link">
                   Read More
-                </a>
+                </a> */}
+                <Link to={`/blogpage/${blog.key}`}>More info</Link>
               </div>
             </div>
           ))

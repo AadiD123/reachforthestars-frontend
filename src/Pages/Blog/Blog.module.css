@@ -24,3 +24,9 @@ body {
   grid-gap: 10px;
   justify-content: center;
 }
+
+@media screen and (max-width: 1000px) {
+  .gridcontainer {
+    grid-template-columns: 400px;
+  }
+}

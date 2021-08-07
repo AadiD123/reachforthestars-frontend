@@ -41,9 +41,10 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/join-our-team" component={JoinOurTeam} />
           <Route path="/blog" component={Blog} />
+          <Route path="/blogpage/:id" exact component={BlogPage} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/blog-page" component={BlogPage} />
+
           <Route path="/blog-page-edit" component={BlogPageEdit} />
           <Route path="/registration" component={Registration} />
           <Route path="/individual-about" component={IndividualAbout} />
