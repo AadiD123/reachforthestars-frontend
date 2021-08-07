@@ -16,7 +16,9 @@ import JoinOurTeam from "./Pages/JoinOurTeam/JoinOurTeam";
 import Login from "./Pages/Authentication/Login/Login";
 import Events from "./Pages/Events/Events";
 import Blog from "./Pages/Blog/Blog";
+import Registration from "./Pages/Registration/Registration";
 import BlogPage from "./Pages/Blog-Page/Blog-Page";
+import BlogPageEdit from "./Pages/BlogPageEdit/BlogPageEdit";
 import SignUp from "./Pages/Authentication/Sign Up/SignUp";
 
 //Private Pages
@@ -42,6 +44,8 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/blog-page" component={BlogPage} />
+          <Route path="/blog-page-edit" component={BlogPageEdit} />
+          <Route path="/registration" component={Registration} />
           <Route path="/individual-about" component={IndividualAbout} />
         </Switch>
       </AuthProvider>
