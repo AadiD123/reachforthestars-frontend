@@ -63,11 +63,15 @@
 .contactUsButton {
   background-color: pink;
   font-size: 18px;
-  height: 8%;
+  height: auto;
   border: none;
   font-weight: bold;
   padding: 10px 20px 10px;
   margin-top: 10px;
+}
+.contactUsButton:hover {
+  color: rgb(245, 239, 239);
+  background-color: #073563;
 }
 .imagecards {
   width: 580px;
@@ -90,6 +94,66 @@
   width: 100%;
   height: 100%;
   padding: 50px 0 50px 0;
+}
+
+.tutoringResources {
+  margin-top: 10%;
+  background-color: lightcoral;
+  padding: 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tutoringResourcesCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  margin: 40px 0 40px;
+  min-height: 550px;
+  background-color: lightcyan;
+}
+.registerbuttonstyling {
+  color: white;
+  background-color: #001e3d;
+  border: 1px solid #001e3d;
+  margin-left: 1vw;
+  border-radius: 0;
+  width: 15%;
+  padding: 6px;
+}
+.registerbuttonstyling:hover {
+  color: rgb(245, 239, 239);
+  background-color: #073563;
+}
+.ourProgramsContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+.summerCamp {
+  background-color: lightpink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  min-height: 700px;
+}
+.peerClassCard {
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-inline: 40px;
 }
 
 @media screen and (max-width: 1000px) {
