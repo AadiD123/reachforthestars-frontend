@@ -39,114 +39,6 @@ function clickDashboard() {
   }
 }
 
-function clickLogTutoringSession() {
-  var dashboard = document.getElementById("dashboard");
-  var logtutoringsession = document.getElementById("logtutoringsession");
-  var faqs = document.getElementById("faqs");
-  var settings = document.getElementById("settings");
-  var dashboardsection = document.getElementById("dashboardsection");
-  var logtutoringsessionssection = document.getElementById(
-    "logtutoringsessionssection"
-  );
-  var faqssection = document.getElementById("faqssection");
-  var settingssection = document.getElementById("settingssection");
-  if (
-    dashboard != null &&
-    logtutoringsession != null &&
-    faqs != null &&
-    settings != null &&
-    dashboardsection != null &&
-    logtutoringsessionssection != null &&
-    faqssection != null &&
-    settingssection != null
-  ) {
-    dashboard.style.backgroundColor = "#F0F0F0";
-    dashboard.style.color = "black";
-    logtutoringsession.style.backgroundColor = "#001E3D";
-    logtutoringsession.style.color = "white";
-    faqs.style.backgroundColor = "#F0F0F0";
-    faqs.style.color = "black";
-    settings.style.backgroundColor = "#F0F0F0";
-    settings.style.color = "black";
-    dashboardsection.style.display = "none";
-    logtutoringsessionssection.style.display = "block";
-    faqssection.style.display = "none";
-    settingssection.style.display = "none";
-  }
-}
-
-function clickFaqs() {
-  var dashboard = document.getElementById("dashboard");
-  var logtutoringsession = document.getElementById("logtutoringsession");
-  var faqs = document.getElementById("faqs");
-  var settings = document.getElementById("settings");
-  var dashboardsection = document.getElementById("dashboardsection");
-  var logtutoringsessionssection = document.getElementById(
-    "logtutoringsessionssection"
-  );
-  var faqssection = document.getElementById("faqssection");
-  var settingssection = document.getElementById("settingssection");
-  if (
-    dashboard != null &&
-    logtutoringsession != null &&
-    faqs != null &&
-    settings != null &&
-    dashboardsection != null &&
-    logtutoringsessionssection != null &&
-    faqssection != null &&
-    settingssection != null
-  ) {
-    dashboard.style.backgroundColor = "#F0F0F0";
-    dashboard.style.color = "black";
-    logtutoringsession.style.backgroundColor = "#F0F0F0";
-    logtutoringsession.style.color = "black";
-    faqs.style.backgroundColor = "#001E3D";
-    faqs.style.color = "white";
-    settings.style.backgroundColor = "#F0F0F0";
-    settings.style.color = "black";
-    dashboardsection.style.display = "none";
-    logtutoringsessionssection.style.display = "none";
-    faqssection.style.display = "block";
-    settingssection.style.display = "none";
-  }
-}
-
-function clickSettings() {
-  var dashboard = document.getElementById("dashboard");
-  var logtutoringsession = document.getElementById("logtutoringsession");
-  var faqs = document.getElementById("faqs");
-  var settings = document.getElementById("settings");
-  var dashboardsection = document.getElementById("dashboardsection");
-  var logtutoringsessionssection = document.getElementById(
-    "logtutoringsessionssection"
-  );
-  var faqssection = document.getElementById("faqssection");
-  var settingssection = document.getElementById("settingssection");
-  if (
-    dashboard != null &&
-    logtutoringsession != null &&
-    faqs != null &&
-    settings != null &&
-    dashboardsection != null &&
-    logtutoringsessionssection != null &&
-    faqssection != null &&
-    settingssection != null
-  ) {
-    dashboard.style.backgroundColor = "#F0F0F0";
-    dashboard.style.color = "black";
-    logtutoringsession.style.backgroundColor = "#F0F0F0";
-    logtutoringsession.style.color = "black";
-    faqs.style.backgroundColor = "#F0F0F0";
-    faqs.style.color = "black";
-    settings.style.backgroundColor = "#001E3D";
-    settings.style.color = "white";
-    dashboardsection.style.display = "none";
-    logtutoringsessionssection.style.display = "none";
-    faqssection.style.display = "none";
-    settingssection.style.display = "block";
-  }
-}
-
 function Dashboard() {
   return (
     <div className={styles.grid}>
@@ -344,6 +236,114 @@ function Dashboard() {
       </div>
     </div>
   );
+}
+
+function clickLogTutoringSession() {
+  var dashboard = document.getElementById("dashboard");
+  var logtutoringsession = document.getElementById("logtutoringsession");
+  var faqs = document.getElementById("faqs");
+  var settings = document.getElementById("settings");
+  var dashboardsection = document.getElementById("dashboardsection");
+  var logtutoringsessionssection = document.getElementById(
+    "logtutoringsessionssection"
+  );
+  var faqssection = document.getElementById("faqssection");
+  var settingssection = document.getElementById("settingssection");
+  if (
+    dashboard != null &&
+    logtutoringsession != null &&
+    faqs != null &&
+    settings != null &&
+    dashboardsection != null &&
+    logtutoringsessionssection != null &&
+    faqssection != null &&
+    settingssection != null
+  ) {
+    dashboard.style.backgroundColor = "#F0F0F0";
+    dashboard.style.color = "black";
+    logtutoringsession.style.backgroundColor = "#001E3D";
+    logtutoringsession.style.color = "white";
+    faqs.style.backgroundColor = "#F0F0F0";
+    faqs.style.color = "black";
+    settings.style.backgroundColor = "#F0F0F0";
+    settings.style.color = "black";
+    dashboardsection.style.display = "none";
+    logtutoringsessionssection.style.display = "block";
+    faqssection.style.display = "none";
+    settingssection.style.display = "none";
+  }
+}
+
+function clickFaqs() {
+  var dashboard = document.getElementById("dashboard");
+  var logtutoringsession = document.getElementById("logtutoringsession");
+  var faqs = document.getElementById("faqs");
+  var settings = document.getElementById("settings");
+  var dashboardsection = document.getElementById("dashboardsection");
+  var logtutoringsessionssection = document.getElementById(
+    "logtutoringsessionssection"
+  );
+  var faqssection = document.getElementById("faqssection");
+  var settingssection = document.getElementById("settingssection");
+  if (
+    dashboard != null &&
+    logtutoringsession != null &&
+    faqs != null &&
+    settings != null &&
+    dashboardsection != null &&
+    logtutoringsessionssection != null &&
+    faqssection != null &&
+    settingssection != null
+  ) {
+    dashboard.style.backgroundColor = "#F0F0F0";
+    dashboard.style.color = "black";
+    logtutoringsession.style.backgroundColor = "#F0F0F0";
+    logtutoringsession.style.color = "black";
+    faqs.style.backgroundColor = "#001E3D";
+    faqs.style.color = "white";
+    settings.style.backgroundColor = "#F0F0F0";
+    settings.style.color = "black";
+    dashboardsection.style.display = "none";
+    logtutoringsessionssection.style.display = "none";
+    faqssection.style.display = "block";
+    settingssection.style.display = "none";
+  }
+}
+
+function clickSettings() {
+  var dashboard = document.getElementById("dashboard");
+  var logtutoringsession = document.getElementById("logtutoringsession");
+  var faqs = document.getElementById("faqs");
+  var settings = document.getElementById("settings");
+  var dashboardsection = document.getElementById("dashboardsection");
+  var logtutoringsessionssection = document.getElementById(
+    "logtutoringsessionssection"
+  );
+  var faqssection = document.getElementById("faqssection");
+  var settingssection = document.getElementById("settingssection");
+  if (
+    dashboard != null &&
+    logtutoringsession != null &&
+    faqs != null &&
+    settings != null &&
+    dashboardsection != null &&
+    logtutoringsessionssection != null &&
+    faqssection != null &&
+    settingssection != null
+  ) {
+    dashboard.style.backgroundColor = "#F0F0F0";
+    dashboard.style.color = "black";
+    logtutoringsession.style.backgroundColor = "#F0F0F0";
+    logtutoringsession.style.color = "black";
+    faqs.style.backgroundColor = "#F0F0F0";
+    faqs.style.color = "black";
+    settings.style.backgroundColor = "#001E3D";
+    settings.style.color = "white";
+    dashboardsection.style.display = "none";
+    logtutoringsessionssection.style.display = "none";
+    faqssection.style.display = "none";
+    settingssection.style.display = "block";
+  }
 }
 
 export default Dashboard;

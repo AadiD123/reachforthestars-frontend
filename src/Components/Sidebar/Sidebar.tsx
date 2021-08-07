@@ -20,6 +20,9 @@ function Sidebar() {
           <Link to="#" className={styles.menuBars}>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <Link to="/" className={styles.logo}>
+            <h3>Reach For The Stars</h3>
+          </Link>
         </div>
         <nav
           className={
