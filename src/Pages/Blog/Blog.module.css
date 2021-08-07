@@ -17,3 +17,10 @@ body {
 .subtext {
   display: inline;
 }
+
+.gridcontainer {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-gap: 10px;
+  justify-content: center;
+}

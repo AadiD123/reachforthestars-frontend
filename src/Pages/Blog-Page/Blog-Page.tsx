@@ -1,7 +1,6 @@
-import React from "react";
 import styles from "./Blog-Page.module.css";
 import * as FaIcons from "react-icons/fa";
-const BlogPage = () => {
+const BlogPage = (props: any) => {
   return (
     <div className={styles.contain}>
       <a className={styles.back} href="/blog">
