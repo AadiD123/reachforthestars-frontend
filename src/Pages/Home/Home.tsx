@@ -3,7 +3,27 @@ import comet from "../../Assets/Images/comet.jpeg";
 import hands from "../../Assets/Images/hands.jpeg";
 import { Link } from "react-scroll";
 
+import Blog from "../Blog/Blog";
+import { useEffect, useState } from "react";
+import { db } from "../../Backend/Firebase";
+
 const Home = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  var allblogs: any = [];
+  var recentblogs: any = [];
+
+  db.collection("blogs").onSnapshot((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      allblogs.push({ key: doc.id, ...doc.data() });
+    });
+    for (var i = 0; i < 3; i++) {
+      recentblogs.push(allblogs[i]);
+    }
+    setBlogs(recentblogs);
+  });
+
   const items = [
     {
       title: "Our Mission",
@@ -26,6 +46,8 @@ const Home = () => {
       path: "blog",
     },
   ];
+
+  useEffect(() => {});
 
   return (
     <div>
@@ -97,6 +119,16 @@ const Home = () => {
               This is the team that runs the entire organization. For more
               information about each position, check the document linked below.
             </p>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "75%",
+              }}
+            >
+              <button className={styles.contactUsButton}>More Details</button>
+              <button className={styles.contactUsButton}>Apply Here</button>
+            </div>
           </div>
         </div>
         <div id="tutoringResources" className={styles.tutoringResources}>
@@ -218,6 +250,38 @@ const Home = () => {
                 Stayed tuned for our 2022 registration!
               </p>
             </div>
+          </div>
+        </div>
+        <div id="blog" className={styles.blogs}>
+          <div
+            className={styles.gridcontainer}
+            style={{ marginTop: "20px", paddingBottom: "50px" }}
+          >
+            {blogs.length > 0 ? (
+              blogs.map((blog: any) => (
+                <div
+                  id={blog.key}
+                  key={blog.key}
+                  style={{ marginTop: "20px", marginBottom: "10px" }}
+                >
+                  <a href="/blog">
+                    <div className="card" style={{ height: "100%" }}>
+                      <img
+                        alt="card"
+                        className="card-img-top"
+                        src={blog.blogpicture}
+                        style={{ height: "275px", objectFit: "cover" }}
+                      />
+                      <div className="card-body">
+                        <h4 className="card-title">{blog.title}</h4>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ))
+            ) : (
+              <h1>Blogs not loaded</h1>
+            )}
           </div>
         </div>
       </div>

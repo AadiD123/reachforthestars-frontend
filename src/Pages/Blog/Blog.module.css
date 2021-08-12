@@ -9,6 +9,17 @@ body {
   margin-inline: 2%;
 }
 
+.edit {
+  position: absolute;
+  top: 14%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  left: 10%;
+  font-size: 20px;
+  color: black;
+}
+
 .pageTitle {
   font-size: 5rem;
   text-align: center;

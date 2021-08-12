@@ -3,14 +3,21 @@ import * as FaIcons from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { db } from "../../Backend/Firebase";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { convertToHTML } from "draft-convert";
+import { EditorState } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
+import DOMPurify from "dompurify";
 
 const BlogPage = () => {
   const [blogInfo, setBlog] = useState([]);
+  const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   let { id }: any = useParams();
 
   useEffect(() => {
     var blog: any = [];
+
     db.collection("blogs")
       .doc(id)
       .get()
@@ -27,6 +34,18 @@ const BlogPage = () => {
       .catch((error) => {
         console.log("Error getting document:", error);
       });
+    var allblogs: any = [];
+    var recentblogs: any = [];
+
+    db.collection("blogs").onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        allblogs.push({ key: doc.id, ...doc.data() });
+      });
+      for (var i = 0; i < 3; i++) {
+        recentblogs.push(allblogs[i]);
+      }
+      setBlogs(recentblogs);
+    });
   });
 
   if (loading) {
@@ -43,9 +62,9 @@ const BlogPage = () => {
       {blogInfo.length > 0 ? (
         blogInfo.map((blog: any) => (
           <div className={styles.contain}>
-            <a className={styles.back} href="/blog">
+            <Link className={styles.back} to="/blog">
               <FaIcons.FaArrowLeft className={styles.icon} /> Back{" "}
-            </a>
+            </Link>
             <img
               src={blog.blogpicture}
               width="100%"
@@ -59,7 +78,11 @@ const BlogPage = () => {
                   <p>{blog.author}</p>
                   <p>{blog.date}</p>
                 </div>
-                <div className={styles.text}>{blog.content}</div>
+                {console.log(blog)}
+                <div
+                  className={styles.text}
+                  dangerouslySetInnerHTML={blog.content}
+                ></div>
               </div>
             </div>
             <div
@@ -73,57 +96,35 @@ const BlogPage = () => {
               <span style={{ marginLeft: "1px", fontSize: "2rem" }}>
                 Recent Posts
               </span>
-              <a href="index.html">See All</a>
+              <a href="/blog">See All</a>
             </div>
             <div
-              className="row"
+              className={styles.gridcontainer}
               style={{ marginTop: "20px", paddingBottom: "50px" }}
             >
-              <div
-                className="newsItem col-12 col-sm-6 col-md-4 col-lg-4"
-                style={{ marginBottom: "10px" }}
-              >
-                <div className="card">
-                  <img
-                    alt="card"
-                    className="card-img-top"
-                    src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-                  />
-                  <div className="card-body">
-                    <h4 className="card-title">Title</h4>
+              {blogs.length > 0 ? (
+                blogs.map((blog: any) => (
+                  <div
+                    id={blog.key}
+                    key={blog.key}
+                    style={{ marginTop: "20px", marginBottom: "10px" }}
+                  >
+                    <div className="card" style={{ height: "100%" }}>
+                      <img
+                        alt="card"
+                        className="card-img-top"
+                        src={blog.blogpicture}
+                        style={{ height: "275px", objectFit: "cover" }}
+                      />
+                      <div className="card-body">
+                        <h4 className="card-title">{blog.title}</h4>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div
-                className="newsItem col-12 col-sm-6 col-md-4 col-lg-4"
-                style={{ marginBottom: "10px" }}
-              >
-                <div className="card">
-                  <img
-                    alt="card"
-                    className="card-img-top"
-                    src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-                  />
-                  <div className="card-body">
-                    <h4 className="card-title">Title</h4>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="newsItem col-12 col-sm-6 col-md-4 col-lg-4"
-                style={{ marginBottom: "10px" }}
-              >
-                <div className="card">
-                  <img
-                    alt="card"
-                    className="card-img-top"
-                    src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-                  />
-                  <div className="card-body">
-                    <h4 className="card-title">Title</h4>
-                  </div>
-                </div>
-              </div>
+                ))
+              ) : (
+                <h1>Blogs not loaded</h1>
+              )}
             </div>
           </div>
         ))
@@ -133,5 +134,4 @@ const BlogPage = () => {
     </div>
   );
 };
-
 export default BlogPage;

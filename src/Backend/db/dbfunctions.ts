@@ -4,7 +4,7 @@ export function addBlog(
   author: string,
   date: string,
   title: string,
-  content: string,
+  content: any,
   blogpicture: string
 ) {
   db.collection("blogs")
