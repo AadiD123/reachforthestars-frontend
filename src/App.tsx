@@ -36,6 +36,7 @@ function App() {
             path="/available-students"
             component={AvailableStudents}
           />
+          <Route path="/dashboard2" exact component={Dashboard} />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />
