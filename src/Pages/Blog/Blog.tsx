@@ -33,13 +33,17 @@ const Blog = () => {
     <div>
       <h1 className={styles.pageTitle}>Blog</h1>
 
-      {auth.currentUser != null ? (
+      <Link className={styles.edit} to="/blog-page-edit">
+        <FaIcons.FaEdit className={styles.icon} /> Edit{" "}
+      </Link>
+
+      {/* {auth.currentUser != null ? (
         <Link className={styles.edit} to="/blog-page-edit">
           <FaIcons.FaEdit className={styles.icon} /> Edit{" "}
         </Link>
       ) : (
         <div></div>
-      )}
+      )} */}
 
       <div className={styles.gridcontainer} style={{ marginTop: "20px" }}>
         {blogs.length > 0 ? (
@@ -84,12 +88,11 @@ const Blog = () => {
                     textOverflow: "ellipsis",
                   }}
                 >
-                  <p className="card-text">{blog.content}</p>
+                  <p
+                    className="card-text"
+                    dangerouslySetInnerHTML={{ __html: blog.content }}
+                  />
                 </div>
-
-                {/* <a href="#" className="card-link">
-                  Read More
-                </a> */}
                 <Link to={`/blogpage/${blog.key}`}>More info</Link>
               </div>
             </div>

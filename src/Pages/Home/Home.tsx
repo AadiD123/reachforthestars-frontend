@@ -47,8 +47,6 @@ const Home = () => {
     },
   ];
 
-  useEffect(() => {});
-
   return (
     <div>
       <img className={styles.image} src={comet} alt="comet" />

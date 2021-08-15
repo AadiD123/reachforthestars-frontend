@@ -78,7 +78,10 @@ const BlogPage = () => {
                   <p>{blog.author}</p>
                   <p>{blog.date}</p>
                 </div>
-                <div className={styles.text}>{blog.content}</div>
+                <div
+                  dangerouslySetInnerHTML={{ __html: blog.content }}
+                  className={styles.text}
+                ></div>
               </div>
             </div>
             <div

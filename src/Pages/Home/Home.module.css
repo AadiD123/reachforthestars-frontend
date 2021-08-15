@@ -172,9 +172,6 @@
 }
 
 @media screen and (max-width: 500px) {
-  .image {
-    height: 30%;
-  }
   .tagline {
     font-size: 3rem;
     margin-left: 10%;

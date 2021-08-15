@@ -2,53 +2,50 @@ import { useRef, MutableRefObject, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./BlogPageEdit.module.css";
 import * as FaIcons from "react-icons/fa";
-// import { Editor } from "@tinymce/tinymce-react";
+import { Editor } from "@tinymce/tinymce-react";
 import { addBlog } from "../../Backend/db/dbfunctions";
 
-import { ContentState, convertToRaw, EditorState } from "draft-js";
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { convertToHTML } from "draft-convert";
-import DOMPurify from "dompurify";
+// import { ContentState, convertToRaw, EditorState } from "draft-js";
+// import { Editor } from "react-draft-wysiwyg";
+// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+// import { convertToHTML } from "draft-convert";
+// import DOMPurify from "dompurify";
 
 const BlogPageEdit = () => {
   const API_KEY = process.env.REACT_APP_TINY_CLOUD_MCE_TEXT_EDITOR_API_KEY;
   const authorRef = useRef() as MutableRefObject<any>;
   const urlRef = useRef() as MutableRefObject<any>;
   const titleRef = useRef() as MutableRefObject<any>;
-  // const [content, setContentState] = useState("");
+  const [content, setContentState] = useState("");
   const history = useHistory();
 
-  const [content, setContent] = useState<string | Node>("");
+  // const [content, setContent] = useState<string | Node>("");
 
-  // const handleEditorChange = (e: any) => {
-  //   console.log(
-  //     "Content was updated:",
-  //     e.target.getContent({ format: "text" })
-  //   );
-  //   setContentState(e.target.getContent({ format: "text" }));
-  //   console.log(content, " this is your content");
+  const handleEditorChange = (e: any) => {
+    console.log("Content was updated:", e.target.getContent());
+    setContentState(e.target.getContent());
+    console.log(content, " this is your content");
+  };
+
+  // const [editorState, setEditorState] = useState(() =>
+  //   EditorState.createEmpty()
+  // );
+  // const [convertedContent, setConvertedContent] = useState("");
+
+  // const handleEditorChange = (state: any) => {
+  //   setEditorState(state);
+  //   convertContentToHTML();
   // };
 
-  const [editorState, setEditorState] = useState(() =>
-    EditorState.createEmpty()
-  );
-  const [convertedContent, setConvertedContent] = useState("");
+  // const convertContentToHTML = () => {
+  //   let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
+  //   setConvertedContent(currentContentAsHTML);
+  //   createMarkup(convertedContent);
+  // };
 
-  const handleEditorChange = (state: any) => {
-    setEditorState(state);
-    convertContentToHTML();
-  };
-
-  const convertContentToHTML = () => {
-    let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
-    setConvertedContent(currentContentAsHTML);
-    createMarkup(convertedContent);
-  };
-
-  const createMarkup = (html: string | Node) => {
-    setContent(DOMPurify.sanitize(html));
-  };
+  // const createMarkup = (html: string | Node) => {
+  //   setContent(DOMPurify.sanitize(html));
+  // };
 
   const setBlogData = (e: any) => {
     const date = new Date();
@@ -85,7 +82,7 @@ const BlogPageEdit = () => {
             required={true}
           />
         </div>
-        {/* <Editor
+        <Editor
           apiKey={API_KEY}
           init={{
             height: 500,
@@ -102,15 +99,15 @@ const BlogPageEdit = () => {
             bullist numlist outdent indent | help",
           }}
           onChange={handleEditorChange}
-        /> */}
+        />
 
-        <Editor
+        {/* <Editor
           editorState={editorState}
           onEditorStateChange={handleEditorChange}
           wrapperClassName="wrapper-class"
           editorClassName="editor-class"
           toolbarClassName="toolbar-class"
-        />
+        /> */}
 
         <div>
           <div className="form-group" style={{ marginTop: "20px" }}>

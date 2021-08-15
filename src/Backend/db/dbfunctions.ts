@@ -8,7 +8,7 @@ export function addBlog(
   blogpicture: string
 ) {
   db.collection("blogs")
-    .doc(date)
+    .doc()
     .set({
       author: author,
       date: date,

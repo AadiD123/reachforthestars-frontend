@@ -4,8 +4,7 @@
   border: 1px solid #001e3d;
   margin-left: 1vw;
   border-radius: 0;
-  min-width: 150px;
-  width: auto;
+  width: 10vw;
 }
 
 .navbarbuttonstyling:hover {
