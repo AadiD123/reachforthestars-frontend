@@ -236,15 +236,24 @@ function Dashboard() {
           </p>
           <button className={styles.button}>Outreach Spreadsheet</button>
         </div>
-        <div
-          style={{ display: "none" }}
-          id="availableStudentsSection"
-          className={styles.dashboard}
-        >
+        <div style={{ display: "none" }} id="availableStudentsSection" className={styles.dashboard}>
           <h1 className={styles.title}>Available Students</h1>
           <p className={styles.paragraph}>
             Welcome to the Available Students tab! 
           </p>
+          <div className={`card ${styles.dashCard}`}>
+          <div className="card-body">
+            <h1 className="card-title"><strong>Example Student</strong></h1>
+          </div>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">example@gmail.com</li>
+            <li className="list-group-item">parentemail@gmail.com</li>
+            <li className="list-group-item">Timezone: GMt</li>
+          </ul>
+          <div className="card-body">
+            <a href="#" className="btn btn-primary">Connect</a>
+          </div>
+        </div>
         </div>
       </div>
     </div>

@@ -109,17 +109,41 @@ const About = () => {
       
     >
       <Marker
-      name="My Marker"
-      text="hello"
-        lat={28.143670}
-        lng={12.580566}
+      name="Adit Sinha Roy"
+      text="Why Hello There! My name is Adit Sinha Roy and I am a newly joined member of RFTS."
+        lat={51.253777}
+        lng={-85.323212}
         center = {{lat:40, lng:19}}
       />
        <Marker
-      name="My Marker"
-      text="hello"
-        lat={40}
-        lng={19}
+      name="Alizay Hassan"
+      text="Hi! My name is Alizay Hassan and I'm a sophomore in highschool. At RFTS, I am a Team Member of the Human Resources Department."
+        lat={44.156610}
+        lng={-77.046130}
+        center = {{lat:40, lng:19}}
+        
+      />
+       <Marker
+      name="Amy Park"
+      text="Hey! My name is Amy Park and I am a secretary part of the Administration team. I’m an upcoming junior who is absolutely both terrified and excited for the new school year."
+        lat={36.169090}
+        lng={-115.140580}
+        center = {{lat:40, lng:19}}
+        
+      />
+       <Marker
+      name="Anusheh Ahad"
+      text="Hey everyone! My name is Anusheh Ahad and I am from Ontario, Canada. I am going to be entering grade 11 in the following year!"
+      lat={51.253777}
+      lng={-85.323212}
+        center = {{lat:40, lng:19}}
+        
+      />
+      <Marker
+      name="Arrianna Dawkins"
+      text="Hello everyone! My name is Arrianna Dawkins and I am from Kingston, Jamaica. I am a senior in high school and I intend to earn my Bachelors in Information Systems. Outside of school, I am passionate about being creative."
+      lat={18.109581}
+      lng={-77.297508}
         center = {{lat:40, lng:19}}
         
       />

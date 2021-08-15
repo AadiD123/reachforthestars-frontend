@@ -72,6 +72,19 @@ h1{
   font-size: 1.5rem;
 }
 
+
+.dashCard{
+  padding: 30px;
+  width: 33%;
+}
+
+@media (max-width: 1400px){
+  .dashCard{
+    padding: 30px;
+    width: 50%;
+  }
+}
+
 @media (max-width: 900px){
   .grid {
     display: grid;
@@ -82,5 +95,9 @@ h1{
     height: 90vh;
     padding: 20px;
     grid-gap: 20px;
+  }
+  .dashCard{
+    padding: 0px;
+    width: 80%;
   }
 }
