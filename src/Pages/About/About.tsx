@@ -110,14 +110,14 @@ const About = () => {
     >
       <Marker
       name="My Marker"
-      color="blue"
+      text="hello"
         lat={28.143670}
         lng={12.580566}
         center = {{lat:40, lng:19}}
       />
        <Marker
       name="My Marker"
-      color="blue"
+      text="hello"
         lat={40}
         lng={19}
         center = {{lat:40, lng:19}}
