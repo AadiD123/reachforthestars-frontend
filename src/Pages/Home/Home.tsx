@@ -252,6 +252,9 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <div style={{ textAlign: "center", marginTop: "50px" }}>
+          <h1>Blog</h1>
+        </div>
         <div id="blog" className={styles.blogs}>
           <div
             className={styles.gridcontainer}
@@ -264,7 +267,10 @@ const Home = () => {
                   key={blog.key}
                   style={{ marginTop: "20px", marginBottom: "10px" }}
                 >
-                  <a href="/blog">
+                  <a
+                    href={`/blogpage/${blog.key}`}
+                    style={{ color: "black", textDecoration: "none" }}
+                  >
                     <div className="card" style={{ height: "100%" }}>
                       <img
                         alt="card"

@@ -67,6 +67,7 @@ const BlogPageEdit = () => {
     );
     history.push("/blog");
   };
+
   return (
     <div className={styles.contain}>
       <Link to="/blog" className={styles.back}>

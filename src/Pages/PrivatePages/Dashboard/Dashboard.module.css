@@ -67,3 +67,20 @@
 .buttons {
   display: flex;
 }
+
+h1{
+  font-size: 1.5rem;
+}
+
+@media (max-width: 900px){
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+    margin-top: 7vw;
+    width: 100vw;
+    height: 90vh;
+    padding: 20px;
+    grid-gap: 20px;
+  }
+}

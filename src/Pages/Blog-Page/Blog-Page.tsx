@@ -78,11 +78,7 @@ const BlogPage = () => {
                   <p>{blog.author}</p>
                   <p>{blog.date}</p>
                 </div>
-                {console.log(blog)}
-                <div
-                  className={styles.text}
-                  dangerouslySetInnerHTML={blog.content}
-                ></div>
+                <div className={styles.text}>{blog.content}</div>
               </div>
             </div>
             <div

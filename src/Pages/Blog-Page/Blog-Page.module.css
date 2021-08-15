@@ -1,6 +1,7 @@
 .contain {
-  margin-left: 17%;
-  margin-right: 17%;
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .blog {
@@ -14,7 +15,8 @@
 
 .title {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
+  margin-inline: 20px;
 }
 
 .row {

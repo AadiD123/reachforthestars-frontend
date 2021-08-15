@@ -27,9 +27,4 @@ export const SidebarData = [
     path: "/about",
     cName: `${styles.navTextTop}`,
   },
-  {
-    title: "Join Our Team",
-    path: "/join-our-team",
-    cName: `${styles.navTextTop}`,
-  },
 ];
