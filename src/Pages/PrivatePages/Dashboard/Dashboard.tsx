@@ -61,6 +61,9 @@ function Dashboard() {
           <h1 onClick={clickSettings} id="settings">
             Account Settings
           </h1>
+          <h1 onClick={clickAvailableStudents} id="availableStudents">
+            Available Students
+          </h1>
         </div>
       </div>
       <div className={styles.content}>
@@ -233,6 +236,16 @@ function Dashboard() {
           </p>
           <button className={styles.button}>Outreach Spreadsheet</button>
         </div>
+        <div
+          style={{ display: "none" }}
+          id="availableStudentsSection"
+          className={styles.dashboard}
+        >
+          <h1 className={styles.title}>Available Students</h1>
+          <p className={styles.paragraph}>
+            Welcome to the Available Students tab! 
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -249,6 +262,8 @@ function clickLogTutoringSession() {
   );
   var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
+  var availableStudents = document.getElementById("availableStudents")
+  var availableStudentsSection = document.getElementById("availableStudentsSection")
   if (
     dashboard != null &&
     logtutoringsession != null &&
@@ -257,7 +272,9 @@ function clickLogTutoringSession() {
     dashboardsection != null &&
     logtutoringsessionssection != null &&
     faqssection != null &&
-    settingssection != null
+    settingssection != null &&
+    availableStudents != null && 
+    availableStudentsSection != null
   ) {
     dashboard.style.backgroundColor = "#F0F0F0";
     dashboard.style.color = "black";
@@ -271,6 +288,9 @@ function clickLogTutoringSession() {
     logtutoringsessionssection.style.display = "block";
     faqssection.style.display = "none";
     settingssection.style.display = "none";
+    availableStudents.style.backgroundColor = "#F0F0F0";
+    availableStudents.style.color = "black";
+    availableStudentsSection.style.display = "none";
   }
 }
 
@@ -285,6 +305,8 @@ function clickFaqs() {
   );
   var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
+  var availableStudents = document.getElementById("availableStudents")
+  var availableStudentsSection = document.getElementById("availableStudentsSection")
   if (
     dashboard != null &&
     logtutoringsession != null &&
@@ -293,7 +315,9 @@ function clickFaqs() {
     dashboardsection != null &&
     logtutoringsessionssection != null &&
     faqssection != null &&
-    settingssection != null
+    settingssection != null &&
+    availableStudents != null && 
+    availableStudentsSection != null
   ) {
     dashboard.style.backgroundColor = "#F0F0F0";
     dashboard.style.color = "black";
@@ -307,6 +331,9 @@ function clickFaqs() {
     logtutoringsessionssection.style.display = "none";
     faqssection.style.display = "block";
     settingssection.style.display = "none";
+    availableStudents.style.backgroundColor = "#F0F0F0";
+    availableStudents.style.color = "black";
+    availableStudentsSection.style.display = "none";
   }
 }
 
@@ -321,6 +348,8 @@ function clickSettings() {
   );
   var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
+  var availableStudents = document.getElementById("availableStudents")
+  var availableStudentsSection = document.getElementById("availableStudentsSection")
   if (
     dashboard != null &&
     logtutoringsession != null &&
@@ -329,7 +358,9 @@ function clickSettings() {
     dashboardsection != null &&
     logtutoringsessionssection != null &&
     faqssection != null &&
-    settingssection != null
+    settingssection != null &&
+    availableStudents != null && 
+    availableStudentsSection != null
   ) {
     dashboard.style.backgroundColor = "#F0F0F0";
     dashboard.style.color = "black";
@@ -343,6 +374,55 @@ function clickSettings() {
     logtutoringsessionssection.style.display = "none";
     faqssection.style.display = "none";
     settingssection.style.display = "block";
+    faqs.style.backgroundColor = "#F0F0F0";
+    faqs.style.color = "black";
+    faqssection.style.display = "none";
+    availableStudents.style.backgroundColor = "#F0F0F0";
+    availableStudents.style.color = "black";
+    availableStudentsSection.style.display = "none";
+  }
+}
+
+function clickAvailableStudents() {
+  var dashboard = document.getElementById("dashboard");
+  var logtutoringsession = document.getElementById("logtutoringsession");
+  var faqs = document.getElementById("faqs");
+  var settings = document.getElementById("settings");
+  var dashboardsection = document.getElementById("dashboardsection");
+  var logtutoringsessionssection = document.getElementById(
+    "logtutoringsessionssection"
+  );
+  var availableStudents = document.getElementById("availableStudents")
+  var availableStudentsSection = document.getElementById("availableStudentsSection")
+  var faqssection = document.getElementById("faqssection");
+  var settingssection = document.getElementById("settingssection");
+  if (
+    dashboard != null &&
+    logtutoringsession != null &&
+    faqs != null &&
+    settings != null &&
+    dashboardsection != null &&
+    logtutoringsessionssection != null &&
+    faqssection != null &&
+    settingssection != null && 
+    availableStudents != null && 
+    availableStudentsSection != null
+  ) {
+    dashboard.style.backgroundColor = "#F0F0F0";
+    dashboard.style.color = "black";
+    logtutoringsession.style.backgroundColor = "#F0F0F0";
+    logtutoringsession.style.color = "black";
+    faqs.style.backgroundColor = "#F0F0F0";
+    faqs.style.color = "black";
+    settings.style.backgroundColor = "#F0F0F0";
+    settings.style.color = "black";
+    settingssection.style.display = "none";
+    dashboardsection.style.display = "none";
+    logtutoringsessionssection.style.display = "none";
+    faqssection.style.display = "none";
+    availableStudents.style.backgroundColor = "#001E3D";
+    availableStudents.style.color = "white";
+    availableStudentsSection.style.display = "block";
   }
 }
 

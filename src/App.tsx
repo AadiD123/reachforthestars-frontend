@@ -31,6 +31,7 @@ function App() {
       <Navbar />
       <AuthProvider>
         <Switch>
+          <Route path="/dashboard2" component={Dashboard} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute
             path="/available-students"
