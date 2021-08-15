@@ -91,9 +91,31 @@ export default function Form() {
         className={styles.typingInput}
         ref={passwordRef}
       />
+      <select required name="role" id="role" className={styles.typingInput}>
+        <option value="tutor" onClick = {selectTutor}>Tutor</option>
+        <option value="student" onClick = {selectStudent}>Student</option>
+        <option value="general volunteer" onClick = {selectVolunteer}>General Volunteer</option>
+      </select>
       <button disabled={loading} className={styles.submitButton} type="submit">
         Sign Up
       </button>
     </form>
   );
+}
+
+var role = "student";
+
+function selectTutor(){
+  role = "tutor";
+  console.log(role);
+}
+
+function selectStudent(){
+  role = "tutor";
+  console.log(role);
+}
+
+function selectVolunteer(){
+  role = "tutor";
+  console.log(role);
 }
