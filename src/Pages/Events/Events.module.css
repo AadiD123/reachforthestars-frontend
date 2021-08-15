@@ -1,47 +1,46 @@
 body {
-    background-color: bisque;
-  }
-  .cont {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-inline: 2%;
-  }
-  
-  .edit {
-    position: absolute;
-    top: 14%;
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    left: 10%;
-    font-size: 20px;
-    color: black;
-  }
-  
-  .pageTitle {
-    font-size: 5rem;
-    text-align: center;
-    color: #001e3d;
-  }
-  .subtext {
-    display: inline;
-  }
-  
-  .gridcontainer {
-    display: grid;
-    grid-template-columns: 400px 400px 400px;
-    grid-gap: 10px;
-    justify-content: center;
-  }
-  .tab-content>.tab-pane {
-    display: none;
+  background-color: bisque;
 }
-  
-  @media screen and (max-width: 1000px) {
-    .gridcontainer {
-      grid-template-columns: 400px;
-    }
+.cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 2%;
+}
+
+.edit {
+  position: absolute;
+  top: 14%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  left: 10%;
+  font-size: 20px;
+  color: black;
+}
+
+.pageTitle {
+  font-size: 5rem;
+  text-align: center;
+  color: #001e3d;
+}
+.subtext {
+  display: inline;
+}
+
+.gridcontainer {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-gap: 10px;
+  justify-content: center;
+}
+.tab-content > .tab-pane {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .gridcontainer {
+    grid-template-columns: 400px;
   }
-  
+}
