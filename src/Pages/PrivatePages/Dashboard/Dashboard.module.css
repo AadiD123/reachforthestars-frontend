@@ -16,7 +16,6 @@
   text-align: center;
   box-shadow: 1px 1px 1px 1px grey;
 }
-
 .options h1:hover {
   background-color: #001e3d;
   color: white;
@@ -68,24 +67,23 @@
   display: flex;
 }
 
-h1{
+h1 {
   font-size: 1.5rem;
 }
 
-
-.dashCard{
+.dashCard {
   padding: 30px;
   width: 33%;
 }
 
-@media (max-width: 1400px){
-  .dashCard{
+@media (max-width: 1400px) {
+  .dashCard {
     padding: 30px;
     width: 50%;
   }
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
   .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -96,7 +94,7 @@ h1{
     padding: 20px;
     grid-gap: 20px;
   }
-  .dashCard{
+  .dashCard {
     padding: 0px;
     width: 80%;
   }
