@@ -167,7 +167,8 @@
 }
 @media screen and (max-width: 1000px) {
   .cardContainer {
-    grid-template-columns: 480px;
+    grid-template-columns: 100%;
+    grid-gap: 10px;
   }
 }
 
