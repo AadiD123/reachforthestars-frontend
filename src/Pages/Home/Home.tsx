@@ -94,6 +94,7 @@ const Home = () => {
           </div>
           <div>
             <img
+              className={styles.contimage}
               src={hands}
               alt="hands"
               style={{ height: "100%", width: "100%", objectFit: "cover" }}
@@ -101,6 +102,7 @@ const Home = () => {
           </div>
           <div>
             <img
+              className={styles.contimage}
               src={hands}
               alt="hands"
               style={{ maxHeight: "100%", width: "100%", objectFit: "cover" }}
@@ -138,6 +140,7 @@ const Home = () => {
           <div className={styles.cardContainer}>
             <div className={styles.tutoringResourcesCards}>
               <img
+                className={styles.contimage}
                 src={hands}
                 alt="hands"
                 style={{ maxHeight: "40%", width: "100%", objectFit: "cover" }}
@@ -224,6 +227,7 @@ const Home = () => {
             </div>
             <div>
               <img
+                className={styles.contimage}
                 src={hands}
                 alt="hands"
                 style={{ height: "100%", width: "100%", objectFit: "cover" }}
@@ -231,6 +235,7 @@ const Home = () => {
             </div>
             <div>
               <img
+                className={styles.contimage}
                 src={hands}
                 alt="hands"
                 style={{ height: "100%", width: "100%", objectFit: "cover" }}
@@ -250,42 +255,44 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div style={{ textAlign: "center", marginTop: "50px" }}>
-          <h1>Blog</h1>
-        </div>
-        <div id="blog" className={styles.blogs}>
-          <div
-            className={styles.gridcontainer}
-            style={{ marginTop: "20px", paddingBottom: "50px" }}
-          >
-            {blogs.length > 0 ? (
-              blogs.map((blog: any) => (
-                <div
-                  id={blog.key}
-                  key={blog.key}
-                  style={{ marginTop: "20px", marginBottom: "10px" }}
-                >
-                  <a
-                    href={`/blogpage/${blog.key}`}
-                    style={{ color: "black", textDecoration: "none" }}
+        <div id="blog">
+          <div style={{ textAlign: "center", marginTop: "50px" }}>
+            <h1>Blog</h1>
+          </div>
+          <div className={styles.blogs}>
+            <div
+              className={styles.gridcontainer}
+              style={{ marginTop: "20px", paddingBottom: "50px" }}
+            >
+              {blogs.length > 0 ? (
+                blogs.map((blog: any) => (
+                  <div
+                    id={blog.key}
+                    key={blog.key}
+                    style={{ marginTop: "20px", marginBottom: "10px" }}
                   >
-                    <div className="card" style={{ height: "100%" }}>
-                      <img
-                        alt="card"
-                        className="card-img-top"
-                        src={blog.blogpicture}
-                        style={{ height: "275px", objectFit: "cover" }}
-                      />
-                      <div className="card-body">
-                        <h4 className="card-title">{blog.title}</h4>
+                    <a
+                      href={`/blogpage/${blog.key}`}
+                      style={{ color: "black", textDecoration: "none" }}
+                    >
+                      <div className="card" style={{ height: "100%" }}>
+                        <img
+                          alt="card"
+                          className="card-img-top"
+                          src={blog.blogpicture}
+                          style={{ height: "275px", objectFit: "cover" }}
+                        />
+                        <div className="card-body">
+                          <h4 className="card-title">{blog.title}</h4>
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                </div>
-              ))
-            ) : (
-              <h1>Blogs not loaded</h1>
-            )}
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <h1>Blogs not loaded</h1>
+              )}
+            </div>
           </div>
         </div>
       </div>
