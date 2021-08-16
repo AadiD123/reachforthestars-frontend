@@ -165,9 +165,14 @@
   grid-gap: 20px;
   justify-content: center;
 }
+
 @media screen and (max-width: 1000px) {
+  .contimage {
+    display: none;
+  }
   .cardContainer {
-    grid-template-columns: 480px;
+    grid-template-columns: 90%;
+    grid-gap: 10px;
   }
 }
 

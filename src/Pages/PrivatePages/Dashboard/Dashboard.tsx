@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Dashboard.module.css";
 import profile from "./../../../profile.svg";
-// import Iframe from "react-iframe";
+import { useEffect } from "react";
+import { auth, db } from "../../../Backend/Firebase";
+import { useHistory } from "react-router-dom";
+import Iframe from "react-iframe";
 
 function clickDashboard() {
   var dashboard = document.getElementById("dashboard");
@@ -40,6 +43,45 @@ function clickDashboard() {
 }
 
 function Dashboard() {
+  const [students, setStudents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [tutorEmail, setTutorEmail] = useState("");
+  const history = useHistory();
+  type ClickHandler = (
+    studentEmail: string,
+    tutorEmail: string
+  ) => (e: React.MouseEvent) => void;
+
+  useEffect(() => {
+    var availableStudents: any = [];
+    db.collection("students")
+      .where("available", "==", true)
+      .onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          availableStudents.push({ key: doc.id, ...doc.data() });
+        });
+        setStudents(availableStudents);
+        setLoading(false);
+      });
+  });
+
+  auth.onAuthStateChanged(function (user) {
+    if (user?.email) {
+      setTutorEmail(user?.email);
+      console.log(tutorEmail);
+    }
+  });
+
+  const connectTutorAndStudent: ClickHandler =
+    (studentEmail: string, tutorEmail: string) => (e: any) => {
+      e.preventDefault();
+      console.log(studentEmail);
+      db.collection("students").doc(studentEmail).update({
+        available: false,
+        tutor: tutorEmail,
+      });
+    };
+
   return (
     <div className={styles.grid}>
       <div className={styles.toggle}>
@@ -79,7 +121,7 @@ function Dashboard() {
             volunteer!
           </p>
           <h1 className={styles.title}>Log Service Hours</h1>
-          {/* <Iframe
+          <Iframe
             url="https://clockify.me/tracker"
             width="100%"
             height="450px"
@@ -87,7 +129,8 @@ function Dashboard() {
             className="myClassname"
             display="block"
             position="relative"
-          /> */}
+          />
+          <div style={{ marginBottom: "10px" }}></div>
           <h1 className={styles.title}>Help Us Get More Students</h1>
           <p className={styles.paragraph}>
             Reach out to ALL the parents you know to help us get more students!
@@ -227,7 +270,16 @@ function Dashboard() {
             volunteer!
           </p>
           <h1 className={styles.title}>Log Service Hours</h1>
-          <textarea className={styles.box}></textarea>
+          <Iframe
+            url="https://clockify.me/tracker"
+            width="100%"
+            height="450px"
+            id="myId"
+            className="myClassname"
+            display="block"
+            position="relative"
+          />
+          <div style={{ marginBottom: "10px" }}></div>
           <h1 className={styles.title}>Help Us Get More Students</h1>
           <p className={styles.paragraph}>
             Reach out to ALL the parents you know to help us get more students!
@@ -236,16 +288,45 @@ function Dashboard() {
           </p>
           <button className={styles.button}>Outreach Spreadsheet</button>
         </div>
-        <div
-          style={{ display: "none" }}
-          id="availableStudentsSection"
-          className={styles.dashboard}
-        >
-          <h1 className={styles.title}>Available Students</h1>
-          <p className={styles.paragraph}>
-            Welcome to the Available Students tab! 
-          </p>
-        </div>
+        {/* <h1 className={styles.title}>Available Students</h1>
+        <p className={styles.paragraph}>
+          Welcome to the Available Students tab!
+        </p> */}
+        {students.length > 0 ? (
+          students.map((student: any) => (
+            <div key={student.key}>
+              <div
+                style={{ display: "none" }}
+                id="availableStudentsSection"
+                className={styles.dashboard}
+              >
+                <div className={`card ${styles.dashCard}`}>
+                  <div className="card-body">
+                    <h1 className="card-title">
+                      <strong>{student.firstName}</strong>
+                    </h1>
+                  </div>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">{student.key}</li>
+                    <li className="list-group-item">
+                      Timezone: {student.timezone}
+                    </li>
+                  </ul>
+                  <div className="card-body">
+                    <button
+                      className="btn btn-primary"
+                      onClick={connectTutorAndStudent(student.key, tutorEmail)}
+                    >
+                      Connect
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <h1>No available students</h1>
+        )}
       </div>
     </div>
   );
@@ -262,8 +343,10 @@ function clickLogTutoringSession() {
   );
   var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
-  var availableStudents = document.getElementById("availableStudents")
-  var availableStudentsSection = document.getElementById("availableStudentsSection")
+  var availableStudents = document.getElementById("availableStudents");
+  var availableStudentsSection = document.getElementById(
+    "availableStudentsSection"
+  );
   if (
     dashboard != null &&
     logtutoringsession != null &&
@@ -273,7 +356,7 @@ function clickLogTutoringSession() {
     logtutoringsessionssection != null &&
     faqssection != null &&
     settingssection != null &&
-    availableStudents != null && 
+    availableStudents != null &&
     availableStudentsSection != null
   ) {
     dashboard.style.backgroundColor = "#F0F0F0";
@@ -305,8 +388,10 @@ function clickFaqs() {
   );
   var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
-  var availableStudents = document.getElementById("availableStudents")
-  var availableStudentsSection = document.getElementById("availableStudentsSection")
+  var availableStudents = document.getElementById("availableStudents");
+  var availableStudentsSection = document.getElementById(
+    "availableStudentsSection"
+  );
   if (
     dashboard != null &&
     logtutoringsession != null &&
@@ -316,7 +401,7 @@ function clickFaqs() {
     logtutoringsessionssection != null &&
     faqssection != null &&
     settingssection != null &&
-    availableStudents != null && 
+    availableStudents != null &&
     availableStudentsSection != null
   ) {
     dashboard.style.backgroundColor = "#F0F0F0";
@@ -348,8 +433,10 @@ function clickSettings() {
   );
   var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
-  var availableStudents = document.getElementById("availableStudents")
-  var availableStudentsSection = document.getElementById("availableStudentsSection")
+  var availableStudents = document.getElementById("availableStudents");
+  var availableStudentsSection = document.getElementById(
+    "availableStudentsSection"
+  );
   if (
     dashboard != null &&
     logtutoringsession != null &&
@@ -359,7 +446,7 @@ function clickSettings() {
     logtutoringsessionssection != null &&
     faqssection != null &&
     settingssection != null &&
-    availableStudents != null && 
+    availableStudents != null &&
     availableStudentsSection != null
   ) {
     dashboard.style.backgroundColor = "#F0F0F0";
@@ -392,8 +479,10 @@ function clickAvailableStudents() {
   var logtutoringsessionssection = document.getElementById(
     "logtutoringsessionssection"
   );
-  var availableStudents = document.getElementById("availableStudents")
-  var availableStudentsSection = document.getElementById("availableStudentsSection")
+  var availableStudents = document.getElementById("availableStudents");
+  var availableStudentsSection = document.getElementById(
+    "availableStudentsSection"
+  );
   var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
   if (
@@ -404,8 +493,8 @@ function clickAvailableStudents() {
     dashboardsection != null &&
     logtutoringsessionssection != null &&
     faqssection != null &&
-    settingssection != null && 
-    availableStudents != null && 
+    settingssection != null &&
+    availableStudents != null &&
     availableStudentsSection != null
   ) {
     dashboard.style.backgroundColor = "#F0F0F0";

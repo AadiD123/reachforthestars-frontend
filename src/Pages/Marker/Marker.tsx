@@ -18,9 +18,7 @@ function Marker(props: any) {
         />
         <div className="card-body">
           <h4 className="card-title">{name}</h4>
-          <p className="card-text" style={{ fontSize: "12px" }}>
-            {text}
-          </p>
+          <p className="card-text">{text}</p>
         </div>
       </div>
     </div>

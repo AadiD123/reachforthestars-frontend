@@ -10,30 +10,57 @@ export default function Form() {
   const timezoneRef = useRef() as MutableRefObject<any>;
   const emailRef = useRef() as MutableRefObject<any>;
   const passwordRef = useRef() as MutableRefObject<any>;
+  const pinRef = useRef() as MutableRefObject<any>;
   const { signup } = useAuth();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
+  const [volunteer, setVolunteer] = useState(false);
+
   async function handleSubmit(e: any) {
     e.preventDefault();
-
+    setLoading(true);
     try {
-      setLoading(true);
-      await signup(
-        firstNameRef.current.value,
-        lastNameRef.current.value,
-        emailRef.current.value,
-        passwordRef.current.value,
-        gradeRef.current.value,
-        timezoneRef.current.value,
-        "student"
-      );
-      history.push("/dashboard");
-    } catch {
-      console.log("Failed to sign up");
+      if (pinRef != null) {
+        if (pinRef.current.value === "1234") {
+          await signup(
+            firstNameRef.current.value,
+            lastNameRef.current.value,
+            emailRef.current.value,
+            passwordRef.current.value,
+            gradeRef.current.value,
+            timezoneRef.current.value,
+            "volunteer"
+          );
+          history.push("/dashboard");
+        } else {
+          alert("Wrong Pin");
+        }
+      } else {
+        await signup(
+          firstNameRef.current.value,
+          lastNameRef.current.value,
+          emailRef.current.value,
+          passwordRef.current.value,
+          gradeRef.current.value,
+          timezoneRef.current.value,
+          "student"
+        );
+        history.push("/student-dashboard");
+      }
+    } catch (e) {
+      alert(e);
     }
     setLoading(false);
   }
+
+  const selectVolunteer = (e: any) => {
+    if (e.target.value === "volunteer") {
+      setVolunteer(true);
+    } else {
+      setVolunteer(false);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -91,6 +118,28 @@ export default function Form() {
         className={styles.typingInput}
         ref={passwordRef}
       />
+      <select
+        onChange={selectVolunteer}
+        required
+        name="role"
+        id="role"
+        className={styles.typingInput}
+      >
+        <option value="student">Student</option>
+        <option value="volunteer">General Volunteer</option>
+      </select>
+      {volunteer ? (
+        <input
+          name="pin"
+          id="pin"
+          type="password"
+          placeholder="Enter Pin"
+          className={styles.typingInput}
+          ref={pinRef}
+        />
+      ) : (
+        <div></div>
+      )}
       <button disabled={loading} className={styles.submitButton} type="submit">
         Sign Up
       </button>
