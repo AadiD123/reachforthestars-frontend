@@ -24,6 +24,7 @@ import SignUp from "./Pages/Authentication/Sign Up/SignUp";
 //Private Pages
 import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
 import AvailableStudents from "./Pages/PrivatePages/AvailableStudents/AvailableStudents";
+import TestDashboard from "./Pages/PrivatePages/TestDashboard/TestDashboard";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/blog-page-edit" component={BlogPageEdit} />
           <Route path="/registration" component={Registration} />
           <Route path="/individual-about" component={IndividualAbout} />
+          <Route path="/testdashboard" component={TestDashboard} />
         </Switch>
       </AuthProvider>
       {/* <Footer /> */}

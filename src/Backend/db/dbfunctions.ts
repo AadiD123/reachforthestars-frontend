@@ -1,4 +1,5 @@
 import { db } from "../Firebase";
+import firebase from "firebase";
 
 export function addBlog(
   author: string,
@@ -137,7 +138,7 @@ export function addUsers(
 }
 
 export async function getAllAvailableStudents() {
-  var availableStudents = new Array();
+  let availableStudents = new Array();
 
   db.collection("users")
     .get()
@@ -150,5 +151,30 @@ export async function getAllAvailableStudents() {
     })
     .catch((error) => {
       console.log("error getting documents: ", error);
+    });
+}
+
+interface BioInterface {
+  name: string;
+  location: firebase.firestore.GeoPoint;
+  bio: string;
+}
+export async function getAllBios() {
+  let allBios: BioInterface[] = [];
+  db.collection("bios")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        allBios.push({
+          name: doc.get("name"),
+          location: doc.get("location"),
+          bio: doc.get("bio"),
+        });
+      });
+      return allBios;
+    })
+    .catch((error) => {
+      console.log("error getting documents: ", error);
+      return null;
     });
 }

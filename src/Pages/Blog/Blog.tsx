@@ -33,17 +33,13 @@ const Blog = () => {
     <div>
       <h1 className={styles.pageTitle}>Blog</h1>
 
-      <Link className={styles.edit} to="/blog-page-edit">
-        <FaIcons.FaEdit className={styles.icon} /> Edit{" "}
-      </Link>
-
-      {/* {auth.currentUser != null ? (
+      {auth.currentUser != null ? (
         <Link className={styles.edit} to="/blog-page-edit">
           <FaIcons.FaEdit className={styles.icon} /> Edit{" "}
         </Link>
       ) : (
         <div></div>
-      )} */}
+      )}
 
       <div className={styles.gridcontainer} style={{ marginTop: "20px" }}>
         {blogs.length > 0 ? (

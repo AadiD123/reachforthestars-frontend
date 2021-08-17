@@ -133,14 +133,15 @@ const Home = () => {
         </div>
         <div id="tutoringResources" className={styles.tutoringResources}>
           <h1>Tutoring Resources</h1>
-          <p>Peer Tutoring, Private Tutoring, AP Peer Classes</p>
+          <p style={{ display: "flex", flexWrap: "wrap" }}>
+            Peer Tutoring, Private Tutoring, AP Peer Classes
+          </p>
           <button className={styles.registerbuttonstyling}>
             Register Here
           </button>
-          <div className={styles.cardContainer}>
+          <div className={styles.tutoringResourcesCont}>
             <div className={styles.tutoringResourcesCards}>
               <img
-                className={styles.contimage}
                 src={hands}
                 alt="hands"
                 style={{ maxHeight: "40%", width: "100%", objectFit: "cover" }}

@@ -96,6 +96,12 @@
   padding: 50px 0 50px 0;
 }
 
+.tutoringResourcesCont {
+  display: grid;
+  grid-template-columns: 550px 550px;
+  grid-gap: 15px;
+}
+
 .tutoringResources {
   margin-top: 10%;
   background-color: lightcoral;
@@ -110,21 +116,20 @@
 .tutoringResourcesCards {
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: center;
   text-align: center;
   margin: 40px 0 40px;
-  min-height: 550px;
   background-color: lightcyan;
+  max-width: 550px;
 }
+
 .registerbuttonstyling {
   color: white;
   background-color: #001e3d;
   border: 1px solid #001e3d;
   margin-left: 1vw;
   border-radius: 0;
-  width: 15%;
-  padding: 6px;
+  padding: 5px 25px 5px;
 }
 .registerbuttonstyling:hover {
   color: rgb(245, 239, 239);
@@ -166,10 +171,20 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .contimage {
     display: none;
   }
+  .cardContainer {
+    grid-template-columns: 90%;
+    grid-gap: 10px;
+  }
+  .tutoringResourcesCont {
+    grid-template-columns: 400px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
   .cardContainer {
     grid-template-columns: 90%;
     grid-gap: 10px;
