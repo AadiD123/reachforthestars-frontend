@@ -108,27 +108,27 @@ const About = () => {
 
   useEffect(() => {
     let allBios: BioInterface[] = [];
-    db.collection("bios")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          allBios.push({
-            name: doc.get("name"),
-            location: doc.get("location"),
-            bio: doc.get("bio"),
-          });
-        });
-        setBios(allBios);
-      })
-      .catch((error) => {
-        console.log("error getting documents: ", error);
-      });
+    // db.collection("bios")
+    //   .get()
+    //   .then((querySnapshot) => {
+    //     querySnapshot.forEach((doc) => {
+    //       allBios.push({
+    //         name: doc.get("name"),
+    //         location: doc.get("location"),
+    //         bio: doc.get("bio"),
+    //       });
+    //     });
+    //     setBios(allBios);
+    //   })
+    //   .catch((error) => {
+    //     console.log("error getting documents: ", error);
+    //   });
   });
 
   return (
     <div className={styles.center}>
       <div className={styles.map}>
-        <h1 className={styles.title}>About</h1>
+        <h1 className="title">About</h1>
         <GoogleMapReact
           bootstrapURLKeys={{ key: String(API_KEY) }}
           defaultCenter={center}
@@ -138,7 +138,7 @@ const About = () => {
           {bios?.map((bio) => (
             <Marker
               name={bio.name}
-              text={bio.bio.substr(0, 500)}
+              text={bio.bio.substr(0, 100)}
               lat={bio.location.latitude}
               lng={bio.location.longitude}
             />

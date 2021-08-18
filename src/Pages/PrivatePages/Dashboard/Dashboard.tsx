@@ -68,14 +68,12 @@ function Dashboard() {
   auth.onAuthStateChanged(function (user) {
     if (user?.email) {
       setTutorEmail(user?.email);
-      console.log(tutorEmail);
     }
   });
 
   const connectTutorAndStudent: ClickHandler =
     (studentEmail: string, tutorEmail: string) => (e: any) => {
       e.preventDefault();
-      console.log(studentEmail);
       db.collection("students").doc(studentEmail).update({
         available: false,
         tutor: tutorEmail,

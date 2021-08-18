@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { auth, db } from "../../Backend/Firebase";
 import styles from "./Blog.module.css";
 import * as FaIcons from "react-icons/fa";
-import { useAuth } from "../../Backend/Contexts/AuthContext";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -22,7 +21,7 @@ const Blog = () => {
 
   if (loading) {
     return (
-      <div>
+      <div className="pageCont">
         <h1 className={styles.pageTitle}>Blog</h1>
         <h2>Loading Blogs</h2>
       </div>
@@ -30,8 +29,8 @@ const Blog = () => {
   }
 
   return (
-    <div>
-      <h1 className={styles.pageTitle}>Blog</h1>
+    <div className="pageCont">
+      <h1 className="title">Blog</h1>
 
       {auth.currentUser != null ? (
         <Link className={styles.edit} to="/blog-page-edit">

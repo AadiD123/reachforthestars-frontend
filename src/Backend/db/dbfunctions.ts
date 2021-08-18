@@ -5,8 +5,8 @@ export function addBlog(
   author: string,
   date: string,
   title: string,
-  content: any,
-  blogpicture: string
+  content: HTMLCollection,
+  image: string
 ) {
   db.collection("blogs")
     .doc()
@@ -15,7 +15,7 @@ export function addBlog(
       date: date,
       title: title,
       content: content,
-      blogpicture: blogpicture,
+      image: image,
     })
     .then(() => {
       console.log("Blog info successfully written!");

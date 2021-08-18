@@ -3,7 +3,6 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  margin-top: 7vw;
   width: 100vw;
   height: 90vh;
   padding: 20px;

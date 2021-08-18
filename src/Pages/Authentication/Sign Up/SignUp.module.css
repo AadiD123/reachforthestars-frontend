@@ -210,9 +210,10 @@ body {
 .loginBox {
   width: 75%;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 50px;
   background: #f0f0f0;
   box-shadow: 2px 2px 1px 1px grey;
+  padding: 20px;
 }
 .oAuth {
   grid-row: 2/3;

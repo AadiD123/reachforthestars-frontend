@@ -1,8 +1,7 @@
-.center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+.center {
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 /* .center:before{
     content: "";
@@ -14,22 +13,20 @@
     
 } */
 
-.title{
-    font-size: 60px;
-    text-align: center;
-    font-weight: bold;
-    margin: 20px;
-    
+.title {
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
 }
 
-.map{
-    height: 70vh;
-    width: 90%;
+.map {
+  height: 70vh;
+  width: 90%;
 }
 
-@media screen and (max-width: 900px){
-      .map{
-          width: 96%;
-     
-      }
+@media screen and (max-width: 900px) {
+  .map {
+    width: 96%;
+  }
 }

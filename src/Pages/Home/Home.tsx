@@ -7,21 +7,32 @@ import Blog from "../Blog/Blog";
 import { useEffect, useState } from "react";
 import { db } from "../../Backend/Firebase";
 
+// interface Blogs {
+//   key: string;
+//   title: string;
+//   author: string;
+//   content: HTMLCollection;
+//   image: string;
+// }
+
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  var allblogs: any = [];
-  var recentblogs: any = [];
-
-  db.collection("blogs").onSnapshot((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      allblogs.push({ key: doc.id, ...doc.data() });
+  useEffect(() => {
+    var allblogs: any = [];
+    var recentblogs: any = [];
+    db.collection("blogs").onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        allblogs.push({ key: doc.id, ...doc.data() });
+      });
+      console.log(allblogs);
+      if (allblogs.length > 3) {
+        for (var i = 0; i < 3; i++) {
+          recentblogs.push(allblogs[i]);
+        }
+        setBlogs(recentblogs);
+      }
     });
-    for (var i = 0; i < 3; i++) {
-      recentblogs.push(allblogs[i]);
-    }
-    setBlogs(recentblogs);
   });
 
   const items = [
@@ -41,10 +52,10 @@ const Home = () => {
       title: "Our Programs",
       path: "ourPrograms",
     },
-    {
-      title: "Blog",
-      path: "blog",
-    },
+    // {
+    //   title: "Blog",
+    //   path: "blog",
+    // },
   ];
 
   return (
@@ -246,17 +257,17 @@ const Home = () => {
               <h1>AP PEER Classes</h1>
               <p>
                 The AP Peer Class Program is a review course for students taking
-                the May AP test. <br />
+                the May AP test. <br /> <br />
                 There are over 20 subjects for students to choose from. Our
                 tutors and TAs make sure that these students are able to score
                 high on their AP tests with review worksheets, lectures, Q&A
-                sessions, and diagnostic tests. <br />
+                sessions, and diagnostic tests. <br /> <br />
                 Stayed tuned for our 2022 registration!
               </p>
             </div>
           </div>
         </div>
-        <div id="blog">
+        {/* <div id="blog">
           <div style={{ textAlign: "center", marginTop: "50px" }}>
             <h1>Blog</h1>
           </div>
@@ -268,7 +279,6 @@ const Home = () => {
               {blogs.length > 0 ? (
                 blogs.map((blog: any) => (
                   <div
-                    id={blog.key}
                     key={blog.key}
                     style={{ marginTop: "20px", marginBottom: "10px" }}
                   >
@@ -291,11 +301,11 @@ const Home = () => {
                   </div>
                 ))
               ) : (
-                <h1>Blogs not loaded</h1>
+                <h1>No Blogs</h1>
               )}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

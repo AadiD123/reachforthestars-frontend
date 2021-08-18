@@ -7,7 +7,6 @@ const Events = () => {
   return (
     <div>
       <h1 className={styles.pageTitle}>Events</h1>
-
       <ul
         className="nav nav-pills mb-3"
         id="pills-tab"
@@ -159,11 +158,6 @@ const Events = () => {
               >
                 <p className="card-text">Hello</p>
               </div>
-
-              {/* <a href="#" className="card-link">
-                Read More
-              </a> */}
-              {/* <Link to={`/blogpage/${blog.key}`}>More info</Link> */}
             </div>
           </div>
         </div>

@@ -54,7 +54,7 @@ function App() {
           <Route path="/testdashboard" component={TestDashboard} />
         </Switch>
       </AuthProvider>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }

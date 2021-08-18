@@ -21,7 +21,7 @@ export default function Form() {
     e.preventDefault();
     setLoading(true);
     try {
-      if (pinRef != null) {
+      if (volunteer != false) {
         if (pinRef.current.value === "1234") {
           await signup(
             firstNameRef.current.value,
@@ -55,11 +55,7 @@ export default function Form() {
   }
 
   const selectVolunteer = (e: any) => {
-    if (e.target.value === "volunteer") {
-      setVolunteer(true);
-    } else {
-      setVolunteer(false);
-    }
+    setVolunteer(!volunteer);
   };
 
   return (
