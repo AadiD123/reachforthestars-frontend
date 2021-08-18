@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Dashboard.module.css";
 import profile from "./../../../profile.svg";
-import { useEffect } from "react";
+
 import { auth, db } from "../../../Backend/Firebase";
+import { getUser } from "../../../Backend/db/dbfunctions";
 import { useHistory } from "react-router-dom";
 import Iframe from "react-iframe";
 
@@ -45,7 +46,9 @@ function clickDashboard() {
 function Dashboard() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [tutorEmail, setTutorEmail] = useState("");
+  const [currentUserEmail, setCurrentUserEmail] = useState("");
+  const [currentUser, setUser] = useState(null);
+
   const history = useHistory();
   type ClickHandler = (
     studentEmail: string,
@@ -67,7 +70,17 @@ function Dashboard() {
 
   auth.onAuthStateChanged(function (user) {
     if (user?.email) {
-      setTutorEmail(user?.email);
+      setCurrentUserEmail(user.email);
+      db.collection("users")
+        .doc(user.email)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+          }
+        })
+        .catch((error) => {
+          console.log("Error getting document:", error);
+        });
     }
   });
 
@@ -76,7 +89,7 @@ function Dashboard() {
       e.preventDefault();
       db.collection("students").doc(studentEmail).update({
         available: false,
-        tutor: tutorEmail,
+        tutor: currentUserEmail,
       });
     };
 
@@ -93,10 +106,10 @@ function Dashboard() {
             Dashboard
           </h1>
           <h1 onClick={clickLogTutoringSession} id="logtutoringsession">
-            Log Tutoring Session
+            Tutoring FAQ
           </h1>
           <h1 onClick={clickFaqs} id="faqs">
-            Tutoring FAQ
+            Log Tutoring Session
           </h1>
           <h1 onClick={clickSettings} id="settings">
             Account Settings
@@ -261,30 +274,58 @@ function Dashboard() {
           id="settingssection"
           className={styles.dashboard}
         >
-          <h1 className={styles.title}>Account Settings</h1>
+          <h1 className={styles.title}>My Account</h1>
+          <p>Update and Edit the information you share with community</p>
           <p className={styles.paragraph}>
-            Welcome to the General Volunteer tab! Here you can find all the
-            things you can work on and all materials you will need as a general
-            volunteer!
+            Login Email: <br />
+            User Email <br />
+            Your email address cannot be changed <br />
           </p>
-          <h1 className={styles.title}>Log Service Hours</h1>
-          <Iframe
-            url="https://clockify.me/tracker"
-            width="100%"
-            height="450px"
-            id="myId"
-            className="myClassname"
-            display="block"
-            position="relative"
-          />
-          <div style={{ marginBottom: "10px" }}></div>
-          <h1 className={styles.title}>Help Us Get More Students</h1>
-          <p className={styles.paragraph}>
-            Reach out to ALL the parents you know to help us get more students!
-            Find local schools and put their emails on this spreadsheet for us
-            to contact.{" "}
-          </p>
-          <button className={styles.button}>Outreach Spreadsheet</button>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+            <div>
+              <label>First Name</label>
+              <br />
+              <input style={{ width: "80%" }} type="text" />
+              <br />
+              <label style={{ marginTop: "20px" }}>Timezone</label>
+              <br />
+              <input
+                style={{ width: "80%" }}
+                value={currentUserEmail}
+                type="text"
+              />
+            </div>
+            <div>
+              <label>Last Name</label>
+              <br />
+              <input style={{ width: "80%" }} type="text" />
+              <br />
+              <br />
+              <br />
+
+              <button
+                style={{
+                  color: "black",
+                  border: "none",
+                  background: "grey",
+                  width: "120px",
+                  marginRight: "20px",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                style={{
+                  color: "white",
+                  border: "none",
+                  background: "#001E3D",
+                  width: "120px",
+                }}
+              >
+                Save
+              </button>
+            </div>
+          </div>
         </div>
         {/* <h1 className={styles.title}>Available Students</h1>
         <p className={styles.paragraph}>
@@ -313,7 +354,10 @@ function Dashboard() {
                   <div className="card-body">
                     <button
                       className="btn btn-primary"
-                      onClick={connectTutorAndStudent(student.key, tutorEmail)}
+                      onClick={connectTutorAndStudent(
+                        student.key,
+                        currentUserEmail
+                      )}
                     >
                       Connect
                     </button>

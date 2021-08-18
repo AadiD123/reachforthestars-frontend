@@ -10,7 +10,6 @@ body {
 }
 
 .edit {
-  position: absolute;
   top: 14%;
   display: flex;
   align-self: center;
@@ -38,7 +37,8 @@ body {
 .tab-content > .tab-pane {
   display: none;
 }
-
+.absolute {
+}
 @media screen and (max-width: 1000px) {
   .gridcontainer {
     grid-template-columns: 400px;

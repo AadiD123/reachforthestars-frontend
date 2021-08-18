@@ -178,3 +178,31 @@ export async function getAllBios() {
       return null;
     });
 }
+
+export async function updateUser(
+  id: string,
+  firstName: string,
+  lastName: string,
+  timeZone: string,
+  oldPwd: string,
+  newPwd: string
+) {
+  db.collection("users").doc(id).update({ firstn: "bar" });
+}
+
+export async function getUser(id: string) {
+  db.collection("users")
+    .doc(id)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        return doc.data();
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
+    });
+}
