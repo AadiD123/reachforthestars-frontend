@@ -5,8 +5,8 @@ const Events = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div>
-      <h1 className={styles.pageTitle}>Events</h1>
+    <div className="mainContainer">
+      <h1 className="title">Events</h1>
       <ul
         className="nav nav-pills mb-3"
         id="pills-tab"

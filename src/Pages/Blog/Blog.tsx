@@ -21,7 +21,7 @@ const Blog = () => {
 
   if (loading) {
     return (
-      <div className="pageCont">
+      <div className="mainContainer">
         <h1 className={styles.pageTitle}>Blog</h1>
         <h2>Loading Blogs</h2>
       </div>
@@ -29,12 +29,12 @@ const Blog = () => {
   }
 
   return (
-    <div className="pageCont">
+    <div className="mainContainer">
       <h1 className="title">Blog</h1>
 
       {auth.currentUser != null ? (
-        <Link className={styles.edit} to="/blog-page-edit">
-          <FaIcons.FaEdit className={styles.icon} /> Edit{" "}
+        <Link className={styles.edit} to="/blog-edit">
+          <FaIcons.FaEdit className={styles.icon} /> Edit
         </Link>
       ) : (
         <div></div>

@@ -179,30 +179,19 @@ export async function getAllBios() {
     });
 }
 
-export async function updateUser(
-  id: string,
-  firstName: string,
-  lastName: string,
-  timeZone: string,
-  oldPwd: string,
-  newPwd: string
-) {
-  db.collection("users").doc(id).update({ firstn: "bar" });
-}
-
-export async function getUser(id: string) {
-  db.collection("users")
+export async function updateStudent(id: string | null, data: Object) {
+  if (id == null) {
+    return null;
+  }
+  db.collection("students")
     .doc(id)
-    .get()
-    .then((doc) => {
-      if (doc.exists) {
-        return doc.data();
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
+    .update({ firstName: "128eddhd" })
+    .then((value) => {
+      alert(value);
     })
-    .catch((error) => {
-      console.log("Error getting document:", error);
+    .catch((e) => {
+      alert(e);
     });
 }
+
+export async function getUser(id: string) {}

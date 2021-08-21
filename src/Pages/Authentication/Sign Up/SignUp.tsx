@@ -1264,8 +1264,8 @@ function SignUp() {
   // defining the initial state for the form
 
   return (
-    <div className="pageCont">
-      <div className={styles.loginBox}>
+    <div className="mainContainer">
+      <div className={styles.signUpBox}>
         <h1>Sign Up</h1>
         <Form />
       </div>

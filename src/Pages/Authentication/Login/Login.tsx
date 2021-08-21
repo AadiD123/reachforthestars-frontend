@@ -2,21 +2,11 @@ import styles from "./Login.module.css";
 import Form from "./Form";
 
 function Login() {
-  // defining the initial state for the form
-
   return (
-    <div className={styles.main} style={{}}>
+    <div className="mainContainer">
       <div className={styles.loginBox}>
         <h1>Login</h1>
-        <div className={styles.loginButtons}>
-          <Form />
-        </div>
-        <div className={styles.oAuth}>
-          <button className={styles.signInWithGoogleButton}>
-            <img alt = "google ouath" src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png" />
-            <span>Sign In With Google</span>
-          </button>
-        </div>
+        <Form />
       </div>
     </div>
   );

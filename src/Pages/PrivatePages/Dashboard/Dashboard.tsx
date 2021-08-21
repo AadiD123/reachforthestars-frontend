@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, MutableRefObject } from "react";
 import styles from "./Dashboard.module.css";
 import profile from "./../../../profile.svg";
 
 import { auth, db } from "../../../Backend/Firebase";
 import { getUser } from "../../../Backend/db/dbfunctions";
 import { useHistory } from "react-router-dom";
+import { updateStudent } from "../../../Backend/db/dbfunctions";
 import Iframe from "react-iframe";
 
 function clickDashboard() {
@@ -49,6 +50,10 @@ function Dashboard() {
   const [currentUserEmail, setCurrentUserEmail] = useState("");
   const [currentUser, setUser] = useState(null);
 
+  const firstNameRef = useRef() as MutableRefObject<any>;
+  const lastNameRef = useRef() as MutableRefObject<any>;
+  const timezoneRef = useRef() as MutableRefObject<any>;
+
   const history = useHistory();
   type ClickHandler = (
     studentEmail: string,
@@ -83,6 +88,31 @@ function Dashboard() {
         });
     }
   });
+
+  const submitChanges = (e: any) => {
+    if (auth.currentUser === null) {
+      return;
+    }
+    let data = {};
+    try {
+      if (firstNameRef.current.value !== "") {
+        data = { ...data, firstName: firstNameRef.current.value };
+      }
+
+      if (lastNameRef.current.value !== "") {
+        data = { ...data, lastName: lastNameRef.current.value };
+      }
+
+      // if (timezoneRef.current.value != "") {
+      //   data = { ...data, timezone: timezoneRef.current.value };
+      // }
+      data = { ...data, timezone: "abcdeehddhdfg" };
+
+      updateStudent(currentUserEmail, data);
+    } catch (e) {
+      alert(e);
+    }
+  };
 
   const connectTutorAndStudent: ClickHandler =
     (studentEmail: string, tutorEmail: string) => (e: any) => {
@@ -281,24 +311,40 @@ function Dashboard() {
             User Email <br />
             Your email address cannot be changed <br />
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+          <form
+            style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
+            onSubmit={(e) => {
+              submitChanges(e);
+            }}
+          >
             <div>
               <label>First Name</label>
               <br />
-              <input style={{ width: "80%" }} type="text" />
+              <input
+                style={{ width: "80%" }}
+                type="text"
+                id="firstname"
+                ref={firstNameRef}
+              />
               <br />
               <label style={{ marginTop: "20px" }}>Timezone</label>
               <br />
               <input
                 style={{ width: "80%" }}
-                value={currentUserEmail}
+                id="timezone"
                 type="text"
+                ref={timezoneRef}
               />
             </div>
             <div>
               <label>Last Name</label>
               <br />
-              <input style={{ width: "80%" }} type="text" />
+              <input
+                style={{ width: "80%" }}
+                type="text"
+                id="lastname"
+                ref={lastNameRef}
+              />
               <br />
               <br />
               <br />
@@ -314,18 +360,18 @@ function Dashboard() {
               >
                 Cancel
               </button>
-              <button
+              <input
+                type="submit"
                 style={{
                   color: "white",
                   border: "none",
                   background: "#001E3D",
                   width: "120px",
                 }}
-              >
-                Save
-              </button>
+                value="Submit"
+              />
             </div>
-          </div>
+          </form>
         </div>
         {/* <h1 className={styles.title}>Available Students</h1>
         <p className={styles.paragraph}>

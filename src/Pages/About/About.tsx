@@ -126,7 +126,7 @@ const About = () => {
   });
 
   return (
-    <div className={styles.center}>
+    <div className="mainContainer">
       <div className={styles.map}>
         <h1 className="title">About</h1>
         <GoogleMapReact

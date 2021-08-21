@@ -100,7 +100,7 @@ const Home = () => {
               creativity and encourage their love for learning.
             </p>
             <Link to="#">
-              <button className={styles.contactUsButton}>Contact Us</button>
+              <button className="buttonStyle">Contact Us</button>
             </Link>
           </div>
           <div>
@@ -121,15 +121,19 @@ const Home = () => {
           </div>
           <div id="recruiting" className={styles.ourMission}>
             <h1>~Our Recruiting~</h1>
-            <p>
-              During the months of June and July, Reach For The Stars will be
-              recruiting members for our Core Team.
-            </p>
-            <br />​
-            <p>
-              This is the team that runs the entire organization. For more
-              information about each position, check the document linked below.
-            </p>
+            <div>
+              <p>
+                During the months of June and July, Reach For The Stars will be
+                recruiting members for our Core Team.
+              </p>
+              ​
+              <p>
+                This is the team that runs the entire organization. For more
+                information about each position, check the document linked
+                below.
+              </p>
+            </div>
+
             <div
               style={{
                 display: "flex",
@@ -137,8 +141,8 @@ const Home = () => {
                 width: "75%",
               }}
             >
-              <button className={styles.contactUsButton}>More Details</button>
-              <button className={styles.contactUsButton}>Apply Here</button>
+              <button className="buttonStyle">More Details</button>
+              <button className="buttonStyle">Apply Here</button>
             </div>
           </div>
         </div>
@@ -147,9 +151,7 @@ const Home = () => {
           <p style={{ display: "flex", flexWrap: "wrap" }}>
             Peer Tutoring, Private Tutoring, AP Peer Classes
           </p>
-          <button className={styles.registerbuttonstyling}>
-            Register Here
-          </button>
+          <button className="buttonStyle">Register Here</button>
           <div className={styles.tutoringResourcesCont}>
             <div className={styles.tutoringResourcesCards}>
               <img
@@ -175,7 +177,7 @@ const Home = () => {
                   children. The students can make new friends and connect with
                   people all over the world while receiving a quality education.
                 </p>
-                <button className={styles.contactUsButton}>Learn More</button>
+                <button className="buttonStyle">Learn More</button>
               </div>
             </div>
             <div className={styles.tutoringResourcesCards}>
@@ -200,7 +202,7 @@ const Home = () => {
                   child gets more time with the tutor and can ask more
                   questions, as only one person is attending to the child.
                 </p>
-                <button className={styles.contactUsButton}>Learn More</button>
+                <button className="buttonStyle">Learn More</button>
               </div>
             </div>
           </div>
@@ -234,7 +236,7 @@ const Home = () => {
                 </li>
               </ol>
               <Link to="#">
-                <button className={styles.contactUsButton}>Contact Us</button>
+                <button className="buttonStyle">Contact Us</button>
               </Link>
             </div>
             <div>

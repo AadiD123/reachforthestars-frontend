@@ -54,18 +54,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: lightblue;
+  justify-content: space-between;
+  background-color: #c4f1be;
   padding: 50px 30px 50px;
   text-align: center;
   max-width: 550px;
   box-shadow: 2px 2px 2px grey;
+  padding-inline: 4em;
+  text-align: justify;
 }
 .contimage {
   box-shadow: 2px 2px 2px grey;
 }
 .contactUsButton {
-  background-color: pink;
+  background-color: #201e50;
+  color: white;
   font-size: 18px;
   height: auto;
   border: none;
@@ -95,7 +98,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: bisque;
+  background-color: var(--background-color);
   width: 100%;
   height: 100%;
   padding: 50px 0 50px 0;
@@ -109,7 +112,7 @@
 
 .tutoringResources {
   margin-top: 10%;
-  background-color: lightcoral;
+  background-color: #598392;
   padding: 20px 20px 20px;
   display: flex;
   flex-direction: column;
@@ -126,7 +129,7 @@
   margin: 40px 0 40px;
   background-color: lightcyan;
   max-width: 550px;
-  box-shadow: 2px 2px 2px grey;
+  box-shadow: 3px 3px 3px grey;
 }
 .registerbuttonstyling {
   color: white;
@@ -149,23 +152,22 @@
   margin-top: 30px;
 }
 .summerCamp {
-  background-color: lightpink;
+  background-color: var(--accent-green);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 40px 30px 50px;
-  min-height: 700px;
-  box-shadow: 2px 2px 2px grey;
+  box-shadow: 3px 3px 3px grey;
 }
 .peerClassCard {
   display: flex;
   flex-direction: column;
-  background-color: lightblue;
+  background-color: var(--accent-green);
   justify-content: space-evenly;
   align-items: center;
   padding-inline: 40px;
-  box-shadow: 2px 2px 2px grey;
+  box-shadow: 3px 3px 3px grey;
 }
 .blogs {
   max-height: 1000px;
