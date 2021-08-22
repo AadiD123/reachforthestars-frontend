@@ -23,7 +23,7 @@ import SignUp from "./Pages/Authentication/Sign Up/SignUp";
 
 //Private Pages
 import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
-import AvailableStudents from "./Pages/PrivatePages/AvailableStudents/AvailableStudents";
+import StudentDashboard from "./Pages/PrivatePages/StudentDashboard/StudentDashboard";
 
 function App() {
   return (
@@ -31,13 +31,11 @@ function App() {
       <Navbar />
       <AuthProvider>
         <Switch>
-          <Route path="/dashboard2" component={Dashboard} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute
-            path="/available-students"
-            component={AvailableStudents}
+            path="/student-dashboard"
+            component={StudentDashboard}
           />
-          <Route path="/dashboard2" exact component={Dashboard} />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />
@@ -47,12 +45,12 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
 
-          <Route path="/blog-page-edit" component={BlogPageEdit} />
+          <Route path="/blog-edit" component={BlogPageEdit} />
           <Route path="/registration" component={Registration} />
           <Route path="/individual-about" component={IndividualAbout} />
         </Switch>
       </AuthProvider>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }

@@ -46,6 +46,7 @@ export function AuthProvider({ children }: any) {
       } else if (role === "admin") {
         addAdmin(firstName, lastName, email, timezone, role);
       }
+      localStorage.setItem("useremail", email);
     });
   }
 

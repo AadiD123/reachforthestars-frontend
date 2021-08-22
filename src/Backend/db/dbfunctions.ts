@@ -1,11 +1,12 @@
 import { db } from "../Firebase";
+import firebase from "firebase";
 
 export function addBlog(
   author: string,
   date: string,
   title: string,
-  content: any,
-  blogpicture: string
+  content: HTMLCollection,
+  image: string
 ) {
   db.collection("blogs")
     .doc()
@@ -14,7 +15,7 @@ export function addBlog(
       date: date,
       title: title,
       content: content,
-      blogpicture: blogpicture,
+      image: image,
     })
     .then(() => {
       console.log("Blog info successfully written!");
@@ -137,7 +138,7 @@ export function addUsers(
 }
 
 export async function getAllAvailableStudents() {
-  var availableStudents = new Array();
+  let availableStudents = new Array();
 
   db.collection("users")
     .get()
@@ -152,3 +153,45 @@ export async function getAllAvailableStudents() {
       console.log("error getting documents: ", error);
     });
 }
+
+interface BioInterface {
+  name: string;
+  location: firebase.firestore.GeoPoint;
+  bio: string;
+}
+export async function getAllBios() {
+  let allBios: BioInterface[] = [];
+  db.collection("bios")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        allBios.push({
+          name: doc.get("name"),
+          location: doc.get("location"),
+          bio: doc.get("bio"),
+        });
+      });
+      return allBios;
+    })
+    .catch((error) => {
+      console.log("error getting documents: ", error);
+      return null;
+    });
+}
+
+export async function updateStudent(id: string | null, data: Object) {
+  if (id == null) {
+    return null;
+  }
+  db.collection("students")
+    .doc(id)
+    .update({ firstName: "128eddhd" })
+    .then((value) => {
+      alert(value);
+    })
+    .catch((e) => {
+      alert(e);
+    });
+}
+
+export async function getUser(id: string) {}

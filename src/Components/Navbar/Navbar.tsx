@@ -29,6 +29,7 @@ function Navbar() {
         });
     }
   });
+
   return (
     <nav
       className="navbar"
@@ -48,14 +49,16 @@ function Navbar() {
       >
         {navbarData.map((item, index) => {
           return (
-            <Link className={styles.navLink} to={item.path}>
-              <button
-                className={`${styles.navbarbuttonstyling} btn my-2 my-sm-0`}
-                key={index}
-              >
-                {item.title}
-              </button>
-            </Link>
+            <div key={index}>
+              <Link className={styles.navLink} to={item.path}>
+                <button
+                  className={`${styles.navbarbuttonstyling} btn my-2 my-sm-0`}
+                  key={index}
+                >
+                  {item.title}
+                </button>
+              </Link>
+            </div>
           );
         })}
       </div>

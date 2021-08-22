@@ -1,24 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 
+:root {
+  --background-color: #eff6e0;
+  --accent-blue: #124559;
+  --accent-green: #c4f1be;
+}
+
 body {
   margin: 0;
-  font-family: "Open Sans";
-  background-image: "/assets/weather.png";
+  padding: 0;
+  background-color: var(--background-color);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.title {
+  font-size: 5rem;
+  text-align: center;
+  color: #001e3d;
 }
 
-div {
-  font-family: "Open Sans";
-  font-size: 1.3rem;
+.mainContainer {
+  padding-inline: 10em;
+  min-height: 30em;
 }
 
-p .hidden {
-  display: none;
+.buttonStyle {
+  color: white;
+  background-color: var(--accent-color);
+  background-color: #001e3d;
+  border: 1px solid #001e3d;
+  margin-left: 1vw;
+  border-radius: 0;
+  padding: 10px 25px 10px;
 }
-.show {
-  display: block;
+
+.buttonStyle:hover {
+  color: rgb(245, 239, 239);
+  background-color: #073563;
+}
+
+@media screen and (max-width: 420px) {
+  .mainContainer {
+    padding-inline: 0;
+  }
 }

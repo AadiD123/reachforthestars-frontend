@@ -43,13 +43,6 @@ export default function Form() {
         className={styles.typingInput}
         ref={passwordRef}
       />
-      <input
-        name="rememberMe"
-        id="rememberMe"
-        type="checkbox"
-        className={styles.checkingInput}
-      />
-      <span className={styles.rememberMe}>Remember Me</span>
       <button disabled={loading} className={styles.submitButton} type="submit">
         Login
       </button>

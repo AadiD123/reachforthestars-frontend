@@ -34,18 +34,6 @@ const BlogPage = () => {
       .catch((error) => {
         console.log("Error getting document:", error);
       });
-    var allblogs: any = [];
-    var recentblogs: any = [];
-
-    db.collection("blogs").onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        allblogs.push({ key: doc.id, ...doc.data() });
-      });
-      for (var i = 0; i < 3; i++) {
-        recentblogs.push(allblogs[i]);
-      }
-      setBlogs(recentblogs);
-    });
   });
 
   if (loading) {

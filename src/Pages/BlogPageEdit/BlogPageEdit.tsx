@@ -16,36 +16,12 @@ const BlogPageEdit = () => {
   const authorRef = useRef() as MutableRefObject<any>;
   const urlRef = useRef() as MutableRefObject<any>;
   const titleRef = useRef() as MutableRefObject<any>;
-  const [content, setContentState] = useState("");
+  const [content, setContent] = useState<HTMLCollection>();
   const history = useHistory();
 
-  // const [content, setContent] = useState<string | Node>("");
-
   const handleEditorChange = (e: any) => {
-    console.log("Content was updated:", e.target.getContent());
-    setContentState(e.target.getContent());
-    console.log(content, " this is your content");
+    setContent(e.target.getContent());
   };
-
-  // const [editorState, setEditorState] = useState(() =>
-  //   EditorState.createEmpty()
-  // );
-  // const [convertedContent, setConvertedContent] = useState("");
-
-  // const handleEditorChange = (state: any) => {
-  //   setEditorState(state);
-  //   convertContentToHTML();
-  // };
-
-  // const convertContentToHTML = () => {
-  //   let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
-  //   setConvertedContent(currentContentAsHTML);
-  //   createMarkup(convertedContent);
-  // };
-
-  // const createMarkup = (html: string | Node) => {
-  //   setContent(DOMPurify.sanitize(html));
-  // };
 
   const setBlogData = (e: any) => {
     const date = new Date();
@@ -55,13 +31,15 @@ const BlogPageEdit = () => {
       date.getDate().toString() +
       "/" +
       date.getFullYear().toString();
-    addBlog(
-      authorRef.current.value,
-      dateinput,
-      titleRef.current.value,
-      content,
-      urlRef.current.value
-    );
+    if (content != null) {
+      addBlog(
+        authorRef.current.value,
+        dateinput,
+        titleRef.current.value,
+        content,
+        urlRef.current.value
+      );
+    }
     history.push("/blog");
   };
 
@@ -100,15 +78,6 @@ const BlogPageEdit = () => {
           }}
           onChange={handleEditorChange}
         />
-
-        {/* <Editor
-          editorState={editorState}
-          onEditorStateChange={handleEditorChange}
-          wrapperClassName="wrapper-class"
-          editorClassName="editor-class"
-          toolbarClassName="toolbar-class"
-        /> */}
-
         <div>
           <div className="form-group" style={{ marginTop: "20px" }}>
             <label>Author:</label>

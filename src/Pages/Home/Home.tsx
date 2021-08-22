@@ -7,21 +7,32 @@ import Blog from "../Blog/Blog";
 import { useEffect, useState } from "react";
 import { db } from "../../Backend/Firebase";
 
+// interface Blogs {
+//   key: string;
+//   title: string;
+//   author: string;
+//   content: HTMLCollection;
+//   image: string;
+// }
+
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  var allblogs: any = [];
-  var recentblogs: any = [];
-
-  db.collection("blogs").onSnapshot((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      allblogs.push({ key: doc.id, ...doc.data() });
+  useEffect(() => {
+    var allblogs: any = [];
+    var recentblogs: any = [];
+    db.collection("blogs").onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        allblogs.push({ key: doc.id, ...doc.data() });
+      });
+      console.log(allblogs);
+      if (allblogs.length > 3) {
+        for (var i = 0; i < 3; i++) {
+          recentblogs.push(allblogs[i]);
+        }
+        setBlogs(recentblogs);
+      }
     });
-    for (var i = 0; i < 3; i++) {
-      recentblogs.push(allblogs[i]);
-    }
-    setBlogs(recentblogs);
   });
 
   const items = [
@@ -41,10 +52,10 @@ const Home = () => {
       title: "Our Programs",
       path: "ourPrograms",
     },
-    {
-      title: "Blog",
-      path: "blog",
-    },
+    // {
+    //   title: "Blog",
+    //   path: "blog",
+    // },
   ];
 
   return (
@@ -89,7 +100,7 @@ const Home = () => {
               creativity and encourage their love for learning.
             </p>
             <Link to="#">
-              <button className={styles.contactUsButton}>Contact Us</button>
+              <button className="buttonStyle">Contact Us</button>
             </Link>
           </div>
           <div>
@@ -110,15 +121,19 @@ const Home = () => {
           </div>
           <div id="recruiting" className={styles.ourMission}>
             <h1>~Our Recruiting~</h1>
-            <p>
-              During the months of June and July, Reach For The Stars will be
-              recruiting members for our Core Team.
-            </p>
-            <br />​
-            <p>
-              This is the team that runs the entire organization. For more
-              information about each position, check the document linked below.
-            </p>
+            <div>
+              <p>
+                During the months of June and July, Reach For The Stars will be
+                recruiting members for our Core Team.
+              </p>
+              ​
+              <p>
+                This is the team that runs the entire organization. For more
+                information about each position, check the document linked
+                below.
+              </p>
+            </div>
+
             <div
               style={{
                 display: "flex",
@@ -126,21 +141,20 @@ const Home = () => {
                 width: "75%",
               }}
             >
-              <button className={styles.contactUsButton}>More Details</button>
-              <button className={styles.contactUsButton}>Apply Here</button>
+              <button className="buttonStyle">More Details</button>
+              <button className="buttonStyle">Apply Here</button>
             </div>
           </div>
         </div>
         <div id="tutoringResources" className={styles.tutoringResources}>
           <h1>Tutoring Resources</h1>
-          <p>Peer Tutoring, Private Tutoring, AP Peer Classes</p>
-          <button className={styles.registerbuttonstyling}>
-            Register Here
-          </button>
-          <div className={styles.cardContainer}>
+          <p style={{ display: "flex", flexWrap: "wrap" }}>
+            Peer Tutoring, Private Tutoring, AP Peer Classes
+          </p>
+          <button className="buttonStyle">Register Here</button>
+          <div className={styles.tutoringResourcesCont}>
             <div className={styles.tutoringResourcesCards}>
               <img
-                className={styles.contimage}
                 src={hands}
                 alt="hands"
                 style={{ maxHeight: "40%", width: "100%", objectFit: "cover" }}
@@ -163,7 +177,7 @@ const Home = () => {
                   children. The students can make new friends and connect with
                   people all over the world while receiving a quality education.
                 </p>
-                <button className={styles.contactUsButton}>Learn More</button>
+                <button className="buttonStyle">Learn More</button>
               </div>
             </div>
             <div className={styles.tutoringResourcesCards}>
@@ -188,7 +202,7 @@ const Home = () => {
                   child gets more time with the tutor and can ask more
                   questions, as only one person is attending to the child.
                 </p>
-                <button className={styles.contactUsButton}>Learn More</button>
+                <button className="buttonStyle">Learn More</button>
               </div>
             </div>
           </div>
@@ -222,7 +236,7 @@ const Home = () => {
                 </li>
               </ol>
               <Link to="#">
-                <button className={styles.contactUsButton}>Contact Us</button>
+                <button className="buttonStyle">Contact Us</button>
               </Link>
             </div>
             <div>
@@ -245,17 +259,17 @@ const Home = () => {
               <h1>AP PEER Classes</h1>
               <p>
                 The AP Peer Class Program is a review course for students taking
-                the May AP test. <br />
+                the May AP test. <br /> <br />
                 There are over 20 subjects for students to choose from. Our
                 tutors and TAs make sure that these students are able to score
                 high on their AP tests with review worksheets, lectures, Q&A
-                sessions, and diagnostic tests. <br />
+                sessions, and diagnostic tests. <br /> <br />
                 Stayed tuned for our 2022 registration!
               </p>
             </div>
           </div>
         </div>
-        <div id="blog">
+        {/* <div id="blog">
           <div style={{ textAlign: "center", marginTop: "50px" }}>
             <h1>Blog</h1>
           </div>
@@ -267,7 +281,6 @@ const Home = () => {
               {blogs.length > 0 ? (
                 blogs.map((blog: any) => (
                   <div
-                    id={blog.key}
                     key={blog.key}
                     style={{ marginTop: "20px", marginBottom: "10px" }}
                   >
@@ -290,11 +303,11 @@ const Home = () => {
                   </div>
                 ))
               ) : (
-                <h1>Blogs not loaded</h1>
+                <h1>No Blogs</h1>
               )}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
