@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./IndividualAbout.module.css";
 import * as FaIcons from "react-icons/fa";
+import { useParams } from "react-router";
+import IndAbout from "../../Components/IndAbout/IndAbout";
 const IndividualAbout = () => {
+  let { name, text }: any = useParams();
   return (
     <div>
       <h1 className={styles.title}>Meet the Team</h1>
@@ -16,7 +19,9 @@ const IndividualAbout = () => {
     
     
     <div className="carousel-inner">
-      <div className="carousel-item active">
+
+      <IndAbout name = {name} text = {text} ></IndAbout>
+      {/* <div className="carousel-item active">
         <div className={styles.item}>
           <div className={styles.box}>
            <div className={styles.imageCenter}><img alt = "person" src="https://lh3.googleusercontent.com/proxy/9F8-sYc3toodFQb7enQZmH1tKdHuFRMejfPIHqIY2bjyLhdVyh_Z6LgeiyKDyynq9PTZ0hRwIJ0PUD1OY-dfJ3iEEJUQnaiVpOjaxj1U7athfkMvVrOKQZ3V7cIl-Q" width="200px" height="200px" className={styles.image} /></div> 
@@ -30,8 +35,8 @@ const IndividualAbout = () => {
           </div>
         </div>
         
-      </div>
-      <div className="carousel-item">
+      </div> */}
+      {/* <div className="carousel-item">
       <div className={styles.item}>
           <div className={styles.box}>
            <div className={styles.imageCenter}><img alt = "person" src="https://lh3.googleusercontent.com/proxy/9F8-sYc3toodFQb7enQZmH1tKdHuFRMejfPIHqIY2bjyLhdVyh_Z6LgeiyKDyynq9PTZ0hRwIJ0PUD1OY-dfJ3iEEJUQnaiVpOjaxj1U7athfkMvVrOKQZ3V7cIl-Q" width="200px" height="200px" className={styles.image} /></div> 
@@ -58,7 +63,8 @@ const IndividualAbout = () => {
             <h1 className={styles.namepos}>Full Name, Position in RFTS</h1>
           </div>
         </div>
-      </div>
+      </div> */}
+
     </div>
     
    

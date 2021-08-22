@@ -1,9 +1,11 @@
 import styles from "./Marker.module.css";
-
+import { Link } from "react-router-dom";
 function Marker(props: any) {
   const { name, text } = props;
 
   return (
+    <Link to = {`/individual-about/${name}/${text}`}>
+
     <div
       className={styles.pin}
       style={{ backgroundColor: "blue", cursor: "pointer" }}
@@ -24,6 +26,7 @@ function Marker(props: any) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
 
