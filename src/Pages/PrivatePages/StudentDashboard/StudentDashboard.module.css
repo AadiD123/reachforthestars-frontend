@@ -15,11 +15,11 @@
   text-align: center;
   box-shadow: 1px 1px 1px 1px grey;
 }
-.options h1:hover {
+.options {
   background-color: #001e3d;
   color: white;
 }
-.options h1 {
+.options {
   text-align: left;
   padding: 2%;
   padding-left: 4%;
@@ -64,10 +64,6 @@
 
 .buttons {
   display: flex;
-}
-
-h1 {
-  font-size: 1.5rem;
 }
 
 .dashCard {

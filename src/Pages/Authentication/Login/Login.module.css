@@ -14,7 +14,7 @@
   display: block;
   justify-content: center;
 }
-.loginBox h1 {
+.loginBox {
   text-align: center;
   padding-top: 25px;
   font-size: 250%;

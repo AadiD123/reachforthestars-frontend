@@ -40,6 +40,6 @@ body {
 
 @media screen and (max-width: 420px) {
   .mainContainer {
-    padding-inline: 0;
+    padding-inline: 10px;
   }
 }
