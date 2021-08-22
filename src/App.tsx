@@ -23,7 +23,7 @@ import SignUp from "./Pages/Authentication/Sign Up/SignUp";
 
 //Private Pages
 import OldDashboard from "./Pages/PrivatePages/OldDashboard/Dashboard";
-import Dashboard from "./Pages/PrivatePages/Dashboard/NewDashboard";
+import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
 
 function App() {
   return (

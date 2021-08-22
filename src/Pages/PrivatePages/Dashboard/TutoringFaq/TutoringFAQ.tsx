@@ -54,14 +54,17 @@ export default function TutoringFAQ() {
       >
         Dropping a Student Form
       </button>
-      {/* <p
-        className={styles.paragraph}
-        style={{ marginTop: "20px", fontSize: "21px" }}
-      >
-        Tutors, use the tutor password to view available students or access the
-        tutoring forms. Email us at tutoring.reachstars@gmail.com to get your
-        password if you do not have one already.
-      </p> */}
+      {/* <div style={{ maxWidth: "25%" }}>
+        <p
+          className={styles.paragraph}
+          style={{ marginTop: "20px", fontSize: "21px" }}
+        >
+          Tutors, use the tutor password to view available students or access
+          the tutoring forms. Email us at tutoring.reachstars@gmail.com to get
+          your password if you do not have one already.
+        </p>
+      </div> */}
+
       <h1 className={styles.title}>Tutoring Resources</h1>
       <p
         className={styles.paragraph}
