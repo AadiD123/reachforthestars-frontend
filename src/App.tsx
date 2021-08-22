@@ -42,7 +42,11 @@ function App() {
           <Route path="/join-our-team" component={JoinOurTeam} />
           <Route path="/blog" component={Blog} />
           <Route path="/blogpage/:id" exact component={BlogPage} />
-          <Route path="/individual-about/:name/:text" exact component={IndividualAbout}/>
+          <Route
+            path="/individual-about/:name/:text"
+            exact
+            component={IndividualAbout}
+          />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
 

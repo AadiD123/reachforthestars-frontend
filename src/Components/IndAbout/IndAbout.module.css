@@ -1,78 +1,91 @@
-.title{
-    text-align: center;
-    font-weight: bold;
-    font-size: 50px;
-    margin-top: 8%;
-    margin-bottom: 2%;
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item {
+  min-height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image {
+  width: 200px;
+  max-height: 400px;
+  min-height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.box {
+  background-color: var(--accent-tealBlue);
+  width: 65%;
+  position: relative;
+  padding: 3%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.info {
+  /* width: 70%; */
+  color: white;
+  padding-top: 30px;
+  /* text-align: justify; */
+}
+.namepos {
+  text-align: right;
+  color: white;
+  bottom: 3%;
+  right: 3%;
 }
 
-.item{
-    min-height: 70vh;
-    width: 100%;
-    margin-top:40px;
+@media screen and (max-width: 1000px) {
+  .namepos {
+    text-align: center;
+    margin: 20px;
+  }
+  .info {
+    width: auto;
+    text-align: justify;
+  }
+  .imageCenter {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+
+  .container {
+    grid-row: 1;
+    padding-top: 10px;
+  }
+  .box {
+    padding: 10px 25px 10px;
+    margin-bottom: 25px;
+  }
 }
 
-.box{
-    width: 65%;
-    
-    background-color: #aaaaaa;
-    position: relative;
-    padding: 3%;
-}
-
-.info{
-    width: 70%;
-    color: white;
-}
-.namepos{
-    text-align: right;
-    color: white;
-  
-    bottom: 3%;
-   
-    right:3%;
-}
-
-.image{
-    border-radius: 50%;
-    position: absolute;
-    right: -10%;
-    top:-10%;
-}
-
-@media screen and (max-width: 1000px){
-    .image{
-       position: static;
-    }
-    .namepos{
-        text-align: center;
-        
-        margin:20px;
-
-    }
-    .info{
-    width: auto;
-    text-align: center;
-    }
-  
-    .imageCenter{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 30px;
-    }
-}
-
-@media screen and (max-width: 500px){
-    .box{
+@media screen and (max-width: 500px) {
+  .box {
     width: 99%;
     height: 100%;
-    }
-    .title{
-        font-size: 30px;
-        margin-top: 20%;
-    }
+  }
+  .title {
+    font-size: 30px;
+    margin-top: 20%;
+  }
 }

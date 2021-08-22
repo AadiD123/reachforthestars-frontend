@@ -25,7 +25,6 @@ const Home = () => {
       querySnapshot.forEach((doc) => {
         allblogs.push({ key: doc.id, ...doc.data() });
       });
-      console.log(allblogs);
       if (allblogs.length > 3) {
         for (var i = 0; i < 3; i++) {
           recentblogs.push(allblogs[i]);
