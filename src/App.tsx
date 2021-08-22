@@ -22,8 +22,8 @@ import BlogPageEdit from "./Pages/BlogPageEdit/BlogPageEdit";
 import SignUp from "./Pages/Authentication/Sign Up/SignUp";
 
 //Private Pages
-import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
-import StudentDashboard from "./Pages/PrivatePages/StudentDashboard/StudentDashboard";
+import OldDashboard from "./Pages/PrivatePages/OldDashboard/Dashboard";
+import Dashboard from "./Pages/PrivatePages/Dashboard/NewDashboard";
 
 function App() {
   return (
@@ -31,11 +31,7 @@ function App() {
       <Navbar />
       <AuthProvider>
         <Switch>
-          <PrivateRoute path="/dashboard" component={Dashboard} />
-          <PrivateRoute
-            path="/student-dashboard"
-            component={StudentDashboard}
-          />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />

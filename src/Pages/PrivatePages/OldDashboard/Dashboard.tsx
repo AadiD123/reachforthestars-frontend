@@ -89,31 +89,6 @@ function Dashboard() {
     }
   });
 
-  const submitChanges = (e: any) => {
-    if (auth.currentUser === null) {
-      return;
-    }
-    let data = {};
-    try {
-      if (firstNameRef.current.value !== "") {
-        data = { ...data, firstName: firstNameRef.current.value };
-      }
-
-      if (lastNameRef.current.value !== "") {
-        data = { ...data, lastName: lastNameRef.current.value };
-      }
-
-      // if (timezoneRef.current.value != "") {
-      //   data = { ...data, timezone: timezoneRef.current.value };
-      // }
-      data = { ...data, timezone: "abcdeehddhdfg" };
-
-      updateStudent(currentUserEmail, data);
-    } catch (e) {
-      alert(e);
-    }
-  };
-
   const connectTutorAndStudent: ClickHandler =
     (studentEmail: string, tutorEmail: string) => (e: any) => {
       e.preventDefault();
@@ -303,118 +278,11 @@ function Dashboard() {
           style={{ display: "none" }}
           id="settingssection"
           className={styles.dashboard}
-        >
-          <h1 className={styles.title}>My Account</h1>
-          <p>Update and Edit the information you share with community</p>
-          <p className={styles.paragraph}>
-            Login Email: <br />
-            User Email <br />
-            Your email address cannot be changed <br />
-          </p>
-          <form
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
-            onSubmit={(e) => {
-              submitChanges(e);
-            }}
-          >
-            <div>
-              <label>First Name</label>
-              <br />
-              <input
-                style={{ width: "80%" }}
-                type="text"
-                id="firstname"
-                ref={firstNameRef}
-              />
-              <br />
-              <label style={{ marginTop: "20px" }}>Timezone</label>
-              <br />
-              <input
-                style={{ width: "80%" }}
-                id="timezone"
-                type="text"
-                ref={timezoneRef}
-              />
-            </div>
-            <div>
-              <label>Last Name</label>
-              <br />
-              <input
-                style={{ width: "80%" }}
-                type="text"
-                id="lastname"
-                ref={lastNameRef}
-              />
-              <br />
-              <br />
-              <br />
-
-              <button
-                style={{
-                  color: "black",
-                  border: "none",
-                  background: "grey",
-                  width: "120px",
-                  marginRight: "20px",
-                }}
-              >
-                Cancel
-              </button>
-              <input
-                type="submit"
-                style={{
-                  color: "white",
-                  border: "none",
-                  background: "#001E3D",
-                  width: "120px",
-                }}
-                value="Submit"
-              />
-            </div>
-          </form>
-        </div>
+        ></div>
         {/* <h1 className={styles.title}>Available Students</h1>
         <p className={styles.paragraph}>
           Welcome to the Available Students tab!
         </p> */}
-        {students.length > 0 ? (
-          students.map((student: any) => (
-            <div key={student.key}>
-              <div
-                style={{ display: "none" }}
-                id="availableStudentsSection"
-                className={styles.dashboard}
-              >
-                <div className={`card ${styles.dashCard}`}>
-                  <div className="card-body">
-                    <h1 className="card-title">
-                      <strong>{student.firstName}</strong>
-                    </h1>
-                  </div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">{student.key}</li>
-                    <li className="list-group-item">
-                      Timezone: {student.timezone}
-                    </li>
-                  </ul>
-                  <div className="card-body">
-                    <button
-                      className="btn btn-primary"
-                      onClick={connectTutorAndStudent(
-                        student.key,
-                        currentUserEmail
-                      )}
-                    >
-                      Connect
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <h1>No available students</h1>
-        )}
       </div>
     </div>
   );
