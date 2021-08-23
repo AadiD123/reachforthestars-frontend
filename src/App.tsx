@@ -22,34 +22,16 @@ import BlogPageEdit from "./Pages/BlogPageEdit/BlogPageEdit";
 import SignUp from "./Pages/Authentication/Sign Up/SignUp";
 
 //Private Pages
-<<<<<<< HEAD
 import OldDashboard from "./Pages/PrivatePages/OldDashboard/Dashboard";
 import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
 
 function App() {
   return (
-=======
-import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
-import StudentDashboard from "./Pages/PrivatePages/StudentDashboard/StudentDashboard";
-
-function App() {
-  return (
-    <div>
-    <div>
->>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
     <Router>
       <Navbar />
       <AuthProvider>
         <Switch>
-<<<<<<< HEAD
           <Route path="/dashboard" component={Dashboard} />
-=======
-          <PrivateRoute path="/dashboard" component={Dashboard} />
-          <PrivateRoute
-            path="/student-dashboard"
-            component={StudentDashboard}
-          />
->>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />
@@ -69,19 +51,8 @@ function App() {
           <Route path="/individual-about" component={IndividualAbout} />
         </Switch>
       </AuthProvider>
-<<<<<<< HEAD
       <Footer />
     </Router>
-=======
-    
-    </Router>
-    </div>
-    <div style={{position: 'relative'}} >
-      <Footer />
-    </div>
-    </div>
-
->>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
   );
 }
 

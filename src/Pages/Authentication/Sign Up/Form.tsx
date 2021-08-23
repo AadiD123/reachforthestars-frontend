@@ -59,106 +59,95 @@ export default function Form() {
   };
 
   return (
-<<<<<<< HEAD
-    <form onSubmit={handleSubmit}>
-=======
-    <div >
-    <form style = {{fontSize: 'medium', margin: 0}}onSubmit={handleSubmit}>
->>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
-      <input
-        name="firstName"
-        id="firstName"
-        type="string"
-        placeholder="First Name"
-        required
-        className={styles.typingInput}
-        ref={firstNameRef}
-      />
-      <input
-        name="lastName"
-        id="lastName"
-        type="string"
-        placeholder="Last Name"
-        required
-        className={styles.typingInput}
-        ref={lastNameRef}
-      />
-      <input
-        name="grade"
-        id="grade"
-        type="number"
-        placeholder="Grade"
-        required
-        className={styles.typingInput}
-        ref={gradeRef}
-      />
-      <input
-        name="timezone"
-        id="timezone"
-        type="timezone"
-        placeholder="Timezone"
-        required
-        className={styles.typingInput}
-        ref={timezoneRef}
-      />
-      <input
-        name="email"
-        id="email"
-        type="email"
-        placeholder="Email"
-        required
-        className={styles.typingInput}
-        ref={emailRef}
-      />
-      <input
-        name="password"
-        id="password"
-        type="password"
-        placeholder="Password"
-        required
-        className={styles.typingInput}
-        ref={passwordRef}
-      />
-      <select
-        onChange={selectVolunteer}
-        required
-        name="role"
-        id="role"
-        className={styles.typingInput}
-      >
-        <option value="student">Student</option>
-        <option value="volunteer">General Volunteer</option>
-      </select>
-      {volunteer ? (
-<<<<<<< HEAD
-=======
-        <div>
->>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
+    <div>
+      <form style={{ fontSize: "medium", margin: 0 }} onSubmit={handleSubmit}>
         <input
-          name="pin"
-          id="pin"
-          type="password"
-          placeholder="Enter Pin"
+          name="firstName"
+          id="firstName"
+          type="string"
+          placeholder="First Name"
+          required
           className={styles.typingInput}
-<<<<<<< HEAD
-          ref={pinRef}
+          ref={firstNameRef}
         />
-=======
-          ref={pinRef} 
+        <input
+          name="lastName"
+          id="lastName"
+          type="string"
+          placeholder="Last Name"
+          required
+          className={styles.typingInput}
+          ref={lastNameRef}
         />
-        {/* <br></br> */}
-        </div>
->>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
-      ) : (
-        <div></div>
-      )}
-      <button disabled={loading} className={styles.submitButton} type="submit">
-        Sign Up
-      </button>
-    </form>
-<<<<<<< HEAD
-=======
+        <input
+          name="grade"
+          id="grade"
+          type="number"
+          placeholder="Grade"
+          required
+          className={styles.typingInput}
+          ref={gradeRef}
+        />
+        <input
+          name="timezone"
+          id="timezone"
+          type="timezone"
+          placeholder="Timezone"
+          required
+          className={styles.typingInput}
+          ref={timezoneRef}
+        />
+        <input
+          name="email"
+          id="email"
+          type="email"
+          placeholder="Email"
+          required
+          className={styles.typingInput}
+          ref={emailRef}
+        />
+        <input
+          name="password"
+          id="password"
+          type="password"
+          placeholder="Password"
+          required
+          className={styles.typingInput}
+          ref={passwordRef}
+        />
+        <select
+          onChange={selectVolunteer}
+          required
+          name="role"
+          id="role"
+          className={styles.typingInput}
+        >
+          <option value="student">Student</option>
+          <option value="volunteer">General Volunteer</option>
+        </select>
+        {volunteer ? (
+          <div>
+            <input
+              name="pin"
+              id="pin"
+              type="password"
+              placeholder="Enter Pin"
+              className={styles.typingInput}
+              ref={pinRef}
+            />
+            {/* <br></br> */}
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <button
+          disabled={loading}
+          className={styles.submitButton}
+          type="submit"
+        >
+          Sign Up
+        </button>
+      </form>
     </div>
->>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
   );
 }
