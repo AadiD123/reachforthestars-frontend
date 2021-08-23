@@ -1,14 +1,20 @@
 import styles from "./Marker.module.css";
 import { Link } from "react-router-dom";
 function Marker(props: any) {
-  const { name, text } = props;
+  const { name, text, src } = props;
+  const setToStorage = (aboutname: any, abouttext: any, aboutsrc: any) => {
+    localStorage.setItem("name", aboutname);
+    localStorage.setItem("text", abouttext);
+    localStorage.setItem("src", aboutsrc);
+  };
 
   return (
-    <Link to={`/individual-about/${name}/${text}`}>
+    <Link to={`/individual-about/`}>
       <div
         className={styles.pin}
         style={{ backgroundColor: "blue", cursor: "pointer" }}
         title={name}
+        onClick={() => setToStorage(name, text, src)}
       >
         <div
           className={styles.modal}
@@ -17,8 +23,12 @@ function Marker(props: any) {
           <img
             alt="card"
             className="card-img-top"
-            src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/06/06/15/Chris-Pratt.jpg?width=982&height=726&auto=webp&quality=75"
-            style={{ borderRadius: "10px" }}
+            src={src}
+            style={{
+              borderRadius: "10px",
+              maxHeight: "200px",
+              objectFit: "cover",
+            }}
           />
           <div className="card-body">
             <h4 className="card-title">{name}</h4>

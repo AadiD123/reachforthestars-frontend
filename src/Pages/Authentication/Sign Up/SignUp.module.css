@@ -29,7 +29,7 @@ form {
 }
 .typingInput {
   border: none;
-  margin-left: 20%;
+  /* margin-left: 20%; */
   width: 60%;
   padding: 5px;
   padding-left: 10px;
@@ -49,7 +49,7 @@ input::placeholder {
   border: none;
   padding: 5px;
   width: 30%;
-  margin-left: 35%;
+  /* margin-left: 35%; */
 }
 .rememberMe {
   margin: 0;

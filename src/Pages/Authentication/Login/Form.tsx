@@ -24,7 +24,7 @@ export default function Form() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={{ fontSize: "medium", margin: 0 }} onSubmit={handleSubmit}>
       <input
         name="email"
         id="email"
@@ -43,6 +43,7 @@ export default function Form() {
         className={styles.typingInput}
         ref={passwordRef}
       />
+      <br></br>
       <button disabled={loading} className={styles.submitButton} type="submit">
         Login
       </button>

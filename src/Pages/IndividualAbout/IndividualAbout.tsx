@@ -4,14 +4,16 @@ import * as FaIcons from "react-icons/fa";
 import { useParams } from "react-router";
 import IndAbout from "../../Components/IndAbout/IndAbout";
 const IndividualAbout = () => {
-  let { name, text }: any = useParams();
+  let name: string | null = localStorage.getItem("name");
+  let text: string | null = localStorage.getItem("text");
+  let src: string | null = localStorage.getItem("src");
 
   return (
     <div className="mainContainer">
       <h1 className="title">Meet the Team</h1>
       <div id="slides" className="carousel slide" data-ride="carousel">
         <div className="carousel-inner">
-          <IndAbout name={name} text={text}></IndAbout>
+          <IndAbout name={name} text={text} src={src}></IndAbout>
           {/* <div className="carousel-item active">
         <div className={styles.item}></div>
           <div className={styles.box}>
