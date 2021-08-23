@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "reachforthestars-frontend",
+=======
+  "name": "reachforthestars-frontend-master",
+>>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
   "version": "0.1.0",
   "private": true,
   "dependencies": {

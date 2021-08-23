@@ -42,10 +42,6 @@
 }
 
 .paragraph {
-<<<<<<< HEAD
-  word-wrap: break-word;
-=======
->>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
   font-size: 16px;
 }
 
@@ -72,10 +68,7 @@
 
 .dashCard {
   padding: 30px;
-<<<<<<< HEAD
-=======
   width: 33%;
->>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
 }
 
 @media (max-width: 1400px) {

@@ -59,7 +59,12 @@ export default function Form() {
   };
 
   return (
+<<<<<<< HEAD
     <form onSubmit={handleSubmit}>
+=======
+    <div >
+    <form style = {{fontSize: 'medium', margin: 0}}onSubmit={handleSubmit}>
+>>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
       <input
         name="firstName"
         id="firstName"
@@ -125,14 +130,25 @@ export default function Form() {
         <option value="volunteer">General Volunteer</option>
       </select>
       {volunteer ? (
+<<<<<<< HEAD
+=======
+        <div>
+>>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
         <input
           name="pin"
           id="pin"
           type="password"
           placeholder="Enter Pin"
           className={styles.typingInput}
+<<<<<<< HEAD
           ref={pinRef}
         />
+=======
+          ref={pinRef} 
+        />
+        {/* <br></br> */}
+        </div>
+>>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
       ) : (
         <div></div>
       )}
@@ -140,5 +156,9 @@ export default function Form() {
         Sign Up
       </button>
     </form>
+<<<<<<< HEAD
+=======
+    </div>
+>>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
   );
 }

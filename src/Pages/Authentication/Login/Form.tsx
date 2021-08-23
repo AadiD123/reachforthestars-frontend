@@ -24,7 +24,11 @@ export default function Form() {
   }
 
   return (
+<<<<<<< HEAD
     <form onSubmit={handleSubmit}>
+=======
+    <form style = {{fontSize: 'medium', margin: 0}} onSubmit={handleSubmit}>
+>>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
       <input
         name="email"
         id="email"
@@ -43,9 +47,19 @@ export default function Form() {
         className={styles.typingInput}
         ref={passwordRef}
       />
+<<<<<<< HEAD
+=======
+      <br></br>
+>>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
       <button disabled={loading} className={styles.submitButton} type="submit">
         Login
       </button>
     </form>
   );
+<<<<<<< HEAD
 }
+=======
+  
+}
+ 
+>>>>>>> 78d80cb2eba5221153e14ca118737983308c17cc
