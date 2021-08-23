@@ -25,7 +25,12 @@ export default function AccountSettings() {
         data = { ...data, lastName: lastNameRef.current.value };
       }
 
+      // if (timezoneRef.current.value != "") {
+      //   data = { ...data, timezone: timezoneRef.current.value };
+      // }
       data = { ...data, timezone: "abcdeehddhdfg" };
+
+      //updateStudent(currentUserEmail, data);
     } catch (e) {
       alert(e);
     }
@@ -34,9 +39,7 @@ export default function AccountSettings() {
   const handleLogout = () => {
     auth.logout();
     history.push("/");
-    window.location.reload();
   };
-
   return (
     <div>
       <h1>My Account</h1>
