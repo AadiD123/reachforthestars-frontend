@@ -24,8 +24,19 @@ import SignUp from "./Pages/Authentication/Sign Up/SignUp";
 //Private Pages
 import OldDashboard from "./Pages/PrivatePages/OldDashboard/Dashboard";
 import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
+import { useEffect } from "react";
+import { auth } from "./Backend/Firebase";
+import ForgotPassword from "./Pages/Authentication/ForgotPassword/ForgotPassword";
 
 function App() {
+  useEffect(() => {
+    auth.onAuthStateChanged(function (user) {
+      if (user?.email) {
+        localStorage.setItem("userEmail", user.email);
+      }
+    });
+  });
+
   return (
     <Router>
       <Navbar />
@@ -45,6 +56,7 @@ function App() {
           />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/forgotpassword" component={ForgotPassword} />
 
           <Route path="/blog-edit" component={BlogPageEdit} />
           <Route path="/registration" component={Registration} />
@@ -57,3 +69,6 @@ function App() {
 }
 
 export default App;
+function setCurrentUserEmail(email: string) {
+  throw new Error("Function not implemented.");
+}
