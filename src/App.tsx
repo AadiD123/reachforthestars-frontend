@@ -1,0 +1,71 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+//Auth
+import PrivateRoute from "./Backend/PrivateAuth";
+import { AuthProvider } from "./Backend/Contexts/AuthContext";
+
+//Components
+import Navbar from "./Components/Navbar/Navbar";
+import Footer from "./Components/Footer/Footer";
+
+//Pages
+import Home from "./Pages/Home/Home";
+import IndividualAbout from "./Pages/IndividualAbout/IndividualAbout";
+import About from "./Pages/About/About";
+import JoinOurTeam from "./Pages/JoinOurTeam/JoinOurTeam";
+import Login from "./Pages/Authentication/Login/Login";
+import Events from "./Pages/Events/Events";
+import Blog from "./Pages/Blog/Blog";
+import Registration from "./Pages/Registration/Registration";
+import BlogPage from "./Pages/Blog-Page/Blog-Page";
+import BlogPageEdit from "./Pages/BlogPageEdit/BlogPageEdit";
+import SignUp from "./Pages/Authentication/Sign Up/SignUp";
+
+//Private Pages
+import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
+import StudentDashboard from "./Pages/PrivatePages/StudentDashboard/StudentDashboard";
+
+function App() {
+  return (
+    <div>
+    <div>
+    <Router>
+      <Navbar />
+      <AuthProvider>
+        <Switch>
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute
+            path="/student-dashboard"
+            component={StudentDashboard}
+          />
+          <Route path="/" exact component={Home} />
+          <Route path="/events" component={Events} />
+          <Route path="/about" component={About} />
+          <Route path="/join-our-team" component={JoinOurTeam} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/blogpage/:id" exact component={BlogPage} />
+          <Route
+            path="/individual-about/:name/:text"
+            exact
+            component={IndividualAbout}
+          />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
+
+          <Route path="/blog-edit" component={BlogPageEdit} />
+          <Route path="/registration" component={Registration} />
+          <Route path="/individual-about" component={IndividualAbout} />
+        </Switch>
+      </AuthProvider>
+    
+    </Router>
+    </div>
+    <div style={{position: 'relative'}} >
+      <Footer />
+    </div>
+    </div>
+
+  );
+}
+
+export default App;

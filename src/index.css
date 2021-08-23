@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+:root {
+  --background-color: #eff6e0;
+  --accent-blue: #124559;
+  --accent-green: #c4f1be;
+  --accent-tealBlue: #598392;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+
+}
+
+
+
+.title {
+  font-size: 5rem;
+  text-align: center;
+  color: #001e3d;
+}
+
+.mainContainer {
+  padding-inline: 10em;
+  min-height: 30em;
+}
+
+.buttonStyle {
+  color: white;
+  background-color: var(--accent-color);
+  background-color: #001e3d;
+  border: 1px solid #001e3d;
+  margin-left: 1vw;
+  border-radius: 0;
+  padding: 10px 25px 10px;
+}
+
+.buttonStyle:hover {
+  color: rgb(245, 239, 239);
+  background-color: #073563;
+}
+
+@media screen and (max-width: 420px) {
+  .mainContainer {
+    padding-inline: 10px;
+  }
+}

@@ -1,0 +1,218 @@
+.image {
+  position: fixed;
+  z-index: -2;
+  width: 100vw;
+  top: 0;
+  margin: 0;
+}
+.tagline {
+  margin-left: 5vw;
+  width: 100%;
+  font-size: 6.5rem;
+  letter-spacing: 0.2rem;
+  margin: 13% 13% 5% 13%;
+  background: -webkit-linear-gradient(rgb(59, 52, 146), rgb(108, 139, 231));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-color: white;
+}
+.refBar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1;
+  width: 75%;
+  box-shadow: 2px 1px 1px 1px;
+  background-color: #001e3d;
+  opacity: 0.7;
+  min-height: 50px;
+}
+.button {
+  color: white;
+  background-color: #001e3d;
+  border: 1px solid #001e3d;
+  border-radius: 0;
+  padding: 10px;
+}
+.infocards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 480px;
+  padding: 35px;
+  margin: 0;
+  text-align: center;
+  line-height: 1.6;
+}
+.cardContainer {
+  display: grid;
+  grid-template-columns: 550px 550px;
+  grid-gap: 10px;
+}
+.ourMission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #c4f1be;
+  padding: 50px 30px 50px;
+  text-align: center;
+  max-width: 550px;
+  box-shadow: 2px 2px 2px grey;
+  padding-inline: 4em;
+  text-align: justify;
+}
+.contimage {
+  box-shadow: 2px 2px 2px grey;
+}
+.contactUsButton {
+  background-color: #201e50;
+  color: white;
+  font-size: 18px;
+  height: auto;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px 10px;
+  margin-top: 10px;
+  border: 1px 1px 1px 1px black;
+}
+.contactUsButton:hover {
+  color: rgb(245, 239, 239);
+  background-color: #073563;
+}
+.imagecards {
+  width: 580px;
+  text-align: center;
+  min-height: 550px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  float: left;
+}
+
+.bottomContainer {
+  margin-top: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  width: 100%;
+  height: 100%;
+  padding: 50px 0 50px 0;
+}
+
+.tutoringResourcesCont {
+  display: grid;
+  grid-template-columns: 550px 550px;
+  grid-gap: 15px;
+}
+
+.tutoringResources {
+  margin-top: 10%;
+  background-color: #598392;
+  padding: 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tutoringResourcesCards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 40px 0 40px;
+  background-color: lightcyan;
+  max-width: 550px;
+  box-shadow: 3px 3px 3px grey;
+}
+.registerbuttonstyling {
+  color: white;
+  background-color: #001e3d;
+  border: 1px solid #001e3d;
+  margin-left: 1vw;
+  border-radius: 0;
+  padding: 5px 25px 5px;
+}
+.registerbuttonstyling:hover {
+  color: rgb(245, 239, 239);
+  background-color: #073563;
+}
+.ourProgramsContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+.summerCamp {
+  background-color: var(--accent-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 30px 50px;
+  box-shadow: 3px 3px 3px grey;
+}
+.peerClassCard {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--accent-green);
+  justify-content: space-evenly;
+  align-items: center;
+  padding-inline: 40px;
+  box-shadow: 3px 3px 3px grey;
+}
+.blogs {
+  max-height: 1000px;
+}
+.gridcontainer {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-auto-rows: 1fr;
+  grid-gap: 20px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .contimage {
+    display: none;
+  }
+  .cardContainer {
+    grid-template-columns: 90%;
+    grid-gap: 10px;
+  }
+  .tutoringResourcesCont {
+    grid-template-columns: 400px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .cardContainer {
+    grid-template-columns: 90%;
+    grid-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .tagline {
+    font-size: 3rem;
+    margin-left: 10%;
+  }
+  .refBar {
+    width: 90%;
+  }
+  .button {
+    font-size: 10px;
+    padding: 2px;
+  }
+  .gridcontainer {
+    grid-template-columns: 400px;
+  }
+}

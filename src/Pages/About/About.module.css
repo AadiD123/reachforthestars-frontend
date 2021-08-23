@@ -1,0 +1,17 @@
+.title {
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.map {
+  height: 70vh;
+  width: 90%;
+}
+
+@media screen and (max-width: 900px) {
+  .map {
+    width: 96%;
+  }
+}

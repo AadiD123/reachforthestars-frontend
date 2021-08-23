@@ -1,0 +1,67 @@
+.contain {
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.blog {
+  background-color: white;
+  padding: 4%;
+}
+.content {
+  margin: 7%;
+  margin-bottom: 10%;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-inline: 20px;
+}
+
+.row {
+  margin-top: 30px;
+}
+
+.text {
+  padding-bottom: 10%;
+  border-bottom: 1px solid black;
+}
+
+.back {
+  position: absolute;
+  top: 14%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  left: 10%;
+  font-size: 20px;
+  color: black;
+}
+.icon {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  padding-right: 5px;
+}
+.gridcontainer {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-auto-rows: 1fr;
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  .contain {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .back {
+    left: 4%;
+    color: white;
+  }
+  .gridcontainer {
+    grid-template-columns: 400px;
+  }
+}
