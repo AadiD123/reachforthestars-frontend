@@ -24,7 +24,11 @@ function Marker(props: any) {
             alt="card"
             className="card-img-top"
             src={src}
-            style={{ borderRadius: "10px" }}
+            style={{
+              borderRadius: "10px",
+              maxHeight: "200px",
+              objectFit: "cover",
+            }}
           />
           <div className="card-body">
             <h4 className="card-title">{name}</h4>
