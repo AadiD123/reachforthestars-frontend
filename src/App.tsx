@@ -42,7 +42,7 @@ function App() {
       <Navbar />
       <AuthProvider>
         <Switch>
-          <Route path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />
