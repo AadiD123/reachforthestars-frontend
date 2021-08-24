@@ -6,7 +6,7 @@ export default function LogTutoringHours() {
       <h1>Log Service Hours</h1>
       <Iframe
         url="https://clockify.me/tracker"
-        width="1000px"
+        width="700px"
         height="500px"
         id="myId"
         className="myClassname"

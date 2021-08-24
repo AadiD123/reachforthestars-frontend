@@ -20,17 +20,10 @@ export default function AccountSettings() {
       if (firstNameRef.current.value !== "") {
         data = { ...data, firstName: firstNameRef.current.value };
       }
-
       if (lastNameRef.current.value !== "") {
         data = { ...data, lastName: lastNameRef.current.value };
       }
-
-      // if (timezoneRef.current.value != "") {
-      //   data = { ...data, timezone: timezoneRef.current.value };
-      // }
       data = { ...data, timezone: "abcdeehddhdfg" };
-
-      //updateStudent(currentUserEmail, data);
     } catch (e) {
       alert(e);
     }
@@ -108,19 +101,19 @@ export default function AccountSettings() {
             value="Submit"
           />
         </div>
-        <button
-          style={{
-            color: "red",
-            border: "none",
-            background: "#001E3D",
-            width: "120px",
-            marginRight: "20px",
-          }}
-          onClick={handleLogout}
-        >
-          Sign Out
-        </button>
       </form>
+      <button
+        style={{
+          color: "red",
+          border: "none",
+          background: "#001E3D",
+          width: "120px",
+          marginRight: "20px",
+        }}
+        onClick={handleLogout}
+      >
+        Sign Out
+      </button>
     </div>
   );
 }

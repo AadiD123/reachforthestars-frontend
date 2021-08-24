@@ -105,19 +105,20 @@ export default function AccountSettings() {
             value="Submit"
           />
         </div>
-        <button
-          style={{
-            color: "red",
-            border: "none",
-            background: "#001E3D",
-            width: "120px",
-            marginRight: "20px",
-          }}
-          onClick={handleLogout}
-        >
-          Sign Out
-        </button>
+        <br />
       </form>
+      <button
+        className="buttonStyle"
+        style={{
+          color: "white",
+          border: "none",
+          background: "#124559",
+          width: "120px",
+        }}
+        onClick={handleLogout}
+      >
+        Sign Out
+      </button>
     </div>
   );
 }

@@ -29,7 +29,6 @@ body {
   background-color: var(--accent-color);
   background-color: #001e3d;
   border: 1px solid #001e3d;
-  margin-left: 1vw;
   border-radius: 0;
   padding: 10px 25px 10px;
 }
