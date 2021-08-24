@@ -63,7 +63,8 @@ const BlogPage = () => {
               <h1 className={styles.title}>{blog.title}</h1>
               <div className={styles.content}>
                 <div className={styles.info}>
-                  <p>{blog.author}</p>
+                  <p>Author: {blog.author}</p>
+                  <p>Edited By: {blog.edited}</p>
                   <p>{blog.date}</p>
                 </div>
                 <div

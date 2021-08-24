@@ -27,21 +27,22 @@ export default function AvailableStudents() {
       });
   });
 
-  auth.onAuthStateChanged(function (user) {
-    if (user?.email) {
-      setCurrentUserEmail(user.email);
-      db.collection("users")
-        .doc(user.email)
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-          }
-        })
-        .catch((error) => {
-          console.log("Error getting document:", error);
-        });
-    }
-  });
+  // auth.onAuthStateChanged(function (user) {
+  //   if (user?.email) {
+  //     setCurrentUserEmail(user.email);
+  //     db.collection("users")
+  //       .doc(user.email)
+  //       .get()
+  //       .then((doc) => {
+  //         if (doc.exists) {
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.log("Error getting document:", error);
+  //       });
+  //   }
+  // });
+
   const connectTutorAndStudent: ClickHandler =
     (studentEmail: string, tutorEmail: string) => (e: any) => {
       e.preventDefault();
@@ -49,9 +50,14 @@ export default function AvailableStudents() {
         available: false,
         tutor: currentUserEmail,
       });
+
+      db.collection("volunteers").doc(tutorEmail).update({
+        student: studentEmail,
+      });
     };
+
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       {students.length > 0 ? (
         students.map((student: any) => (
           <div key={student.key}>
@@ -59,7 +65,7 @@ export default function AvailableStudents() {
               <div className="card">
                 <div className="card-body">
                   <h1 className="card-title">
-                    <strong>{student.firstName}</strong>
+                    {student.firstName} {student.lastName}
                   </h1>
                 </div>
                 <ul className="list-group list-group-flush">
@@ -70,7 +76,7 @@ export default function AvailableStudents() {
                 </ul>
                 <div className="card-body">
                   <button
-                    className="btn btn-primary"
+                    className="buttonStyle"
                     onClick={connectTutorAndStudent(
                       student.key,
                       currentUserEmail
