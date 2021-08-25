@@ -27,6 +27,7 @@ import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
 import { useEffect } from "react";
 import { auth } from "./Backend/Firebase";
 import ForgotPassword from "./Pages/Authentication/ForgotPassword/ForgotPassword";
+import StudentDashboard from "./Pages/PrivatePages/StudentDashboard/Dashboard";
 
 function App() {
   useEffect(() => {
@@ -43,6 +44,10 @@ function App() {
       <AuthProvider>
         <Switch>
           <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute
+            path="/student-dashboard"
+            component={StudentDashboard}
+          />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />

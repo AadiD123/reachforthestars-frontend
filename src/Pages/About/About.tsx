@@ -8,6 +8,25 @@ import { db } from "../../Backend/Firebase";
 // import InfoWindow from 'google-map-react';
 import firebase from "firebase";
 
+const generateShortBio = (bio: string): string => {
+  let res = "";
+  let first = false;
+  for (let i = 0; i < bio.length; i++) {
+    if (bio[i] === "." || bio[i] === "!") {
+      res += bio[i];
+      if (first) {
+        return res;
+      } else if (res.length > 100) {
+        return res;
+      }
+      first = true;
+    } else {
+      res += bio[i];
+    }
+  }
+  return res;
+};
+
 const About = () => {
   const API_KEY = process.env.REACT_APP_GOOGLE_CLOUD_MAPS_API_KEY;
   // const Marker = ({text}: any) => <div>{text}</div>;
@@ -103,26 +122,31 @@ const About = () => {
     name: string;
     location: firebase.firestore.GeoPoint;
     bio: string;
+    img: string;
   }
-  const [bios, setBios] = useState<BioInterface[]>();
+  const [bios, setBios] = useState<BioInterface[]>([]);
 
   useEffect(() => {
+    if (bios.length > 0) {
+      return;
+    }
     let allBios: BioInterface[] = [];
-    // db.collection("bios")
-    //   .get()
-    //   .then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //       allBios.push({
-    //         name: doc.get("name"),
-    //         location: doc.get("location"),
-    //         bio: doc.get("bio"),
-    //       });
-    //     });
-    //     setBios(allBios);
-    //   })
-    //   .catch((error) => {
-    //     console.log("error getting documents: ", error);
-    //   });
+    db.collection("bios")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          allBios.push({
+            name: doc.get("name"),
+            location: doc.get("location"),
+            bio: doc.get("bio"),
+            img: doc.get("img"),
+          });
+        });
+        setBios(allBios);
+      })
+      .catch((error) => {
+        console.log("error getting documents: ", error);
+      });
   });
 
   return (
@@ -135,16 +159,16 @@ const About = () => {
           defaultZoom={zoom}
           options={getMapOptions}
         >
-          {/* {bios?.map((bio) => (
+          {bios?.map((bio) => (
             <Marker
               name={bio.name}
-              text={bio.bio.substr(0, 100)}
+              text={generateShortBio(bio.bio)}
               lat={bio.location.latitude}
               lng={bio.location.longitude}
+              src={bio.img}
             />
-          ))} */}
-
-          <Marker
+          ))}
+          {/* <Marker
             name="Alizay Hassan"
             text="Hi! My name is Alizay Hassan and I'm a sophomore in highschool. At RFTS, I am a Team Member of the Human Resources Department."
             lat={44.15661}
@@ -166,7 +190,7 @@ const About = () => {
             lat={51.253777}
             lng={-85.323212}
             // center = {{lat:40, lng:19}}
-          />
+          /> */}
         </GoogleMapReact>
       </div>
     </div>

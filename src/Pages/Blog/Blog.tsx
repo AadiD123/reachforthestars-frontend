@@ -4,17 +4,30 @@ import { auth, db } from "../../Backend/Firebase";
 import styles from "./Blog.module.css";
 import * as FaIcons from "react-icons/fa";
 
+export interface BlogInterface {
+  key: string;
+  author: string;
+  content: string;
+  date: string;
+  editor: string;
+  title: string;
+}
+
 const Blog = () => {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<BlogInterface[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    var allblogs: any = [];
+    if (blogs.length > 0) {
+      return;
+    }
+    let allblogs: any = [];
     db.collection("blogs").onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         allblogs.push({ key: doc.id, ...doc.data() });
       });
       setBlogs(allblogs);
+      localStorage.setItem("blogs", JSON.stringify(allblogs));
       setLoading(false);
     });
   });

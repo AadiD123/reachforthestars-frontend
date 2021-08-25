@@ -8,15 +8,33 @@ import { convertToHTML } from "draft-convert";
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import DOMPurify from "dompurify";
+import { BlogInterface } from "../Blog/Blog";
 
 const BlogPage = () => {
-  const [blogInfo, setBlog] = useState([]);
+  const [blogInfo, setBlog] = useState<BlogInterface[]>([]);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   let { id }: any = useParams();
 
   useEffect(() => {
-    var blog: any = [];
+    const tempGet = localStorage.getItem("blogs");
+    let temp: BlogInterface[] = [];
+    if (tempGet !== null) {
+      temp = JSON.parse(tempGet);
+    }
+    if (temp.length > 0) {
+      for (let i = 0; i < temp?.length; i++) {
+        if (temp[i].key == id) {
+          setBlog([temp[i]]);
+          console.log(blogInfo);
+          setLoading(false);
+          return;
+        }
+      }
+      console.log("No such document!");
+      return;
+    }
+    let blog: any = [];
 
     db.collection("blogs")
       .doc(id)
@@ -34,7 +52,7 @@ const BlogPage = () => {
       .catch((error) => {
         console.log("Error getting document:", error);
       });
-  });
+  }, [localStorage.getItem("blogs")]);
 
   if (loading) {
     return (

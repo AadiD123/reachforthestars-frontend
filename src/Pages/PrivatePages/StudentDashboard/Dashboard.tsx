@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { DashboardComponent } from "../../../Components/Dash/DashboardComponent";
+import { DashboardComponent } from "../../../Components/StudentDash/DashboardComponent";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import GeneralDashboard from "./GeneralDashboard/GeneralDashboard";
 
