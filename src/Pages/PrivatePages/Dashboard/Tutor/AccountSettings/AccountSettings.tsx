@@ -40,7 +40,7 @@ export default function AccountSettings() {
   return (
     <div>
       <h1>My Account</h1>
-      <p>Update and Edit the information you share with community</p>
+      {/* <p>Update and Edit the information you share with community</p>
       <p>
         Login Email: <br />
         User Email <br />
@@ -106,7 +106,7 @@ export default function AccountSettings() {
           />
         </div>
         <br />
-      </form>
+      </form> */}
       <button
         className="buttonStyle"
         style={{

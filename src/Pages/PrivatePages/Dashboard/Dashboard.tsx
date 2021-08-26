@@ -51,7 +51,6 @@ export default function Dashboard() {
               display: "flex",
               marginTop: "5em",
               marginBottom: "20em",
-              flexWrap: "wrap",
               marginInline: "20px",
             }}
           >
@@ -59,7 +58,7 @@ export default function Dashboard() {
               <DashboardComponent />
             </div>
 
-            <div style={{ maxWidth: "80%" }}>
+            <div>
               <Switch>
                 <Route path="/dashboard" exact component={GeneralDashboard} />
                 <Route path="/dashboard/tutoring-faq" component={TutoringFAQ} />
@@ -86,7 +85,6 @@ export default function Dashboard() {
               display: "flex",
               marginTop: "5em",
               marginBottom: "20em",
-              flexWrap: "wrap",
               marginInline: "20px",
             }}
           >
@@ -94,7 +92,7 @@ export default function Dashboard() {
               <StudentDashboardComponent />
             </div>
 
-            <div style={{ maxWidth: "80%" }}>
+            <div>
               <Switch>
                 <Route
                   path="/dashboard"
