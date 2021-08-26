@@ -1,33 +1,33 @@
-import { useRef, MutableRefObject } from "react";
+// import { useRef, MutableRefObject } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../../Backend/Contexts/AuthContext";
-import { updateStudent } from "../../../../Backend/db/dbfunctions";
-import { auth } from "../../../../Backend/Firebase";
+// import { updateStudent } from "../../../../Backend/db/dbfunctions";
+// import { auth } from "../../../../Backend/Firebase";
 
 export default function AccountSettings() {
-  const firstNameRef = useRef() as MutableRefObject<any>;
-  const lastNameRef = useRef() as MutableRefObject<any>;
-  const timezoneRef = useRef() as MutableRefObject<any>;
+  // const firstNameRef = useRef() as MutableRefObject<any>;
+  // const lastNameRef = useRef() as MutableRefObject<any>;
+  // const timezoneRef = useRef() as MutableRefObject<any>;
   const auth = useAuth();
   const history = useHistory();
 
-  const submitChanges = (e: any) => {
-    if (auth.currentUser === null) {
-      return;
-    }
-    let data = {};
-    try {
-      if (firstNameRef.current.value !== "") {
-        data = { ...data, firstName: firstNameRef.current.value };
-      }
-      if (lastNameRef.current.value !== "") {
-        data = { ...data, lastName: lastNameRef.current.value };
-      }
-      data = { ...data, timezone: "abcdeehddhdfg" };
-    } catch (e) {
-      alert(e);
-    }
-  };
+  // const submitChanges = (e: any) => {
+  //   if (auth.currentUser === null) {
+  //     return;
+  //   }
+  //   let data = {};
+  //   try {
+  //     if (firstNameRef.current.value !== "") {
+  //       data = { ...data, firstName: firstNameRef.current.value };
+  //     }
+  //     if (lastNameRef.current.value !== "") {
+  //       data = { ...data, lastName: lastNameRef.current.value };
+  //     }
+  //     data = { ...data, timezone: "abcdeehddhdfg" };
+  //   } catch (e) {
+  //     alert(e);
+  //   }
+  // };
 
   const handleLogout = () => {
     auth.logout();
@@ -42,7 +42,7 @@ export default function AccountSettings() {
         User Email <br />
         Your email address cannot be changed <br />
       </p>
-      <form
+      {/* <form
         style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
         onSubmit={(e) => {
           submitChanges(e);
@@ -101,7 +101,7 @@ export default function AccountSettings() {
             value="Submit"
           />
         </div>
-      </form>
+      </form> */}
       <button
         style={{
           color: "red",

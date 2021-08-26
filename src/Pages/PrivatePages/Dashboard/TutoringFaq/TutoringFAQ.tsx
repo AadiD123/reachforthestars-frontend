@@ -17,6 +17,7 @@ export default function TutoringFAQ() {
           <button className={styles.button} style={{ width: "200px" }}>
             FAQ (Start Here!)
           </button>
+
           <button
             className={styles.button}
             style={{ marginLeft: "20px", width: "300px" }}

@@ -110,6 +110,3 @@ const BlogPageEdit = () => {
 };
 
 export default BlogPageEdit;
-function convertContentToHTML() {
-  throw new Error("Function not implemented.");
-}

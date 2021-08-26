@@ -21,7 +21,7 @@ export default function Form() {
     e.preventDefault();
     setLoading(true);
     try {
-      if (volunteer != false) {
+      if (volunteer !== false) {
         if (pinRef.current.value === "1234") {
           await signup(
             firstNameRef.current.value,

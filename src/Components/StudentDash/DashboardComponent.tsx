@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./DashboardComponent.module.css";
 import { DashboardData } from "./DashboardData";
 

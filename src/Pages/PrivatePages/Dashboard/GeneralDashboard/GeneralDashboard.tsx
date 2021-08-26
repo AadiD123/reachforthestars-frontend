@@ -4,7 +4,6 @@ import { auth, db } from "../../../../Backend/Firebase";
 import styles from "../Dashboard.module.css";
 
 export default function GeneralDashboard() {
-  const [currentUser, setCurrentUserEmail] = useState<String>();
   const [yourStudent, setYourStudent] = useState<any>();
 
   useEffect(() => {
