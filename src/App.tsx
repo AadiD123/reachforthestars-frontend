@@ -20,23 +20,20 @@ import Registration from "./Pages/Registration/Registration";
 import BlogPage from "./Pages/Blog-Page/Blog-Page";
 import BlogPageEdit from "./Pages/BlogPageEdit/BlogPageEdit";
 import SignUp from "./Pages/Authentication/Sign Up/SignUp";
+import ForgotPassword from "./Pages/Authentication/ForgotPassword/ForgotPassword";
 
 //Private Pages
-import OldDashboard from "./Pages/PrivatePages/OldDashboard/Dashboard";
 import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
-import { useEffect } from "react";
-import { auth } from "./Backend/Firebase";
-import ForgotPassword from "./Pages/Authentication/ForgotPassword/ForgotPassword";
 import StudentDashboard from "./Pages/PrivatePages/StudentDashboard/Dashboard";
 
 function App() {
-  useEffect(() => {
-    auth.onAuthStateChanged(function (user) {
-      if (user?.email) {
-        localStorage.setItem("userEmail", user.email);
-      }
-    });
-  });
+  // useEffect(() => {
+  //   auth.onAuthStateChanged(function (user) {
+  //     if (user?.email) {
+  //       localStorage.setItem("userEmail", user.email);
+  //     }
+  //   });
+  // });
 
   return (
     <Router>
@@ -74,6 +71,3 @@ function App() {
 }
 
 export default App;
-function setCurrentUserEmail(email: string) {
-  throw new Error("Function not implemented.");
-}

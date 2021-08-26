@@ -1,7 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { auth, db } from "../../../Backend/Firebase";
 import { DashboardComponent } from "../../../Components/Dash/DashboardComponent";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import AvailableStudents from "./AvailableStudents/AvailableStudents";
@@ -38,17 +35,14 @@ export default function Dashboard() {
           marginTop: "5em",
           marginBottom: "20em",
           flexWrap: "wrap",
+          marginInline: "20px",
         }}
       >
-        {/* {image != null ? (
-          <DashboardComponent image={image} />
-        ) : (
-          
-        )} */}
+        <div style={{ marginRight: "50px" }}>
+          <DashboardComponent />
+        </div>
 
-        <DashboardComponent />
-
-        <div style={{ marginInline: "5%" }}>
+        <div style={{ maxWidth: "80%" }}>
           <Switch>
             <Route path="/dashboard" exact component={GeneralDashboard} />
             <Route path="/dashboard/tutoring-faq" component={TutoringFAQ} />

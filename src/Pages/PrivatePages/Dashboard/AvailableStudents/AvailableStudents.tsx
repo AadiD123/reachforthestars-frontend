@@ -1,5 +1,5 @@
-import { useState, useRef, MutableRefObject, useEffect } from "react";
-import { auth, db } from "../../../../Backend/Firebase";
+import { useState, useEffect } from "react";
+import { db } from "../../../../Backend/Firebase";
 
 import styles from "../Dashboard.module.css";
 
@@ -7,7 +7,6 @@ export default function AvailableStudents() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentUserEmail, setCurrentUserEmail] = useState("");
-  const [currentUser, setUser] = useState(null);
 
   type ClickHandler = (
     studentEmail: string,
@@ -15,6 +14,7 @@ export default function AvailableStudents() {
   ) => (e: React.MouseEvent) => void;
 
   useEffect(() => {
+    setLoading(true);
     var availableStudents: any = [];
     db.collection("students")
       .where("available", "==", true)
@@ -26,22 +26,6 @@ export default function AvailableStudents() {
         setLoading(false);
       });
   });
-
-  // auth.onAuthStateChanged(function (user) {
-  //   if (user?.email) {
-  //     setCurrentUserEmail(user.email);
-  //     db.collection("users")
-  //       .doc(user.email)
-  //       .get()
-  //       .then((doc) => {
-  //         if (doc.exists) {
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.log("Error getting document:", error);
-  //       });
-  //   }
-  // });
 
   const connectTutorAndStudent: ClickHandler =
     (studentEmail: string, tutorEmail: string) => (e: any) => {
@@ -56,13 +40,19 @@ export default function AvailableStudents() {
       });
     };
 
-  return (
+  if (loading) {
     <div style={{ display: "flex" }}>
+      <h3>Loading Students</h3>
+    </div>;
+  }
+
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
       {students.length > 0 ? (
         students.map((student: any) => (
           <div key={student.key}>
             <div className={styles.dashCard}>
-              <div className="card">
+              <div className="card" style={{ width: "25em" }}>
                 <div className="card-body">
                   <h1 className="card-title">
                     {student.firstName} {student.lastName}

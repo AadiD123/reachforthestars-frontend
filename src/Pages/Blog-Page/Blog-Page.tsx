@@ -4,10 +4,6 @@ import { useEffect, useState } from "react";
 import { db } from "../../Backend/Firebase";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { convertToHTML } from "draft-convert";
-import { EditorState } from "draft-js";
-import { Editor } from "react-draft-wysiwyg";
-import DOMPurify from "dompurify";
 import { BlogInterface } from "../Blog/Blog";
 
 const BlogPage = () => {
@@ -24,7 +20,7 @@ const BlogPage = () => {
     }
     if (temp.length > 0) {
       for (let i = 0; i < temp?.length; i++) {
-        if (temp[i].key == id) {
+        if (temp[i].key === id) {
           setBlog([temp[i]]);
           console.log(blogInfo);
           setLoading(false);

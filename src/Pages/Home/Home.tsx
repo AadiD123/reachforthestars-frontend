@@ -3,7 +3,6 @@ import comet from "../../Assets/Images/comet.jpeg";
 import hands from "../../Assets/Images/hands.jpeg";
 import { Link } from "react-scroll";
 
-import Blog from "../Blog/Blog";
 import { useEffect, useState } from "react";
 import { db } from "../../Backend/Firebase";
 

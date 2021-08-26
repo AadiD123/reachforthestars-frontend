@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 
 function ForgotPassword() {
   const emailRef = useRef() as MutableRefObject<any>;
-  const passwordRef = useRef() as MutableRefObject<any>;
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   const auth = useAuth();
@@ -14,6 +13,7 @@ function ForgotPassword() {
     e.preventDefault();
     setLoading(false);
     auth.resetPassword(emailRef.current.value);
+    history.push("/login");
   }
 
   return (

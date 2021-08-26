@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function Form() {
   const emailRef = useRef() as MutableRefObject<any>;
   const passwordRef = useRef() as MutableRefObject<any>;
-  const { login, resetPassword } = useAuth();
+  const { login } = useAuth();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
