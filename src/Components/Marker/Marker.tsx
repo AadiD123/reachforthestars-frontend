@@ -5,7 +5,18 @@ function Marker(props: any) {
 
   const setToStorage = (name: any, bio: any, src: any) => {
     localStorage.setItem("name", name);
-    localStorage.setItem("bio", bio);
+    let bArray = localStorage.getItem("biosArray");
+    if (bArray === null) {
+      return;
+    }
+    let biosArray = JSON.parse(bArray);
+    for (let i = 0; i < biosArray.length; i++) {
+      if (biosArray[i].name === name) {
+        console.log("reached");
+        console.log(biosArray[i].bio);
+        localStorage.setItem("text", biosArray[i].bio);
+      }
+    }
     localStorage.setItem("src", src);
   };
 
