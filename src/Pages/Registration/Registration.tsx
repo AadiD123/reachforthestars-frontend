@@ -1,9 +1,19 @@
 import styles from "./Registration.module.css";
 const Registration = () => {
   return (
-    <div className="mainContainer">
+    <div
+      className="mainContainer"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <h1 className="title">Registration</h1>
-      <div className="max-width: 500px">
+      <div
+        style={{ maxWidth: "50%", textAlign: "center", margin: "20px 0 20px" }}
+      >
         <p>
           We are so happy you’re interested in registering your child with Reach
           For The Stars. Just click REGISTER below the program you would like to
@@ -41,7 +51,9 @@ const Registration = () => {
             </div>
             <div className={styles.buttons}>
               <div className={styles.button}>
-                <button className="buttonStyle">Join as Tutor</button>
+                <a href="/signup">
+                  <button className="buttonStyle">Join as Tutor</button>
+                </a>
               </div>
               <div className={styles.button}>
                 <button className="buttonStyle">Get Tutored</button>

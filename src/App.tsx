@@ -40,6 +40,7 @@ function App() {
       <AuthProvider>
         <Switch>
           <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/blog-edit" component={BlogPageEdit} />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />
@@ -54,8 +55,6 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/forgotpassword" component={ForgotPassword} />
-
-          <Route path="/blog-edit" component={BlogPageEdit} />
           <Route path="/registration" component={Registration} />
           <Route path="/individual-about" component={IndividualAbout} />
         </Switch>
