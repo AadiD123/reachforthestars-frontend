@@ -2,37 +2,30 @@ import styles from "../../Dashboard.module.css";
 
 export default function TutoringFAQ() {
   return (
-    <div style={{ width: "700px" }}>
+    <div>
       <div
         style={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}
       >
-        <h1 className={styles.title}>Get Started</h1>
-        <p
-          className={styles.paragraph}
-          style={{ marginTop: "20px", fontSize: "21px" }}
-        >
+        <h1>Get Started</h1>
+        <p style={{ marginTop: "20px", fontSize: "21px" }}>
           Click these if you are new or have any additional questions.
         </p>
         <div className={styles.buttons}>
           <button className={styles.button} style={{ width: "200px" }}>
             FAQ (Start Here!)
           </button>
-
-          <button
-            className={styles.button}
-            style={{ marginLeft: "20px", width: "300px" }}
-          >
-            Tutoring Orientation (Read First)
-          </button>
+          <a href="https://docs.google.com/presentation/d/1HSVqCsDmtnC6lWM5I86L8XBEjYxce932TdI4bijgcZ4/edit">
+            <button
+              className={styles.button}
+              style={{ marginLeft: "20px", width: "300px" }}
+            >
+              Tutoring Orientation (Read First)
+            </button>
+          </a>
         </div>
 
-        <h1 className={styles.title} style={{ marginTop: "20px" }}>
-          Get Paired with a Student!
-        </h1>
-        <p
-          className={styles.paragraph}
-          style={{ marginTop: "20px", fontSize: "21px" }}
-        >
+        <h1 style={{ marginTop: "20px" }}>Get Paired with a Student!</h1>
+        <p style={{ marginTop: "20px", fontSize: "21px" }}>
           Don't have a student? Student pairing information down below.{" "}
         </p>
         <div className={styles.buttons}>
@@ -67,11 +60,8 @@ export default function TutoringFAQ() {
           your password if you do not have one already.
         </p>
 
-        <h1 className={styles.title}>Tutoring Resources</h1>
-        <p
-          className={styles.paragraph}
-          style={{ marginTop: "20px", fontSize: "21px" }}
-        >
+        <h1>Tutoring Resources</h1>
+        <p style={{ marginTop: "20px", fontSize: "21px" }}>
           Need help with formulating your lessons? View helpful resources here!
         </p>
         <div className={styles.buttons}>

@@ -134,21 +134,17 @@ const Home = () => {
             <div
               style={{
                 display: "flex",
-                flexWrap: "wrap",
                 justifyContent: "space-between",
                 width: "75%",
               }}
             >
               <a href="https://linktr.ee/rfts">
-                <button className="buttonStyle" style={{ minWidth: "10em" }}>
+                <button className="buttonStyle" style={{ minWidth: "8em" }}>
                   Apply Here
                 </button>
               </a>
               <a href="https://docs.google.com/document/d/1SafaLA7AjuhRcoLJuZ2IjKGnm-s62OfXWBSotr_Xv8Q/edit">
-                <div
-                  className="buttonStyle"
-                  style={{ minWidth: "10em", marginTop: "20px" }}
-                >
+                <div className="buttonStyle" style={{ minWidth: "8em" }}>
                   More Details
                 </div>
               </a>
