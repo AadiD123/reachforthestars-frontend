@@ -201,18 +201,32 @@
 }
 
 @media screen and (max-width: 500px) {
+  .image {
+    position: absolute;
+    width: 100vw;
+  }
+  .bottomContainer {
+    margin-top: 0;
+  }
   .tagline {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-left: 10%;
+    margin-top: 5%;
   }
   .refBar {
+    margin: 20px;
     width: 90%;
   }
   .button {
     font-size: 10px;
     padding: 2px;
   }
-  .gridcontainer {
-    grid-template-columns: 400px;
+  .cardContainer {
+    display: grid;
+    grid-template-columns: 340px;
+    grid-gap: 10px;
+  }
+  .tutoringResourcesCont {
+    grid-template-columns: 340px;
   }
 }

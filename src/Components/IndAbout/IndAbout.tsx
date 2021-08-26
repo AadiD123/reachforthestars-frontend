@@ -1,6 +1,11 @@
 import React from "react";
 import styles from "./IndAbout.module.css";
 
+// interface IndAboutProps {
+//   src: string | null;
+//   name: string | null;
+//   text: string | null;
+// }
 function IndAbout(props: any) {
   const { src, name, text } = props;
 
