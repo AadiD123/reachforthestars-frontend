@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { db } from "../../../../Backend/Firebase";
+import { useHistory } from "react-router-dom";
+import { auth, db } from "../../../../../Backend/Firebase";
 
-import styles from "../Dashboard.module.css";
+import styles from "../../Dashboard.module.css";
 
 export default function AvailableStudents() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentUserEmail, setCurrentUserEmail] = useState("");
+  const history = useHistory();
 
   type ClickHandler = (
     studentEmail: string,
@@ -27,9 +29,17 @@ export default function AvailableStudents() {
       });
   });
 
+  auth.onAuthStateChanged(function (user) {
+    if (user?.email) {
+      setCurrentUserEmail(user.email);
+      console.log(currentUserEmail);
+    }
+  });
+
   const connectTutorAndStudent: ClickHandler =
     (studentEmail: string, tutorEmail: string) => (e: any) => {
       e.preventDefault();
+
       db.collection("students").doc(studentEmail).update({
         available: false,
         tutor: currentUserEmail,
@@ -38,6 +48,7 @@ export default function AvailableStudents() {
       db.collection("volunteers").doc(tutorEmail).update({
         student: studentEmail,
       });
+      history.push("/dashboard");
     };
 
   if (loading) {

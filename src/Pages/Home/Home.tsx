@@ -131,19 +131,26 @@ const Home = () => {
                 below.
               </p>
             </div>
-
             <div
               style={{
                 display: "flex",
+                flexWrap: "wrap",
                 justifyContent: "space-between",
                 width: "75%",
               }}
             >
-              <a href="https://docs.google.com/document/d/1SafaLA7AjuhRcoLJuZ2IjKGnm-s62OfXWBSotr_Xv8Q/edit">
-                <div className="buttonStyle">More Details</div>
-              </a>
               <a href="https://linktr.ee/rfts">
-                <button className="buttonStyle">Apply Here</button>
+                <button className="buttonStyle" style={{ minWidth: "10em" }}>
+                  Apply Here
+                </button>
+              </a>
+              <a href="https://docs.google.com/document/d/1SafaLA7AjuhRcoLJuZ2IjKGnm-s62OfXWBSotr_Xv8Q/edit">
+                <div
+                  className="buttonStyle"
+                  style={{ minWidth: "10em", marginTop: "20px" }}
+                >
+                  More Details
+                </div>
               </a>
             </div>
           </div>
@@ -244,7 +251,6 @@ const Home = () => {
                   cohort 1!
                 </li>
               </ol>
-
               <a href="mailto:info.reachstars@gmail.com">
                 <div className="buttonStyle">Contact Us</div>
               </a>

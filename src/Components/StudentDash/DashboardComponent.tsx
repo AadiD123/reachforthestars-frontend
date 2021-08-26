@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./DashboardComponent.module.css";
 import { DashboardData } from "./DashboardData";
 
-export function DashboardComponent(props: any) {
+export function StudentDashboardComponent(props: any) {
   return (
     <>
       <nav className={`${styles.navMenu} ${styles.active}`}>

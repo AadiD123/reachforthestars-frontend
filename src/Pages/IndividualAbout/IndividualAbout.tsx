@@ -1,9 +1,9 @@
 import React from "react";
 import IndAbout from "../../Components/IndAbout/IndAbout";
 const IndividualAbout = () => {
-  let name: string | null = localStorage.getItem("name");
-  let text: string | null = localStorage.getItem("text");
-  let src: string | null = localStorage.getItem("src");
+  let name: any = localStorage.getItem("name");
+  let text: any = localStorage.getItem("text");
+  let src: any = localStorage.getItem("src");
 
   return (
     <div className="mainContainer">

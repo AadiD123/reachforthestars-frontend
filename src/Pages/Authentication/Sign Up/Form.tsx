@@ -46,7 +46,7 @@ export default function Form() {
           timezoneRef.current.value,
           "student"
         );
-        history.push("/student-dashboard");
+        history.push("/dashboard");
       }
     } catch (e) {
       alert(e);

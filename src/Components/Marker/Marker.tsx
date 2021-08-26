@@ -2,10 +2,11 @@ import styles from "./Marker.module.css";
 import { Link } from "react-router-dom";
 function Marker(props: any) {
   const { name, text, src } = props;
-  const setToStorage = (aboutname: any, abouttext: any, aboutsrc: any) => {
-    localStorage.setItem("name", aboutname);
-    localStorage.setItem("text", abouttext);
-    localStorage.setItem("src", aboutsrc);
+
+  const setToStorage = (name: any, bio: any, src: any) => {
+    localStorage.setItem("name", name);
+    localStorage.setItem("bio", bio);
+    localStorage.setItem("src", src);
   };
 
   return (
@@ -14,7 +15,9 @@ function Marker(props: any) {
         className={styles.pin}
         style={{ backgroundColor: "blue", cursor: "pointer" }}
         title={name}
-        onClick={() => setToStorage(name, text, src)}
+        onClick={() => {
+          setToStorage(name, text, src);
+        }}
       >
         <div
           className={styles.modal}

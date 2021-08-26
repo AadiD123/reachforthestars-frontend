@@ -141,6 +141,7 @@ const About = () => {
           });
         });
         setBios(allBios);
+        localStorage.setItem("biosArray", JSON.stringify(allBios));
       })
       .catch((error) => {
         console.log("error getting documents: ", error);
