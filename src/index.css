@@ -11,10 +11,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
-
 }
-
-
 
 .title {
   font-size: 5rem;
@@ -25,14 +22,13 @@ body {
 .mainContainer {
   padding-inline: 10em;
   min-height: 30em;
+  margin-bottom: 20px;
 }
 
 .buttonStyle {
   color: white;
-  background-color: var(--accent-color);
   background-color: #001e3d;
   border: 1px solid #001e3d;
-  margin-left: 1vw;
   border-radius: 0;
   padding: 10px 25px 10px;
 }

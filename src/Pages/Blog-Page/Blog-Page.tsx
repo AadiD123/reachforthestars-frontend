@@ -4,19 +4,33 @@ import { useEffect, useState } from "react";
 import { db } from "../../Backend/Firebase";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { convertToHTML } from "draft-convert";
-import { EditorState } from "draft-js";
-import { Editor } from "react-draft-wysiwyg";
-import DOMPurify from "dompurify";
+import { BlogInterface } from "../Blog/Blog";
 
 const BlogPage = () => {
-  const [blogInfo, setBlog] = useState([]);
+  const [blogInfo, setBlog] = useState<BlogInterface[]>([]);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   let { id }: any = useParams();
 
   useEffect(() => {
-    var blog: any = [];
+    const tempGet = localStorage.getItem("blogs");
+    let temp: BlogInterface[] = [];
+    if (tempGet !== null) {
+      temp = JSON.parse(tempGet);
+    }
+    if (temp.length > 0) {
+      for (let i = 0; i < temp?.length; i++) {
+        if (temp[i].key === id) {
+          setBlog([temp[i]]);
+          console.log(blogInfo);
+          setLoading(false);
+          return;
+        }
+      }
+      console.log("No such document!");
+      return;
+    }
+    let blog: any = [];
 
     db.collection("blogs")
       .doc(id)
@@ -34,7 +48,7 @@ const BlogPage = () => {
       .catch((error) => {
         console.log("Error getting document:", error);
       });
-  });
+  }, [localStorage.getItem("blogs")]);
 
   if (loading) {
     return (
@@ -63,7 +77,8 @@ const BlogPage = () => {
               <h1 className={styles.title}>{blog.title}</h1>
               <div className={styles.content}>
                 <div className={styles.info}>
-                  <p>{blog.author}</p>
+                  <p>Author: {blog.author}</p>
+                  <p>Edited By: {blog.edited}</p>
                   <p>{blog.date}</p>
                 </div>
                 <div

@@ -25,8 +25,6 @@ export function addBlog(
     });
 }
 export async function getBlog(id: string) {
-  var blogposts = new Array();
-
   db.collection("blogs")
     .doc(id)
     .get()
@@ -134,23 +132,6 @@ export function addUsers(
     })
     .catch((error) => {
       console.error("Error writing document: ", error);
-    });
-}
-
-export async function getAllAvailableStudents() {
-  let availableStudents = new Array();
-
-  db.collection("users")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, "=>", doc.data());
-        availableStudents.push(doc.data());
-      });
-      return availableStudents;
-    })
-    .catch((error) => {
-      console.log("error getting documents: ", error);
     });
 }
 

@@ -21,7 +21,7 @@ export default function Form() {
     e.preventDefault();
     setLoading(true);
     try {
-      if (volunteer != false) {
+      if (volunteer !== false) {
         if (pinRef.current.value === "1234") {
           await signup(
             firstNameRef.current.value,
@@ -46,7 +46,7 @@ export default function Form() {
           timezoneRef.current.value,
           "student"
         );
-        history.push("/student-dashboard");
+        history.push("/dashboard");
       }
     } catch (e) {
       alert(e);
@@ -59,91 +59,95 @@ export default function Form() {
   };
 
   return (
-    <div >
-    <form style = {{fontSize: 'medium', margin: 0}}onSubmit={handleSubmit}>
-      <input
-        name="firstName"
-        id="firstName"
-        type="string"
-        placeholder="First Name"
-        required
-        className={styles.typingInput}
-        ref={firstNameRef}
-      />
-      <input
-        name="lastName"
-        id="lastName"
-        type="string"
-        placeholder="Last Name"
-        required
-        className={styles.typingInput}
-        ref={lastNameRef}
-      />
-      <input
-        name="grade"
-        id="grade"
-        type="number"
-        placeholder="Grade"
-        required
-        className={styles.typingInput}
-        ref={gradeRef}
-      />
-      <input
-        name="timezone"
-        id="timezone"
-        type="timezone"
-        placeholder="Timezone"
-        required
-        className={styles.typingInput}
-        ref={timezoneRef}
-      />
-      <input
-        name="email"
-        id="email"
-        type="email"
-        placeholder="Email"
-        required
-        className={styles.typingInput}
-        ref={emailRef}
-      />
-      <input
-        name="password"
-        id="password"
-        type="password"
-        placeholder="Password"
-        required
-        className={styles.typingInput}
-        ref={passwordRef}
-      />
-      <select
-        onChange={selectVolunteer}
-        required
-        name="role"
-        id="role"
-        className={styles.typingInput}
-      >
-        <option value="student">Student</option>
-        <option value="volunteer">General Volunteer</option>
-      </select>
-      {volunteer ? (
-        <div>
+    <div>
+      <form style={{ fontSize: "medium", margin: 0 }} onSubmit={handleSubmit}>
         <input
-          name="pin"
-          id="pin"
-          type="password"
-          placeholder="Enter Pin"
+          name="firstName"
+          id="firstName"
+          type="string"
+          placeholder="First Name"
+          required
           className={styles.typingInput}
-          ref={pinRef} 
+          ref={firstNameRef}
         />
-        {/* <br></br> */}
-        </div>
-      ) : (
-        <div></div>
-      )}
-      <button disabled={loading} className={styles.submitButton} type="submit">
-        Sign Up
-      </button>
-    </form>
+        <input
+          name="lastName"
+          id="lastName"
+          type="string"
+          placeholder="Last Name"
+          required
+          className={styles.typingInput}
+          ref={lastNameRef}
+        />
+        <input
+          name="grade"
+          id="grade"
+          type="number"
+          placeholder="Grade"
+          required
+          className={styles.typingInput}
+          ref={gradeRef}
+        />
+        <input
+          name="timezone"
+          id="timezone"
+          type="timezone"
+          placeholder="Timezone"
+          required
+          className={styles.typingInput}
+          ref={timezoneRef}
+        />
+        <input
+          name="email"
+          id="email"
+          type="email"
+          placeholder="Email"
+          required
+          className={styles.typingInput}
+          ref={emailRef}
+        />
+        <input
+          name="password"
+          id="password"
+          type="password"
+          placeholder="Password"
+          required
+          className={styles.typingInput}
+          ref={passwordRef}
+        />
+        <select
+          onChange={selectVolunteer}
+          required
+          name="role"
+          id="role"
+          className={styles.typingInput}
+        >
+          <option value="student">Student</option>
+          <option value="volunteer">General Volunteer</option>
+        </select>
+        {volunteer ? (
+          <div>
+            <input
+              name="pin"
+              id="pin"
+              type="password"
+              placeholder="Enter Pin"
+              className={styles.typingInput}
+              ref={pinRef}
+            />
+            {/* <br></br> */}
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <button
+          disabled={loading}
+          className={styles.submitButton}
+          type="submit"
+        >
+          Sign Up
+        </button>
+      </form>
     </div>
   );
 }

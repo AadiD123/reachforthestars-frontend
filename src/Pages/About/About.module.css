@@ -6,7 +6,8 @@
 }
 
 .map {
-  height: 70vh;
+  position: relative;
+  height: 80vh;
   width: 90%;
 }
 

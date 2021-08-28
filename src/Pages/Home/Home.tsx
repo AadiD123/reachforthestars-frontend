@@ -3,7 +3,6 @@ import comet from "../../Assets/Images/comet.jpeg";
 import hands from "../../Assets/Images/hands.jpeg";
 import { Link } from "react-scroll";
 
-import Blog from "../Blog/Blog";
 import { useEffect, useState } from "react";
 import { db } from "../../Backend/Firebase";
 
@@ -98,9 +97,9 @@ const Home = () => {
               organization strives to create activities that ignite their
               creativity and encourage their love for learning.
             </p>
-            <Link to="#">
+            <a href="mailto:info.reachstars@gmail.com">
               <button className="buttonStyle">Contact Us</button>
-            </Link>
+            </a>
           </div>
           <div>
             <img
@@ -132,7 +131,6 @@ const Home = () => {
                 below.
               </p>
             </div>
-
             <div
               style={{
                 display: "flex",
@@ -140,8 +138,16 @@ const Home = () => {
                 width: "75%",
               }}
             >
-              <button className="buttonStyle">More Details</button>
-              <button className="buttonStyle">Apply Here</button>
+              <a href="https://linktr.ee/rfts">
+                <button className="buttonStyle" style={{ minWidth: "8em" }}>
+                  Apply Here
+                </button>
+              </a>
+              <a href="https://docs.google.com/document/d/1SafaLA7AjuhRcoLJuZ2IjKGnm-s62OfXWBSotr_Xv8Q/edit">
+                <div className="buttonStyle" style={{ minWidth: "8em" }}>
+                  More Details
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -150,7 +156,10 @@ const Home = () => {
           <p style={{ display: "flex", flexWrap: "wrap" }}>
             Peer Tutoring, Private Tutoring, AP Peer Classes
           </p>
-          <button className="buttonStyle">Register Here</button>
+          <a href="/registration">
+            <button className="buttonStyle">Register Here</button>
+          </a>
+
           <div className={styles.tutoringResourcesCont}>
             <div className={styles.tutoringResourcesCards}>
               <img
@@ -176,7 +185,9 @@ const Home = () => {
                   children. The students can make new friends and connect with
                   people all over the world while receiving a quality education.
                 </p>
-                <button className="buttonStyle">Learn More</button>
+                <a href="/registration">
+                  <button className="buttonStyle">Learn More</button>
+                </a>
               </div>
             </div>
             <div className={styles.tutoringResourcesCards}>
@@ -201,7 +212,9 @@ const Home = () => {
                   child gets more time with the tutor and can ask more
                   questions, as only one person is attending to the child.
                 </p>
-                <button className="buttonStyle">Learn More</button>
+                <a href="/registration">
+                  <button className="buttonStyle">Learn More</button>
+                </a>
               </div>
             </div>
           </div>
@@ -234,9 +247,9 @@ const Home = () => {
                   cohort 1!
                 </li>
               </ol>
-              <Link to="#">
-                <button className="buttonStyle">Contact Us</button>
-              </Link>
+              <a href="mailto:info.reachstars@gmail.com">
+                <div className="buttonStyle">Contact Us</div>
+              </a>
             </div>
             <div>
               <img

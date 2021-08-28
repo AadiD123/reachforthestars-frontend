@@ -70,8 +70,15 @@ export function AuthProvider({ children }: any) {
     return auth.signOut();
   }
 
-  function resetPassword(email: string) {
-    return auth.sendPasswordResetEmail(email);
+  async function resetPassword(email: string) {
+    return auth
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        return true;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   useEffect(() => {

@@ -42,6 +42,7 @@
 }
 
 .paragraph {
+  word-wrap: break-word;
   font-size: 16px;
 }
 
@@ -68,7 +69,15 @@
 
 .dashCard {
   padding: 30px;
-  width: 33%;
+}
+
+.studentCard {
+  background-color: #598392;
+  width: 300px;
+  height: 250px;
+  padding: 30px;
+  color: white;
+  box-shadow: 2px 2px 2px 2px grey;
 }
 
 @media (max-width: 1400px) {

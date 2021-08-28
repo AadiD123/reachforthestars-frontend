@@ -1,42 +1,77 @@
-import React, { useState, useEffect } from "react";
-import styles from "./StudentDashboard.module.css";
+import React, { useState, useEffect, useRef, MutableRefObject } from "react";
+import styles from "./Dashboard.module.css";
 import profile from "./../../../profile.svg";
 
 import { auth, db } from "../../../Backend/Firebase";
+import { getUser } from "../../../Backend/db/dbfunctions";
 import { useHistory } from "react-router-dom";
+import { updateStudent } from "../../../Backend/db/dbfunctions";
 import Iframe from "react-iframe";
 
 function clickDashboard() {
   var dashboard = document.getElementById("dashboard");
+  var logtutoringsession = document.getElementById("logtutoringsession");
+  var faqs = document.getElementById("faqs");
   var settings = document.getElementById("settings");
   var dashboardsection = document.getElementById("dashboardsection");
-
+  var logtutoringsessionssection = document.getElementById(
+    "logtutoringsessionssection"
+  );
+  var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
   if (
     dashboard != null &&
+    logtutoringsession != null &&
+    faqs != null &&
     settings != null &&
     dashboardsection != null &&
+    logtutoringsessionssection != null &&
+    faqssection != null &&
     settingssection != null
   ) {
     dashboard.style.backgroundColor = "#001E3D";
     dashboard.style.color = "white";
+    logtutoringsession.style.backgroundColor = "#F0F0F0";
+    logtutoringsession.style.color = "black";
+    faqs.style.backgroundColor = "#F0F0F0";
+    faqs.style.color = "black";
     settings.style.backgroundColor = "#F0F0F0";
     settings.style.color = "black";
     dashboardsection.style.display = "block";
+    logtutoringsessionssection.style.display = "none";
+    faqssection.style.display = "none";
     settingssection.style.display = "none";
   }
 }
 
-function StudentDashboard() {
+function Dashboard() {
   const [students, setStudents] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentUserEmail, setCurrentUserEmail] = useState("");
+  const [currentUser, setUser] = useState(null);
 
+  const firstNameRef = useRef() as MutableRefObject<any>;
+  const lastNameRef = useRef() as MutableRefObject<any>;
+  const timezoneRef = useRef() as MutableRefObject<any>;
+
+  const history = useHistory();
   type ClickHandler = (
     studentEmail: string,
     tutorEmail: string
   ) => (e: React.MouseEvent) => void;
 
-  useEffect(() => {});
+  useEffect(() => {
+    var availableStudents: any = [];
+    db.collection("students")
+      .where("available", "==", true)
+      .onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          availableStudents.push({ key: doc.id, ...doc.data() });
+        });
+        setStudents(availableStudents);
+        setLoading(false);
+      });
+  });
 
   auth.onAuthStateChanged(function (user) {
     if (user?.email) {
@@ -54,6 +89,15 @@ function StudentDashboard() {
     }
   });
 
+  const connectTutorAndStudent: ClickHandler =
+    (studentEmail: string, tutorEmail: string) => (e: any) => {
+      e.preventDefault();
+      db.collection("students").doc(studentEmail).update({
+        available: false,
+        tutor: currentUserEmail,
+      });
+    };
+
   return (
     <div className={styles.grid}>
       <div className={styles.toggle}>
@@ -65,6 +109,12 @@ function StudentDashboard() {
             id="dashboard"
           >
             Dashboard
+          </h1>
+          <h1 onClick={clickLogTutoringSession} id="logtutoringsession">
+            Tutoring FAQ
+          </h1>
+          <h1 onClick={clickFaqs} id="faqs">
+            Log Tutoring Session
           </h1>
           <h1 onClick={clickSettings} id="settings">
             Account Settings
@@ -80,9 +130,22 @@ function StudentDashboard() {
           id="dashboardsection"
           className={styles.dashboard}
         >
-          <h1 className={styles.title}>Hello Students</h1>
-          <p className={styles.paragraph}>Welcome to the Student Dashboard!</p>
-
+          <h1 className={styles.title}>General Volunteers</h1>
+          <p className={styles.paragraph}>
+            Welcome to the General Volunteer tab! Here you can find all the
+            things you can work on and all materials you will need as a general
+            volunteer!
+          </p>
+          <h1 className={styles.title}>Log Service Hours</h1>
+          <Iframe
+            url="https://clockify.me/tracker"
+            width="100%"
+            height="450px"
+            id="myId"
+            className="myClassname"
+            display="block"
+            position="relative"
+          />
           <div style={{ marginBottom: "10px" }}></div>
           <h1 className={styles.title}>Help Us Get More Students</h1>
           <p className={styles.paragraph}>
@@ -94,7 +157,11 @@ function StudentDashboard() {
             Outreach Spreadsheet
           </button>
         </div>
-        <div style={{ display: "none" }} className={styles.dashboard}>
+        <div
+          style={{ display: "none" }}
+          id="logtutoringsessionssection"
+          className={styles.dashboard}
+        >
           <h1 className={styles.title}>Get Started</h1>
           <p
             className={styles.paragraph}
@@ -186,7 +253,11 @@ function StudentDashboard() {
             Parent Email Template
           </button>
         </div>
-        <div style={{ display: "none" }} className={styles.dashboard}>
+        <div
+          style={{ display: "none" }}
+          id="faqssection"
+          className={styles.dashboard}
+        >
           <h1 className={styles.title}>FAQs</h1>
           <p className={styles.paragraph}>
             Welcome to the General Volunteer tab! Here you can find all the
@@ -207,69 +278,26 @@ function StudentDashboard() {
           style={{ display: "none" }}
           id="settingssection"
           className={styles.dashboard}
-        >
-          <h1 className={styles.title}>My Account</h1>
-          <p>Update and Edit the information you share with community</p>
-          <p className={styles.paragraph}>
-            Login Email: <br />
-            User Email <br />
-            Your email address cannot be changed <br />
-          </p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-            <div>
-              <label>First Name</label>
-              <br />
-              <input style={{ width: "80%" }} type="text" />
-              <br />
-              <label style={{ marginTop: "20px" }}>Timezone</label>
-              <br />
-              <input
-                style={{ width: "80%" }}
-                value={currentUserEmail}
-                type="text"
-              />
-            </div>
-            <div>
-              <label>Last Name</label>
-              <br />
-              <input style={{ width: "80%" }} type="text" />
-              <br />
-              <br />
-              <br />
-
-              <button
-                style={{
-                  color: "black",
-                  border: "none",
-                  background: "grey",
-                  width: "120px",
-                  marginRight: "20px",
-                }}
-              >
-                Cancel
-              </button>
-              <button
-                style={{
-                  color: "white",
-                  border: "none",
-                  background: "#001E3D",
-                  width: "120px",
-                }}
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
+        ></div>
+        {/* <h1 className={styles.title}>Available Students</h1>
+        <p className={styles.paragraph}>
+          Welcome to the Available Students tab!
+        </p> */}
       </div>
     </div>
   );
 }
 
-function clickSettings() {
+function clickLogTutoringSession() {
   var dashboard = document.getElementById("dashboard");
+  var logtutoringsession = document.getElementById("logtutoringsession");
+  var faqs = document.getElementById("faqs");
   var settings = document.getElementById("settings");
   var dashboardsection = document.getElementById("dashboardsection");
+  var logtutoringsessionssection = document.getElementById(
+    "logtutoringsessionssection"
+  );
+  var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
   var availableStudents = document.getElementById("availableStudents");
   var availableStudentsSection = document.getElementById(
@@ -277,18 +305,121 @@ function clickSettings() {
   );
   if (
     dashboard != null &&
+    logtutoringsession != null &&
+    faqs != null &&
     settings != null &&
     dashboardsection != null &&
+    logtutoringsessionssection != null &&
+    faqssection != null &&
     settingssection != null &&
     availableStudents != null &&
     availableStudentsSection != null
   ) {
     dashboard.style.backgroundColor = "#F0F0F0";
     dashboard.style.color = "black";
+    logtutoringsession.style.backgroundColor = "#001E3D";
+    logtutoringsession.style.color = "white";
+    faqs.style.backgroundColor = "#F0F0F0";
+    faqs.style.color = "black";
+    settings.style.backgroundColor = "#F0F0F0";
+    settings.style.color = "black";
+    dashboardsection.style.display = "none";
+    logtutoringsessionssection.style.display = "block";
+    faqssection.style.display = "none";
+    settingssection.style.display = "none";
+    availableStudents.style.backgroundColor = "#F0F0F0";
+    availableStudents.style.color = "black";
+    availableStudentsSection.style.display = "none";
+  }
+}
+
+function clickFaqs() {
+  var dashboard = document.getElementById("dashboard");
+  var logtutoringsession = document.getElementById("logtutoringsession");
+  var faqs = document.getElementById("faqs");
+  var settings = document.getElementById("settings");
+  var dashboardsection = document.getElementById("dashboardsection");
+  var logtutoringsessionssection = document.getElementById(
+    "logtutoringsessionssection"
+  );
+  var faqssection = document.getElementById("faqssection");
+  var settingssection = document.getElementById("settingssection");
+  var availableStudents = document.getElementById("availableStudents");
+  var availableStudentsSection = document.getElementById(
+    "availableStudentsSection"
+  );
+  if (
+    dashboard != null &&
+    logtutoringsession != null &&
+    faqs != null &&
+    settings != null &&
+    dashboardsection != null &&
+    logtutoringsessionssection != null &&
+    faqssection != null &&
+    settingssection != null &&
+    availableStudents != null &&
+    availableStudentsSection != null
+  ) {
+    dashboard.style.backgroundColor = "#F0F0F0";
+    dashboard.style.color = "black";
+    logtutoringsession.style.backgroundColor = "#F0F0F0";
+    logtutoringsession.style.color = "black";
+    faqs.style.backgroundColor = "#001E3D";
+    faqs.style.color = "white";
+    settings.style.backgroundColor = "#F0F0F0";
+    settings.style.color = "black";
+    dashboardsection.style.display = "none";
+    logtutoringsessionssection.style.display = "none";
+    faqssection.style.display = "block";
+    settingssection.style.display = "none";
+    availableStudents.style.backgroundColor = "#F0F0F0";
+    availableStudents.style.color = "black";
+    availableStudentsSection.style.display = "none";
+  }
+}
+
+function clickSettings() {
+  var dashboard = document.getElementById("dashboard");
+  var logtutoringsession = document.getElementById("logtutoringsession");
+  var faqs = document.getElementById("faqs");
+  var settings = document.getElementById("settings");
+  var dashboardsection = document.getElementById("dashboardsection");
+  var logtutoringsessionssection = document.getElementById(
+    "logtutoringsessionssection"
+  );
+  var faqssection = document.getElementById("faqssection");
+  var settingssection = document.getElementById("settingssection");
+  var availableStudents = document.getElementById("availableStudents");
+  var availableStudentsSection = document.getElementById(
+    "availableStudentsSection"
+  );
+  if (
+    dashboard != null &&
+    logtutoringsession != null &&
+    faqs != null &&
+    settings != null &&
+    dashboardsection != null &&
+    logtutoringsessionssection != null &&
+    faqssection != null &&
+    settingssection != null &&
+    availableStudents != null &&
+    availableStudentsSection != null
+  ) {
+    dashboard.style.backgroundColor = "#F0F0F0";
+    dashboard.style.color = "black";
+    logtutoringsession.style.backgroundColor = "#F0F0F0";
+    logtutoringsession.style.color = "black";
+    faqs.style.backgroundColor = "#F0F0F0";
+    faqs.style.color = "black";
     settings.style.backgroundColor = "#001E3D";
     settings.style.color = "white";
     dashboardsection.style.display = "none";
+    logtutoringsessionssection.style.display = "none";
+    faqssection.style.display = "none";
     settingssection.style.display = "block";
+    faqs.style.backgroundColor = "#F0F0F0";
+    faqs.style.color = "black";
+    faqssection.style.display = "none";
     availableStudents.style.backgroundColor = "#F0F0F0";
     availableStudents.style.color = "black";
     availableStudentsSection.style.display = "none";
@@ -297,31 +428,47 @@ function clickSettings() {
 
 function clickAvailableStudents() {
   var dashboard = document.getElementById("dashboard");
+  var logtutoringsession = document.getElementById("logtutoringsession");
+  var faqs = document.getElementById("faqs");
   var settings = document.getElementById("settings");
   var dashboardsection = document.getElementById("dashboardsection");
+  var logtutoringsessionssection = document.getElementById(
+    "logtutoringsessionssection"
+  );
   var availableStudents = document.getElementById("availableStudents");
   var availableStudentsSection = document.getElementById(
     "availableStudentsSection"
   );
+  var faqssection = document.getElementById("faqssection");
   var settingssection = document.getElementById("settingssection");
   if (
     dashboard != null &&
+    logtutoringsession != null &&
+    faqs != null &&
     settings != null &&
     dashboardsection != null &&
+    logtutoringsessionssection != null &&
+    faqssection != null &&
     settingssection != null &&
     availableStudents != null &&
     availableStudentsSection != null
   ) {
     dashboard.style.backgroundColor = "#F0F0F0";
     dashboard.style.color = "black";
+    logtutoringsession.style.backgroundColor = "#F0F0F0";
+    logtutoringsession.style.color = "black";
+    faqs.style.backgroundColor = "#F0F0F0";
+    faqs.style.color = "black";
     settings.style.backgroundColor = "#F0F0F0";
     settings.style.color = "black";
     settingssection.style.display = "none";
     dashboardsection.style.display = "none";
+    logtutoringsessionssection.style.display = "none";
+    faqssection.style.display = "none";
     availableStudents.style.backgroundColor = "#001E3D";
     availableStudents.style.color = "white";
     availableStudentsSection.style.display = "block";
   }
 }
 
-export default StudentDashboard;
+export default Dashboard;

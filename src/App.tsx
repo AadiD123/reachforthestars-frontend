@@ -20,24 +20,27 @@ import Registration from "./Pages/Registration/Registration";
 import BlogPage from "./Pages/Blog-Page/Blog-Page";
 import BlogPageEdit from "./Pages/BlogPageEdit/BlogPageEdit";
 import SignUp from "./Pages/Authentication/Sign Up/SignUp";
+import ForgotPassword from "./Pages/Authentication/ForgotPassword/ForgotPassword";
 
 //Private Pages
 import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
-import StudentDashboard from "./Pages/PrivatePages/StudentDashboard/StudentDashboard";
 
 function App() {
+  // useEffect(() => {
+  //   auth.onAuthStateChanged(function (user) {
+  //     if (user?.email) {
+  //       localStorage.setItem("userEmail", user.email);
+  //     }
+  //   });
+  // });
+
   return (
-    <div>
-    <div>
     <Router>
       <Navbar />
       <AuthProvider>
         <Switch>
           <PrivateRoute path="/dashboard" component={Dashboard} />
-          <PrivateRoute
-            path="/student-dashboard"
-            component={StudentDashboard}
-          />
+          <PrivateRoute path="/blog-edit" component={BlogPageEdit} />
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />
@@ -51,20 +54,13 @@ function App() {
           />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
-
-          <Route path="/blog-edit" component={BlogPageEdit} />
+          <Route path="/forgotpassword" component={ForgotPassword} />
           <Route path="/registration" component={Registration} />
           <Route path="/individual-about" component={IndividualAbout} />
         </Switch>
       </AuthProvider>
-    
-    </Router>
-    </div>
-    <div style={{position: 'relative'}} >
       <Footer />
-    </div>
-    </div>
-
+    </Router>
   );
 }
 

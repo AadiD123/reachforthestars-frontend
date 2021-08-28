@@ -71,7 +71,7 @@ const Events = () => {
       </ul>
       <div className="tab-content ">
         <div>
-          {toggle == false ? (
+          {toggle === false ? (
             <div
               className="tab-pane "
               id="past"
