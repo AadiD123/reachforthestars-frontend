@@ -66,7 +66,7 @@ const Registration = () => {
             <div className={styles.text}>
               <h1
                 style={{
-                  color: "black",
+                  color: "white",
                   fontSize: "40px",
                   marginBottom: "20px",
                 }}

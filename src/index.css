@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 
 :root {
-  --background-color: #eff6e0;
-  --accent-blue: #124559;
-  --accent-green: #c4f1be;
-  --accent-tealBlue: #598392;
+  --background-color: #e5d5c7;
+  --accent-blue: #aab5c5;
+  --accent-green: #fff1c2;
+  --accent-tealBlue: #53616f;
+  --button-color: #2c333a;
 }
 
 body {
@@ -27,7 +28,7 @@ body {
 
 .buttonStyle {
   color: white;
-  background-color: #001e3d;
+  background-color: var(--button-color);
   border: 1px solid #001e3d;
   border-radius: 0;
   padding: 10px 25px 10px;

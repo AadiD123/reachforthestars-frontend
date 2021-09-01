@@ -24,6 +24,7 @@ import ForgotPassword from "./Pages/Authentication/ForgotPassword/ForgotPassword
 
 //Private Pages
 import Dashboard from "./Pages/PrivatePages/Dashboard/Dashboard";
+import { Donate } from "./Pages/Donate/Donate";
 
 function App() {
   // useEffect(() => {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />
+          <Route path="/donate" component={Donate} />
           <Route path="/join-our-team" component={JoinOurTeam} />
           <Route path="/blog" component={Blog} />
           <Route path="/blogpage/:id" exact component={BlogPage} />

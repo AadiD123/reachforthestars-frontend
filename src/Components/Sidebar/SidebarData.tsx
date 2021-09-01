@@ -23,6 +23,11 @@ export const SidebarData = [
     cName: `${styles.navTextTop}`,
   },
   {
+    title: "Donate",
+    path: "/donate",
+    cName: `${styles.navTextTop}`,
+  },
+  {
     title: "About",
     path: "/about",
     cName: `${styles.navTextTop}`,
