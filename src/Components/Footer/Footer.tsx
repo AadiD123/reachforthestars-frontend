@@ -28,8 +28,11 @@ function Footer() {
         </div>
         <div className={`${styles.copyright}`}>
           <p>
-            ©2020 by Reach For The Stars. <br /> Please subscribe to our weekly
-            emails for updates or any upcoming activities
+            ©2021 by Reach For The Stars.
+            <br /> Please subscribe to our weekly emails for updates or any
+            upcoming activities.
+            <br /> Coded by Aaditya Doiphode, Robert Burris, Aryeman Singh,
+            Keerthi Kalyaan, and Aron Thakur{" "}
           </p>
         </div>
       </footer>

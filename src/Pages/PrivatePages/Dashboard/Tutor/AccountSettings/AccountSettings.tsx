@@ -112,7 +112,6 @@ export default function AccountSettings() {
         style={{
           color: "white",
           border: "none",
-          background: "#124559",
           width: "120px",
         }}
         onClick={handleLogout}
