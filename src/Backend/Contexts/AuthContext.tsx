@@ -42,7 +42,8 @@ export function AuthProvider({ children }: any) {
     timezone: string,
     role: string,
     parentFirstName: string | null,
-    parentLastName: string | null
+    parentLastName: string | null,
+    subjects: string
   ) {
     console.log("signup clicked in");
     return auth.createUserWithEmailAndPassword(email, password).then(() => {
@@ -51,7 +52,16 @@ export function AuthProvider({ children }: any) {
         addTutor(firstName, lastName, email, timezone, role);
       } else if (role === "student") {
         parentFirstName === null || parentLastName === null
-          ? addStudent(firstName, lastName, email, timezone, role, grade, true)
+          ? addStudent(
+              firstName,
+              lastName,
+              email,
+              timezone,
+              role,
+              grade,
+              subjects,
+              true
+            )
           : addStudentParent(
               firstName,
               lastName,
@@ -61,6 +71,7 @@ export function AuthProvider({ children }: any) {
               timezone,
               role,
               grade,
+              subjects,
               true
             );
       } else if (role === "admin") {

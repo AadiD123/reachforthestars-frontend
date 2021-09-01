@@ -37,6 +37,8 @@ h1 {
   border: 1px solid #001e3d;
   border-radius: 0;
   padding: 10px 25px 10px;
+  font-family: "Big Shoulders Display", cursive;
+  letter-spacing: 0.1em;
 }
 
 .buttonStyle:hover {

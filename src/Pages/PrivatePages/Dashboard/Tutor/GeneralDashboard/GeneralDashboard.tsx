@@ -58,12 +58,13 @@ export default function GeneralDashboard() {
       </button>
       <br />
       <h2>Your Students</h2>
+      <br />
       {yourStudent != null ? (
         <div style={{ display: "flex" }}>
           <br />
           <div className={styles.studentCard}>
             <h3>{yourStudent.firstName}</h3>
-
+            <br />
             {yourStudent.parentFirstName !== "" &&
             yourStudent.parentLastName !== "" ? (
               <p>Parent Email: {yourStudent.key}</p>
@@ -83,6 +84,9 @@ export default function GeneralDashboard() {
             ) : (
               <div />
             )}
+
+            <p>Grade: {yourStudent.grade}</p>
+            <p>Subjects: {yourStudent.subjects}</p>
             <p>Timezone: {yourStudent.timezone}</p>
           </div>
         </div>

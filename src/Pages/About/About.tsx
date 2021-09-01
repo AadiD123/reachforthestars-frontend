@@ -149,7 +149,7 @@ const About = () => {
   });
 
   return (
-    <div className="mainContainer">
+    <div className="mainContainer" style={{ paddingBottom: "120px" }}>
       <div className={styles.map}>
         <h1 className="title">About</h1>
         <GoogleMapReact

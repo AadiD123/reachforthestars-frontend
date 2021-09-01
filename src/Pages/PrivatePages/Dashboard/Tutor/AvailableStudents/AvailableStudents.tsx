@@ -96,6 +96,9 @@ export default function AvailableStudents() {
                   <li className="list-group-item">
                     Timezone: {student.timezone}
                   </li>
+                  <li className="list-group-item">
+                    Subjects: {student.subjects}
+                  </li>
                 </ul>
                 <div className="card-body">
                   <button

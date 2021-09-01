@@ -72,9 +72,10 @@
 
 .studentCard {
   background-color: var(--accent-tealBlue);
-  width: 300px;
-  height: 250px;
+  width: 23em;
+  height: 15em;
   padding: 30px;
+  font-size: 1em;
   color: white;
   box-shadow: 2px 2px 2px 2px grey;
 }

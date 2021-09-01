@@ -12,6 +12,7 @@ export default function Form() {
   const firstNameRefParent = useRef() as MutableRefObject<any>;
   const lastNameRefParent = useRef() as MutableRefObject<any>;
   const passwordRef = useRef() as MutableRefObject<any>;
+  const subjectsRef = useRef() as MutableRefObject<any>;
   const pinRef = useRef() as MutableRefObject<any>;
   const { signup } = useAuth();
   const [loading, setLoading] = useState(false);
@@ -49,7 +50,8 @@ export default function Form() {
           timezoneRef.current.value,
           "student",
           firstNameRefParent.current.value,
-          lastNameRefParent.current.value
+          lastNameRefParent.current.value,
+          subjectsRef.current.value
         );
         history.push("/dashboard");
       }
@@ -120,7 +122,7 @@ export default function Form() {
     <div>
       <form
         style={{
-          fontSize: "medium",
+          fontSize: "small",
           margin: 0,
           textAlign: "center",
           marginTop: "30px",
@@ -204,13 +206,14 @@ export default function Form() {
           className={styles.typingInput}
           ref={passwordRef}
         />
+
         <select
           onChange={selectVolunteer}
           required
           name="role"
           id="role"
           className={styles.typingInput}
-          style={{ marginLeft: "43%", width: "120%" }}
+          style={{ width: "100%" }}
         >
           <option value="member">Member</option>
           <option value="volunteer">Volunteer</option>
@@ -221,15 +224,27 @@ export default function Form() {
               name="pin"
               id="pin"
               type="password"
-              placeholder="Enter Pin"
+              placeholder="Enter Volunteer Pin"
               className={styles.typingInput}
               ref={pinRef}
+              style={{ width: "100%" }}
             />
-            {/* <br></br> */}
           </div>
         ) : (
-          <div></div>
+          <div>
+            <input
+              name="subjects"
+              id="subjects"
+              type="text"
+              placeholder="Enter subjects you want to be tutored in"
+              className={styles.typingInput}
+              required
+              ref={subjectsRef}
+              style={{ width: "100%" }}
+            />
+          </div>
         )}
+
         <button
           disabled={loading}
           className={styles.submitButton}

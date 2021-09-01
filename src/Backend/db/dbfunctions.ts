@@ -48,6 +48,7 @@ export function addStudent(
   timezone: string,
   role: string,
   grade: number,
+  subjects: string,
   available: boolean
 ) {
   db.collection("students")
@@ -58,6 +59,7 @@ export function addStudent(
       timezone: timezone,
       role: role,
       grade: grade,
+      subjects: subjects,
       available: available,
     })
     .then(() => {
@@ -77,6 +79,7 @@ export function addStudentParent(
   timezone: string,
   role: string,
   grade: number,
+  subjects: string,
   available: boolean
 ) {
   db.collection("students")
@@ -88,6 +91,7 @@ export function addStudentParent(
       role: role,
       grade: grade,
       available: available,
+      subjects: subjects,
       parentFirstName: parentFirstName,
       parentLastName: parentLastName,
     })
