@@ -1,7 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../Firebase";
 import firebase from "firebase";
-import { addAdmin, addStudent, addTutor, addUsers } from "../db/dbfunctions";
+import {
+  addAdmin,
+  addStudent,
+  addTutor,
+  addUsers,
+  addStudentParent,
+} from "../db/dbfunctions";
 
 interface AuthContextType {
   currentUser: firebase.User | null;
@@ -34,7 +40,9 @@ export function AuthProvider({ children }: any) {
     password: string,
     grade: number,
     timezone: string,
-    role: string
+    role: string,
+    parentFirstName: string | null,
+    parentLastName: string | null
   ) {
     console.log("signup clicked in");
     return auth.createUserWithEmailAndPassword(email, password).then(() => {
@@ -42,7 +50,19 @@ export function AuthProvider({ children }: any) {
       if (role === "volunteer") {
         addTutor(firstName, lastName, email, timezone, role);
       } else if (role === "student") {
-        addStudent(firstName, lastName, email, timezone, role, grade, true);
+        parentFirstName === null || parentLastName === null
+          ? addStudent(firstName, lastName, email, timezone, role, grade, true)
+          : addStudentParent(
+              firstName,
+              lastName,
+              parentFirstName,
+              parentLastName,
+              email,
+              timezone,
+              role,
+              grade,
+              true
+            );
       } else if (role === "admin") {
         addAdmin(firstName, lastName, email, timezone, role);
       }

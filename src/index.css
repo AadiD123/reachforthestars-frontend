@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;700&family=Open+Sans&family=Shrikhand&display=swap");
 
 :root {
   --background-color: #e5d5c7;
@@ -12,12 +12,17 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
+  font-family: "Open Sans";
 }
 
 .title {
   font-size: 5rem;
   text-align: center;
   color: #001e3d;
+}
+
+h1 {
+  font-family: "Shrikhand", cursive;
 }
 
 .mainContainer {

@@ -68,6 +68,37 @@ export function addStudent(
     });
 }
 
+export function addStudentParent(
+  firstName: string,
+  lastName: string,
+  parentFirstName: string,
+  parentLastName: string,
+  email: string,
+  timezone: string,
+  role: string,
+  grade: number,
+  available: boolean
+) {
+  db.collection("students")
+    .doc(email)
+    .set({
+      firstName: firstName,
+      lastName: lastName,
+      timezone: timezone,
+      role: role,
+      grade: grade,
+      available: available,
+      parentFirstName: parentFirstName,
+      parentLastName: parentLastName,
+    })
+    .then(() => {
+      console.log("User info successfully written!");
+    })
+    .catch((error) => {
+      console.error("Error writing document: ", error);
+    });
+}
+
 export function addTutor(
   firstName: string,
   lastName: string,

@@ -41,8 +41,8 @@ export function StudentGeneralDashboard() {
     <div>
       <h2>Welcome Students</h2>
       <p>
-        Welcome to the General Volunteer tab! Here you can find all the things
-        you can work on and all materials you will need as a general volunteer!
+        Welcome to the Student tab! Here you can find contact info for the tutor
+        that is assigned to you!
       </p>
       <div style={{ marginBottom: "10px" }}></div>
       <h2>Your Tutor</h2>

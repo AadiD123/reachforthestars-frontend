@@ -63,14 +63,33 @@ export default function GeneralDashboard() {
           <br />
           <div className={styles.studentCard}>
             <h3>{yourStudent.firstName}</h3>
-            <p>Email: {yourStudent.key}</p>
+
+            {yourStudent.parentFirstName !== "" &&
+            yourStudent.parentLastName !== "" ? (
+              <p>Parent Email: {yourStudent.key}</p>
+            ) : (
+              <p>Student Email: {yourStudent.key}</p>
+            )}
+
+            {yourStudent.parentFirstName !== "" &&
+            yourStudent.parentLastName !== "" ? (
+              <p>
+                {" "}
+                Parent Name:{" "}
+                {yourStudent.parentFirstName +
+                  " " +
+                  yourStudent.parentLastName}{" "}
+              </p>
+            ) : (
+              <div />
+            )}
             <p>Timezone: {yourStudent.timezone}</p>
           </div>
         </div>
       ) : loading != true ? (
         <div>Loading Students</div>
       ) : (
-        <div>No students available to tutor</div>
+        <div>Not paired with a student</div>
       )}
     </div>
   );

@@ -70,7 +70,29 @@ export default function AvailableStudents() {
                   </h1>
                 </div>
                 <ul className="list-group list-group-flush">
-                  <li className="list-group-item">{student.key}</li>
+                  {student.parentFirstName !== "" &&
+                  student.parentLastName !== "" ? (
+                    <li className="list-group-item">
+                      {" "}
+                      Parent Email: {student.key}
+                    </li>
+                  ) : (
+                    <li className="list-group-item">
+                      {" "}
+                      Student Email: {student.key}
+                    </li>
+                  )}
+
+                  {student.parentFirstName !== "" &&
+                  student.parentLastName !== "" ? (
+                    <li className="list-group-item">
+                      Parent Name:{" "}
+                      {student.parentFirstName + " " + student.parentLastName}
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  <li className="list-group-item">Grade: {student.grade}</li>
                   <li className="list-group-item">
                     Timezone: {student.timezone}
                   </li>
