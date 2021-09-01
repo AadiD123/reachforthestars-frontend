@@ -1,0 +1,10 @@
+.circle {
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "center";
+  align-items: "center";
+  width: "100px";
+  border-radius: "50%";
+  border: "1px 1px 1px 1px";
+  background-color: orange;
+}
