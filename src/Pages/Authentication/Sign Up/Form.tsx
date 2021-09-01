@@ -9,6 +9,8 @@ export default function Form() {
   const gradeRef = useRef() as MutableRefObject<any>;
   const timezoneRef = useRef() as MutableRefObject<any>;
   const emailRef = useRef() as MutableRefObject<any>;
+  const nameRefParent = useRef() as MutableRefObject<any>;
+  const emailRefParent = useRef() as MutableRefObject<any>;
   const passwordRef = useRef() as MutableRefObject<any>;
   const pinRef = useRef() as MutableRefObject<any>;
   const { signup } = useAuth();
@@ -58,9 +60,49 @@ export default function Form() {
     setVolunteer(!volunteer);
   };
 
+  function checkInput(){
+    if(document.getElementById("grade") != null){
+      var elem = document.getElementById("grade");
+      if(elem!=null){
+        var x = Number((elem as HTMLInputElement).value);
+        console.log(x);
+        if(x<8){
+          console.log("bruh");
+          if(document.getElementById("parentEmail") != null){
+            var pElem = document.getElementById("parentEmail");
+            if(pElem!=null){
+              pElem.style.display = "block";
+              if(document.getElementById("parentName") != null){
+                var pElem2 = document.getElementById("parentName");
+                if(pElem2!=null){
+                  pElem2.style.display = "block";
+                }
+              }
+            }
+          }
+        }
+        if(x>=8){
+          console.log("bruh");
+          if(document.getElementById("parentEmail") != null){
+            var pElem = document.getElementById("parentEmail");
+            if(pElem!=null){
+              pElem.style.display = "none";
+              if(document.getElementById("parentName") != null){
+                var pElem2 = document.getElementById("parentName");
+                if(pElem2!=null){
+                  pElem2.style.display = "none";
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   return (
     <div>
-      <form style={{ fontSize: "medium", margin: 0 }} onSubmit={handleSubmit}>
+      <form style={{ fontSize: "medium", margin: 0,  textAlign:"center", marginTop:"30px", padding:"30px"  }} onSubmit={handleSubmit} className={styles.forms}>
         <input
           name="firstName"
           id="firstName"
@@ -80,6 +122,7 @@ export default function Form() {
           ref={lastNameRef}
         />
         <input
+          onBlur = {checkInput}
           name="grade"
           id="grade"
           type="number"
@@ -87,6 +130,27 @@ export default function Form() {
           required
           className={styles.typingInput}
           ref={gradeRef}
+        />
+         <input
+          style={{display :"none"}}
+          onBlur = {checkInput}
+          name="parentName"
+          id="parentName"
+          type="text"
+          placeholder="Parent Name"
+          required
+          className={styles.typingInput}
+          ref = {nameRefParent}
+        />
+         <input
+          style={{display:"none"}}
+          name="parentEmail"
+          id="parentEmail"
+          type="email"
+          placeholder="Parent Email"
+          required
+          className={styles.typingInput}
+          ref = {emailRefParent}
         />
         <input
           name="timezone"
@@ -121,6 +185,7 @@ export default function Form() {
           name="role"
           id="role"
           className={styles.typingInput}
+          style={{marginLeft:"43%", width:"120%"}}
         >
           <option value="student">Student</option>
           <option value="volunteer">General Volunteer</option>
@@ -144,6 +209,7 @@ export default function Form() {
           disabled={loading}
           className={styles.submitButton}
           type="submit"
+          style = {{marginLeft: "85%"}}
         >
           Sign Up
         </button>

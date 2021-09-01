@@ -30,8 +30,8 @@ form {
 .typingInput {
   border: none;
   /* margin-left: 20%; */
-  width: 60%;
-  padding: 5px;
+
+  padding: 10px;
   padding-left: 10px;
   margin-bottom: 10px;
 }
@@ -77,15 +77,10 @@ input::placeholder {
   padding-left: 16px;
   float: left;
 }
-@media screen and (max-width: 1000px) {
-  .signInWithGoogleButton span {
-    font-size: 50%;
-    padding-left: 10px;
-    padding-top: 2px;
-  }
-  .signUpBox {
-    margin-top: 15%;
-  }
+.forms{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:10px;
 }
 @media screen and (max-width: 600px) {
   .signUpBox {
@@ -124,5 +119,21 @@ input::placeholder {
   }
   .submitButton {
     margin-top: 5%;
+  }
+  
+}
+
+@media screen and (max-width: 1000px) {
+  .signInWithGoogleButton span {
+    font-size: 50%;
+    padding-left: 10px;
+    padding-top: 2px;
+  }
+  .signUpBox {
+    margin-top: 15%;
+  }
+  .forms{
+    grid-template-columns: 1fr;
+
   }
 }
