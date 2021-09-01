@@ -13,6 +13,7 @@ export function Donate() {
     >
       <h1>WHY DONATE?</h1>
       <br />
+
       <h2>You can make a difference in a child's education.</h2>
       <p>
         We want to provide the best, most efficient, and cost-free programs to
@@ -64,6 +65,7 @@ export function Donate() {
         </div>
       </div>
       <br />
+      <br />
       <div
         style={{
           width: "60%",
@@ -87,6 +89,7 @@ export function Donate() {
         </div>
       </div>
       <br />
+      <br />
       <div
         style={{
           width: "60%",
@@ -108,6 +111,7 @@ export function Donate() {
           </a>
         </div>
       </div>
+      <br />
       <br />
       <div
         style={{

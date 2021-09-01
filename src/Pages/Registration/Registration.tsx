@@ -49,7 +49,7 @@ const Registration = () => {
                 info.reachstars@gmail.com if you have any questions!{" "}
               </div>
             </div>
-            <div className={styles.buttons}>
+            <div>
               <div className={styles.button}>
                 <a href="/signup">
                   <button className="buttonStyle">Join as Tutor</button>
@@ -85,7 +85,7 @@ const Registration = () => {
                 at info.reachstars@gmail.com{" "}
               </div>
             </div>
-            <div className={styles.buttons}>
+            <div>
               <div className={styles.button}>
                 <button className="buttonStyle">Join as Tutor</button>
               </div>
