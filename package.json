@@ -39,6 +39,7 @@
   },
   "scripts": {
     "start": "serve -s build --listen 3000 --ssl-cert \"./mycert.crt\" --ssl-key \"./mykey.key\"",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

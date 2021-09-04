@@ -8,7 +8,7 @@ import { BlogInterface } from "../Blog/Blog";
 
 const BlogPage = () => {
   const [blogInfo, setBlog] = useState<BlogInterface[]>([]);
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<BlogInterface[]>([]);
   const [loading, setLoading] = useState(true);
   let { id }: any = useParams();
 
@@ -18,27 +18,36 @@ const BlogPage = () => {
     if (tempGet !== null) {
       temp = JSON.parse(tempGet);
     }
+    setBlogs(temp);
     if (temp.length > 0) {
       for (let i = 0; i < temp?.length; i++) {
         if (temp[i].key === id) {
           setBlog([temp[i]]);
-          console.log(blogInfo);
           setLoading(false);
+          console.log(id);
           return;
         }
       }
       console.log("No such document!");
       return;
     }
-    let blog: any = [];
+    let blog: BlogInterface[] = [];
 
     db.collection("blogs")
       .doc(id)
       .get()
       .then((doc) => {
         if (doc.exists) {
-          blog.push({ key: doc.id, ...doc.data() });
-          setBlog(blog);
+          blog.push({ 
+            key: doc.id, 
+            author: doc.data()?.author, 
+            content: doc.data()?.content,
+            date: doc.data()?.date,
+            editor: doc.data()?.editor,
+            title: doc.data()?.title,
+            img: doc.data()?.img
+          });
+          setBlogs(blog.sort((a, b) => (Date.parse(b.date) - Date.parse(a.date))));
           setLoading(false);
         } else {
           // doc.data() will be undefined in this case
@@ -56,19 +65,19 @@ const BlogPage = () => {
         <h1 className={styles.pageTitle}>Blog</h1>
         <h2>Loading Blog</h2>
       </div>
-    );
+    )
   }
 
   return (
     <div>
       {blogInfo.length > 0 ? (
-        blogInfo.map((blog: any) => (
+        blogInfo.map((blog: BlogInterface) => (
           <div className={styles.contain}>
             <Link className={styles.back} to="/blog">
               <FaIcons.FaArrowLeft className={styles.icon} /> Back{" "}
             </Link>
             <img
-              src={blog.blogpicture}
+              src={blog.img}
               width="100%"
               style={{ objectFit: "cover" }}
               alt="card"
@@ -78,7 +87,7 @@ const BlogPage = () => {
               <div className={styles.content}>
                 <div className={styles.info}>
                   <p>Author: {blog.author}</p>
-                  <p>Edited By: {blog.edited}</p>
+                  {blog.editor !== "" ? <p>Edited By: {blog.editor}</p> : <div />}
                   <p>{blog.date}</p>
                 </div>
                 <div
@@ -105,24 +114,26 @@ const BlogPage = () => {
               style={{ marginTop: "20px", paddingBottom: "50px" }}
             >
               {blogs.length > 0 ? (
-                blogs.map((blog: any) => (
-                  <div
-                    id={blog.key}
-                    key={blog.key}
-                    style={{ marginTop: "20px", marginBottom: "10px" }}
-                  >
-                    <div className="card" style={{ height: "100%" }}>
-                      <img
-                        alt="card"
-                        className="card-img-top"
-                        src={blog.blogpicture}
-                        style={{ height: "275px", objectFit: "cover" }}
-                      />
-                      <div className="card-body">
-                        <h4 className="card-title">{blog.title}</h4>
+                blogs.slice(0, 3).map((blog: BlogInterface) => (
+                  <Link to={`/blogpage/${blog.key}`}>
+                    <div
+                      id={blog.key}
+                      key={blog.key}
+                      style={{ marginTop: "20px", marginBottom: "10px" }}
+                    >
+                      <div className="card" style={{ height: "100%" }}>
+                        <img
+                          alt="card"
+                          className="card-img-top"
+                          src={blog.img}
+                          style={{ height: "275px", objectFit: "cover" }}
+                        />
+                        <div className="card-body">
+                          <h4 className="card-title">{blog.title}</h4>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))
               ) : (
                 <h1>Blogs not loaded</h1>

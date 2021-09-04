@@ -11,6 +11,7 @@ export interface BlogInterface {
   date: string;
   editor: string;
   title: string;
+  img: string;
 }
 
 const Blog = () => {
@@ -21,12 +22,20 @@ const Blog = () => {
     if (blogs.length > 0) {
       return;
     }
-    let allblogs: any = [];
+    let allblogs: BlogInterface[] = [];
     db.collection("blogs").onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        allblogs.push({ key: doc.id, ...doc.data() });
+        allblogs.push({ 
+          key: doc.id, 
+          author: doc.data()?.author, 
+          content: doc.data()?.content,
+          date: doc.data()?.date,
+          editor: doc.data()?.editor,
+          title: doc.data()?.title,
+          img: doc.data()?.img
+        });
       });
-      setBlogs(allblogs);
+      setBlogs(allblogs.sort((a, b) => (Date.parse(b.date) - Date.parse(a.date))));
       localStorage.setItem("blogs", JSON.stringify(allblogs));
       setLoading(false);
     });
