@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
 
 //Auth
 import PrivateRoute from "./Backend/PrivateAuth";
@@ -42,13 +42,12 @@ function App() {
         <Switch>
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/blog-edit" component={BlogPageEdit} />
-          <Route path="/" exact component={Home} />
           <Route path="/events" component={Events} />
           <Route path="/about" component={About} />
           <Route path="/donate" component={Donate} />
           <Route path="/join-our-team" component={JoinOurTeam} />
           <Route path="/blog" component={Blog} />
-          <Route path="/blogpage/:id" exact component={BlogPage} />
+          <Route path="/blogpage/:id" exact component={withRouter(BlogPage)} />
           <Route
             path="/individual-about/:name/:text"
             exact
@@ -59,6 +58,7 @@ function App() {
           <Route path="/forgotpassword" component={ForgotPassword} />
           <Route path="/registration" component={Registration} />
           <Route path="/individual-about" component={IndividualAbout} />
+          <Route path="/" exact component={Home} />
         </Switch>
       </AuthProvider>
       <Footer />
