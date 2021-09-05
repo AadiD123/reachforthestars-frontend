@@ -1,9 +1,10 @@
 import styles from "./Marker.module.css";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 function Marker(props: any) {
   const { name, text, src } = props;
+  const history = useHistory();
 
-  const setToStorage = (name: any, bio: any, src: any) => {
+  const setToStorage = (name: any, src: any) => {
     localStorage.setItem("name", name);
     let bArray = localStorage.getItem("biosArray");
     if (bArray === null) {
@@ -21,13 +22,13 @@ function Marker(props: any) {
   };
 
   return (
-    <Link to={`/individual-about/`}>
+    <div onClick={() => {history.push(`/individual-about/`)}}>
       <div
         className={styles.pin}
         style={{ backgroundColor: "blue", cursor: "pointer" }}
         title={name}
         onClick={() => {
-          setToStorage(name, text, src);
+          setToStorage(name, src);
         }}
       >
         <div
@@ -52,7 +53,7 @@ function Marker(props: any) {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
