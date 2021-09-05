@@ -1,18 +1,28 @@
-import { useRef, MutableRefObject } from "react";
+import { useRef, MutableRefObject, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../../../Backend/Contexts/AuthContext";
 import { updateStudent } from "../../../../../Backend/db/dbfunctions";
 import { auth } from "../../../../../Backend/Firebase";
 
 export default function AccountSettings() {
+  const [currentUserEmail, setCurrentUserEmail] = useState("");
   const firstNameRef = useRef() as MutableRefObject<any>;
   const lastNameRef = useRef() as MutableRefObject<any>;
   const timezoneRef = useRef() as MutableRefObject<any>;
-  const auth = useAuth();
+  const useauth = useAuth();
   const history = useHistory();
 
+  useEffect(() => {});
+
+  auth.onAuthStateChanged(function (user) {
+    if (user?.email) {
+      setCurrentUserEmail(user.email);
+      console.log(currentUserEmail);
+    }
+  });
+
   const submitChanges = (e: any) => {
-    if (auth.currentUser === null) {
+    if (useauth.currentUser === null) {
       return;
     }
     let data = {};
@@ -32,7 +42,7 @@ export default function AccountSettings() {
   };
 
   const handleLogout = () => {
-    auth.logout();
+    useauth.logout();
     history.push("/");
     window.location.reload();
   };
@@ -40,10 +50,14 @@ export default function AccountSettings() {
   return (
     <div>
       <h1>My Account</h1>
-      {/* <p>Update and Edit the information you share with community</p>
+      <p>Update and Edit the information you share with community</p>
       <p>
-        Login Email: <br />
-        User Email <br />
+        Your Email:{" "}
+        {currentUserEmail != null ? (
+          <div>{currentUserEmail}</div>
+        ) : (
+          <div>Loading your email</div>
+        )}
         Your email address cannot be changed <br />
       </p>
       <form
@@ -84,6 +98,7 @@ export default function AccountSettings() {
           <br />
           <br />
           <button
+            className="buttonStyle"
             style={{
               color: "black",
               border: "none",
@@ -94,23 +109,29 @@ export default function AccountSettings() {
           >
             Cancel
           </button>
-          <input
+          <br />
+          <button
             type="submit"
+            className="buttonStyle"
             style={{
               color: "white",
               border: "none",
-              background: "#001E3D",
               width: "120px",
             }}
-            value="Submit"
-          />
+            value=""
+          >
+            {" "}
+            Submit{" "}
+          </button>
         </div>
         <br />
-      </form> */}
+
+        <br />
+      </form>
       <button
         className="buttonStyle"
         style={{
-          color: "white",
+          color: "#cc393e",
           border: "none",
           width: "120px",
         }}

@@ -94,7 +94,7 @@ export default function AvailableStudents() {
                   )}
                   <li className="list-group-item">Grade: {student.grade}</li>
                   <li className="list-group-item">
-                    Timezone: {student.timezone}
+                    Timezone: {student.timezone.abbrev}
                   </li>
                   <li className="list-group-item">
                     Subjects: {student.subjects}

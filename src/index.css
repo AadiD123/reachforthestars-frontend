@@ -16,7 +16,7 @@ body {
 }
 
 .title {
-  font-size: 5rem;
+  font-size: 5em;
   text-align: center;
   color: #001e3d;
 }
@@ -47,6 +47,9 @@ h1 {
 }
 
 @media screen and (max-width: 420px) {
+  .title {
+    font-size: 3em;
+  }
   .mainContainer {
     padding-inline: 10px;
   }

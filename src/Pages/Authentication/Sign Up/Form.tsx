@@ -2,12 +2,43 @@ import { useRef, useState, MutableRefObject } from "react";
 import styles from "./SignUp.module.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../Backend/Contexts/AuthContext";
+import TimezoneSelect, {
+  i18nTimezones,
+  ICustomTimezone,
+  ITimezone,
+} from "react-timezone-select";
+
+const timezones = [
+  "GMT",
+  "UTC",
+  "ECT",
+  "EET",
+  "ART",
+  "EAT",
+  "MET",
+  "NET",
+  "PLT",
+  "IST",
+  "BST",
+  "VST",
+  "CTT",
+  "JST",
+  "ACT",
+  "AET",
+  "SST",
+  "NST",
+  "MIT",
+  "HST",
+  "AST",
+  "PST",
+  "PNT",
+];
 
 export default function Form() {
   const firstNameRef = useRef() as MutableRefObject<any>;
   const lastNameRef = useRef() as MutableRefObject<any>;
   const gradeRef = useRef() as MutableRefObject<any>;
-  const timezoneRef = useRef() as MutableRefObject<any>;
+  const [selectedTimezone, setSelectedTimezone] = useState<ITimezone>("");
   const emailRef = useRef() as MutableRefObject<any>;
   const firstNameRefParent = useRef() as MutableRefObject<any>;
   const lastNameRefParent = useRef() as MutableRefObject<any>;
@@ -33,7 +64,7 @@ export default function Form() {
             emailRef.current.value,
             passwordRef.current.value,
             gradeRef.current.value,
-            timezoneRef.current.value,
+            selectedTimezone,
             "volunteer"
           );
           history.push("/dashboard");
@@ -47,7 +78,7 @@ export default function Form() {
           emailRef.current.value,
           passwordRef.current.value,
           gradeRef.current.value,
-          timezoneRef.current.value,
+          selectedTimezone,
           "student",
           firstNameRefParent.current.value,
           lastNameRefParent.current.value,
@@ -159,14 +190,9 @@ export default function Form() {
           className={styles.typingInput}
           ref={gradeRef}
         />
-        <input
-          name="timezone"
-          id="timezone"
-          type="timezone"
-          placeholder="Timezone"
-          required
-          className={styles.typingInput}
-          ref={timezoneRef}
+        <TimezoneSelect
+          value={selectedTimezone}
+          onChange={setSelectedTimezone}
         />
         <input
           style={{ display: "none" }}
@@ -206,7 +232,6 @@ export default function Form() {
           className={styles.typingInput}
           ref={passwordRef}
         />
-
         <select
           onChange={selectVolunteer}
           required

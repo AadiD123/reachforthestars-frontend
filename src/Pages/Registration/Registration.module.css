@@ -5,6 +5,12 @@
   margin: 20px;
 }
 
+.subtitle {
+  max-width: 70%;
+  text-align: center;
+  margin: 20px 0 20px;
+}
+
 .container {
   display: grid;
   grid-template-columns: 2fr 1fr;
