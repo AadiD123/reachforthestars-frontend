@@ -3,13 +3,15 @@ import * as FaIcons from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { db } from "../../Backend/Firebase";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { BlogInterface } from "../Blog/Blog";
 
 const BlogPage = () => {
   const [blogInfo, setBlog] = useState<BlogInterface[]>([]);
   const [blogs, setBlogs] = useState<BlogInterface[]>([]);
   const [loading, setLoading] = useState(true);
+  const history = useHistory();
+  const location = useLocation();
   let { id }: any = useParams();
 
   useEffect(() => {
@@ -57,7 +59,7 @@ const BlogPage = () => {
       .catch((error) => {
         console.log("Error getting document:", error);
       });
-  }, [localStorage.getItem("blogs")]);
+  }, [localStorage.getItem("blogs"), location]);
 
   if (loading) {
     return (
@@ -73,9 +75,9 @@ const BlogPage = () => {
       {blogInfo.length > 0 ? (
         blogInfo.map((blog: BlogInterface) => (
           <div className={styles.contain}>
-            <Link className={styles.back} to="/blog">
-              <FaIcons.FaArrowLeft className={styles.icon} /> Back{" "}
-            </Link>
+            <div className={styles.back} onClick={() => {history.push("/blog")}}>
+              <FaIcons.FaArrowLeft className={styles.icon}/> Back{" "}
+            </div>
             <img
               src={blog.img}
               width="100%"
@@ -115,25 +117,24 @@ const BlogPage = () => {
             >
               {blogs.length > 0 ? (
                 blogs.slice(0, 3).map((blog: BlogInterface) => (
-                  <Link to={`/blogpage/${blog.key}`}>
-                    <div
-                      id={blog.key}
-                      key={blog.key}
-                      style={{ marginTop: "20px", marginBottom: "10px" }}
-                    >
-                      <div className="card" style={{ height: "100%" }}>
-                        <img
-                          alt="card"
-                          className="card-img-top"
-                          src={blog.img}
-                          style={{ height: "275px", objectFit: "cover" }}
-                        />
-                        <div className="card-body">
-                          <h4 className="card-title">{blog.title}</h4>
-                        </div>
+                  <div
+                    id={blog.key}
+                    key={blog.key}
+                    style={{ marginTop: "20px", marginBottom: "10px" }}
+                    onClick = {() => {history.push(`/blogpage/${blog.key}`)}}
+                  >
+                    <div className="card" style={{ height: "100%" }}>
+                      <img
+                        alt="card"
+                        className="card-img-top"
+                        src={blog.img}
+                        style={{ height: "275px", objectFit: "cover" }}
+                      />
+                      <div className="card-body">
+                        <h4 className="card-title">{blog.title}</h4>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 ))
               ) : (
                 <h1>Blogs not loaded</h1>

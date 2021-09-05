@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { auth, db } from "../../Backend/Firebase";
 import styles from "./Blog.module.css";
 import * as FaIcons from "react-icons/fa";
@@ -17,6 +17,7 @@ export interface BlogInterface {
 const Blog = () => {
   const [blogs, setBlogs] = useState<BlogInterface[]>([]);
   const [loading, setLoading] = useState(true);
+  const history = useHistory();
 
   useEffect(() => {
     if (blogs.length > 0) {
@@ -64,18 +65,21 @@ const Blog = () => {
 
       <div className={styles.gridcontainer} style={{ marginTop: "20px" }}>
         {blogs.length > 0 ? (
-          blogs.map((blog: any) => (
+          blogs.map((blog: BlogInterface) => ( 
             <div
               id={blog.key}
               key={blog.key}
               className="card"
               style={{ padding: "20px" }}
+              onClick={() => {
+                history.push(`/blogpage/${blog.key}`)
+              }}
             >
               <img
                 alt="img"
                 className="card-img-top"
                 style={{ height: "275px", objectFit: "cover" }}
-                src={blog.blogpicture}
+                src={blog.img}
               />
               <div className="card-body" style={{ padding: "0.5rem" }}>
                 <h4 className="card-title" style={{ fontSize: "30px" }}>
@@ -110,9 +114,9 @@ const Blog = () => {
                     dangerouslySetInnerHTML={{ __html: blog.content }}
                   />
                 </div>
-                <Link to={`/blogpage/${blog.key}`}>More info</Link>
+                <p> More Info </p>
               </div>
-            </div>
+          </div>
           ))
         ) : (
           <h1>Blogs not loaded</h1>
