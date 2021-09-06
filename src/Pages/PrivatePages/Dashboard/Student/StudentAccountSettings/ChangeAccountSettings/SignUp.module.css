@@ -1,0 +1,139 @@
+.signUpBox {
+  width: 75%;
+  margin: auto;
+  background: #f0f0f0;
+  box-shadow: 2px 2px 2px 2px grey;
+  padding: 20px;
+}
+.oAuth {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  height: 90%;
+  display: block;
+  justify-content: center;
+}
+.signUpBox {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 250%;
+  color: #073563;
+  grid-row: 1/2;
+  grid-column: 1/3;
+}
+.col-sm {
+  background-color: red;
+}
+form {
+  width: 100%;
+  height: 100%;
+}
+.typingInput {
+  border: none;
+  /* margin-left: 20%; */
+
+  padding: 10px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.checkingInput {
+  margin-left: 20%;
+  margin-bottom: 5%;
+}
+input::placeholder {
+  color: rgb(65, 60, 60);
+}
+.submitButton {
+  text-align: center;
+  color: white;
+  background-color: #062849;
+  border: none;
+  padding: 5px;
+  width: 30%;
+  /* margin-left: 35%; */
+}
+.rememberMe {
+  margin: 0;
+  margin-left: 5px;
+}
+
+.signInWithGoogleButton {
+  border: none;
+  padding: 5px;
+  padding-left: 16px;
+  width: 50%;
+  background-color: #e7e7e7;
+  border-radius: 1px;
+  margin-left: 25%;
+  margin-top: 15%;
+}
+.signInWithGoogleButton img {
+  width: 10%;
+  height: 10%;
+  float: left;
+}
+.signInWithGoogleButton span {
+  margin: 0;
+  padding: 0;
+  padding-left: 16px;
+  float: left;
+}
+.forms{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:10px;
+}
+@media screen and (max-width: 600px) {
+  .signUpBox {
+    margin-top: 30%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+  }
+  .loginButtons {
+    border: none;
+    height: 100%;
+    width: 100%;
+    margin-top: auto;
+  }
+  .oAuth {
+    height: 100%;
+    width: 100%;
+    margin-top: auto;
+    grid-row: 3/4;
+    grid-column: 1/2;
+  }
+  .signInWithGoogleButton {
+    margin-top: 10%;
+    height: 22%;
+    padding: 0;
+  }
+
+  .signInWithGoogleButton img {
+    width: 27%;
+    height: 70%;
+    padding-left: 16px;
+    float: left;
+  }
+  .signInWithGoogleButton span {
+    padding-left: 10px;
+    padding-top: 2px;
+  }
+  .submitButton {
+    margin-top: 5%;
+  }
+  
+}
+
+@media screen and (max-width: 1000px) {
+  .signInWithGoogleButton span {
+    font-size: 50%;
+    padding-left: 10px;
+    padding-top: 2px;
+  }
+  .signUpBox {
+    margin-top: 15%;
+  }
+  .forms{
+    grid-template-columns: 1fr;
+
+  }
+}

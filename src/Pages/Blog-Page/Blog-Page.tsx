@@ -15,6 +15,7 @@ const BlogPage = () => {
   let { id }: any = useParams();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const tempGet = localStorage.getItem("blogs");
     let temp: BlogInterface[] = [];
     if (tempGet !== null) {
@@ -40,16 +41,18 @@ const BlogPage = () => {
       .get()
       .then((doc) => {
         if (doc.exists) {
-          blog.push({ 
-            key: doc.id, 
-            author: doc.data()?.author, 
+          blog.push({
+            key: doc.id,
+            author: doc.data()?.author,
             content: doc.data()?.content,
             date: doc.data()?.date,
             editor: doc.data()?.editor,
             title: doc.data()?.title,
-            img: doc.data()?.img
+            img: doc.data()?.img,
           });
-          setBlogs(blog.sort((a, b) => (Date.parse(b.date) - Date.parse(a.date))));
+          setBlogs(
+            blog.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+          );
           setLoading(false);
         } else {
           // doc.data() will be undefined in this case
@@ -67,7 +70,7 @@ const BlogPage = () => {
         <h1 className={styles.pageTitle}>Blog</h1>
         <h2>Loading Blog</h2>
       </div>
-    )
+    );
   }
 
   return (
@@ -75,8 +78,13 @@ const BlogPage = () => {
       {blogInfo.length > 0 ? (
         blogInfo.map((blog: BlogInterface) => (
           <div className={styles.contain}>
-            <div className={styles.back} onClick={() => {history.push("/blog")}}>
-              <FaIcons.FaArrowLeft className={styles.icon}/> Back{" "}
+            <div
+              className={styles.back}
+              onClick={() => {
+                history.push("/blog");
+              }}
+            >
+              <FaIcons.FaArrowLeft className={styles.icon} /> Back
             </div>
             <img
               src={blog.img}
@@ -89,7 +97,11 @@ const BlogPage = () => {
               <div className={styles.content}>
                 <div className={styles.info}>
                   <p>Author: {blog.author}</p>
-                  {blog.editor !== "" ? <p>Edited By: {blog.editor}</p> : <div />}
+                  {blog.editor !== "" ? (
+                    <p>Edited By: {blog.editor}</p>
+                  ) : (
+                    <div />
+                  )}
                   <p>{blog.date}</p>
                 </div>
                 <div
@@ -121,9 +133,14 @@ const BlogPage = () => {
                     id={blog.key}
                     key={blog.key}
                     style={{ marginTop: "20px", marginBottom: "10px" }}
-                    onClick = {() => {history.push(`/blogpage/${blog.key}`)}}
+                    onClick={() => {
+                      history.push(`/blogpage/${blog.key}`);
+                    }}
                   >
-                    <div className="card" style={{ height: "100%" }}>
+                    <div
+                      className={`card ${styles.blogCard}`}
+                      style={{ height: "100%" }}
+                    >
                       <img
                         alt="card"
                         className="card-img-top"

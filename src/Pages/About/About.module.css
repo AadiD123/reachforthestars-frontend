@@ -5,10 +5,19 @@
   margin: 20px;
 }
 
+.list {
+  list-style: none;
+  justify-self: center;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .map {
-  position: relative;
   height: 80vh;
-  width: 90%;
 }
 
 @media screen and (max-width: 900px) {

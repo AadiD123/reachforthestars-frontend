@@ -26,17 +26,19 @@ const Blog = () => {
     let allblogs: BlogInterface[] = [];
     db.collection("blogs").onSnapshot((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        allblogs.push({ 
-          key: doc.id, 
-          author: doc.data()?.author, 
+        allblogs.push({
+          key: doc.id,
+          author: doc.data()?.author,
           content: doc.data()?.content,
           date: doc.data()?.date,
           editor: doc.data()?.editor,
           title: doc.data()?.title,
-          img: doc.data()?.img
+          img: doc.data()?.img,
         });
       });
-      setBlogs(allblogs.sort((a, b) => (Date.parse(b.date) - Date.parse(a.date))));
+      setBlogs(
+        allblogs.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+      );
       localStorage.setItem("blogs", JSON.stringify(allblogs));
       setLoading(false);
     });
@@ -65,14 +67,14 @@ const Blog = () => {
 
       <div className={styles.gridcontainer} style={{ marginTop: "20px" }}>
         {blogs.length > 0 ? (
-          blogs.map((blog: BlogInterface) => ( 
+          blogs.map((blog: BlogInterface) => (
             <div
               id={blog.key}
               key={blog.key}
-              className="card"
+              className={`card ${styles.blogCard}`}
               style={{ padding: "20px" }}
               onClick={() => {
-                history.push(`/blogpage/${blog.key}`)
+                history.push(`/blogpage/${blog.key}`);
               }}
             >
               <img
@@ -106,7 +108,7 @@ const Blog = () => {
                   style={{
                     maxHeight: "200px",
                     overflow: "hidden",
-                    textOverflow: "ellipsis",
+                    textOverflow: "ellipses",
                   }}
                 >
                   <p
@@ -114,9 +116,8 @@ const Blog = () => {
                     dangerouslySetInnerHTML={{ __html: blog.content }}
                   />
                 </div>
-                <p> More Info </p>
               </div>
-          </div>
+            </div>
           ))
         ) : (
           <h1>Blogs not loaded</h1>

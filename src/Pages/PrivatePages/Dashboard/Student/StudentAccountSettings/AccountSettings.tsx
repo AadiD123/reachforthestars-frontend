@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../../../Backend/Contexts/AuthContext";
 // import { updateStudent } from "../../../../Backend/db/dbfunctions";
 // import { auth } from "../../../../Backend/Firebase";
+import Form from "./ChangeAccountSettings/Form";
 
 export function StudentAccountSettings() {
   // const firstNameRef = useRef() as MutableRefObject<any>;
@@ -38,11 +39,6 @@ export function StudentAccountSettings() {
     <div>
       <h1>My Account</h1>
       <p>Update and Edit the information you share with community</p>
-      <p>
-        Login Email: <br />
-        User Email <br />
-        Your email address cannot be changed <br />
-      </p>
       {/* <form
         style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
         onSubmit={(e) => {
@@ -103,6 +99,7 @@ export function StudentAccountSettings() {
           />
         </div>
       </form> */}
+      <Form />
       <button
         className="buttonStyle"
         style={{
