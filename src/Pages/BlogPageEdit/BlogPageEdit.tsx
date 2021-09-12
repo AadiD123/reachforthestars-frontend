@@ -44,14 +44,11 @@ const BlogPageEdit = () => {
   };
 
   return (
-    <div className={styles.contain}>
-      <Link to="/blog" className={styles.back}>
-        <FaIcons.FaArrowLeft className={styles.icon} /> Back{""}
-      </Link>
-      <h1 className={styles.edit}>Edit:</h1>
-      <form className={styles.textEditor} onSubmit={setBlogData}>
-        <div className="form-group" style={{ marginTop: "20px" }}>
-          <label>Edit Title:</label>
+    <div className="mainContainer">
+      <h1>Write Blog</h1>
+      <form onSubmit={setBlogData}>
+        <div className="form-group">
+          <label>Title:</label>
           <input
             ref={titleRef}
             type="text"
@@ -60,6 +57,7 @@ const BlogPageEdit = () => {
             required={true}
           />
         </div>
+        <label>Content:</label>
         <Editor
           apiKey={API_KEY}
           init={{
@@ -100,10 +98,18 @@ const BlogPageEdit = () => {
             />
           </div>
         </div>
-        <button type="submit" className={styles.button}>
-          Save
-        </button>
-        <button className={styles.button2}>Cancel</button>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <button
+            type="submit"
+            className={styles.button}
+            style={{ marginRight: "50px" }}
+          >
+            Publish
+          </button>
+          <Link to="/blog">
+            <button className={styles.button}>Cancel</button>
+          </Link>
+        </div>
       </form>
     </div>
   );

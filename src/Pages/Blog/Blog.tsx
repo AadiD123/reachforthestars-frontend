@@ -19,6 +19,9 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const history = useHistory();
 
+  const [isAuthenticatedUser, setIsAuthenticatedUser] =
+    useState<boolean>(false);
+
   useEffect(() => {
     if (blogs.length > 0) {
       return;
@@ -44,6 +47,15 @@ const Blog = () => {
     });
   });
 
+  auth.onAuthStateChanged(function (user) {
+    if (user?.email) {
+      if (user.email === "kameronjones@reachforthestarss.com") {
+        setIsAuthenticatedUser(true);
+        console.log(isAuthenticatedUser);
+      }
+    }
+  });
+
   if (loading) {
     return (
       <div className="mainContainer">
@@ -57,7 +69,7 @@ const Blog = () => {
     <div className="mainContainer">
       <h1 className="title">Blog</h1>
 
-      {auth.currentUser != null ? (
+      {isAuthenticatedUser ? (
         <Link className={styles.edit} to="/blog-edit">
           <FaIcons.FaEdit className={styles.icon} /> Edit
         </Link>

@@ -26,6 +26,8 @@ h1 {
 }
 
 .mainContainer {
+  display: flex;
+  flex-direction: column;
   padding-inline: 10em;
   min-height: 30em;
   margin-bottom: 20px;
