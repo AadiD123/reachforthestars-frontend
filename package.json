@@ -39,8 +39,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "serve -s build --listen 3000 --ssl-cert \"./mycert.crt\" --ssl-key \"./mykey.key\"",
-    "dev": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -32,7 +32,7 @@ function Footer() {
             <br /> Please subscribe to our weekly emails for updates or any
             upcoming activities.
             <br /> Designed by Robert Burris, Aaditya Doiphode, Aryeman Singh,
-            Keerthi Kalyaan, and Aron Thakur {" "}
+            Keerthi Kalyaan, and Aron Thakur{" "}
           </p>
         </div>
       </footer>
