@@ -11,9 +11,7 @@ const Registration = () => {
       }}
     >
       <h1 className="title">Registration</h1>
-      <div
-        style={{ maxWidth: "50%", textAlign: "center", margin: "20px 0 20px" }}
-      >
+      <div className={styles.subtitle}>
         <p>
           We are so happy you’re interested in registering your child with Reach
           For The Stars. Just click REGISTER below the program you would like to

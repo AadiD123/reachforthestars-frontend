@@ -3,7 +3,7 @@ import { auth, db } from "../../../../../Backend/Firebase";
 import styles from "../../Dashboard.module.css";
 
 export function StudentGeneralDashboard() {
-  const [yourTutor, setYourTutor] = useState<any>();
+  const [yourTutor, setYourTutor] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ export function StudentGeneralDashboard() {
                       key: studentdoc.id,
                       ...studentdoc.data(),
                     });
+                    setLoading(false);
                   });
               }
             } else {
@@ -34,7 +35,6 @@ export function StudentGeneralDashboard() {
           });
       }
     });
-    setLoading(false);
   });
 
   return (

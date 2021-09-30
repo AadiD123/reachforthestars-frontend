@@ -32,7 +32,7 @@ const About = () => {
   const [zoom] = useState(1);
   const getMapOptions = (maps: any) => {
     return {
-      disableDefaultUI: true,
+      disableDefaultUI: false,
       styles: [
         {
           featureType: "administrative",
@@ -149,9 +149,9 @@ const About = () => {
   });
 
   return (
-    <div className="mainContainer" style={{ paddingBottom: "120px" }}>
+    <div className="mainContainer" style={{ paddingBottom: "50px" }}>
+      <h1 className="title">About</h1>
       <div className={styles.map}>
-        <h1 className="title">About</h1>
         <GoogleMapReact
           bootstrapURLKeys={{ key: String(API_KEY) }}
           defaultCenter={center}
@@ -168,6 +168,63 @@ const About = () => {
             />
           ))}
         </GoogleMapReact>
+      </div>
+      <div>
+        <br />
+        <h2 style={{ textAlign: "center", fontFamily: "Shrikhand" }}>
+          The Executive Board
+        </h2>
+        <br />
+        <ul className={styles.list}>
+          <div>
+            <h4>Senior Director</h4>
+            <li>Athena Samonte</li>
+            <li>Kameron Jones</li>
+            <li>Vicky Huang</li>
+          </div>
+          <div>
+            <h4>Executive Director</h4>
+            <li>Bernie Baschkier</li>
+            <li>Kyra Sunil</li>
+          </div>
+        </ul>
+        <br />
+        <h2 style={{ textAlign: "center", fontFamily: "Shrikhand" }}>
+          Department Heads
+        </h2>
+        <br />
+        <ul className={styles.list}>
+          <div>
+            <h4>Head of Tutoring</h4>
+            <li>Ayana Amin</li>
+            <br />
+            <h4>Head of Adminstration</h4>
+            <li>Bernie Baschkie</li>
+            <li>Kyra Sunil</li>
+            <br />
+          </div>
+          <div>
+            <h4>Head of Media</h4>
+            <li>Elena Mao</li>
+            <li>Vicky Huang</li>
+            <br />
+            <h4>Head of Human Resources</h4>
+            <li>Kameron Jones</li>
+            <br />
+            <h4>Head of Finance</h4>
+            <li>Sahith Yeturu</li>
+            <br />
+          </div>
+          <div>
+            <h4>Head of Writing</h4>
+            <li>Emma Leonard</li>
+            <br />
+            <h4>Head of External Affairs</h4>
+            <li>Fiona Xin</li>
+            <li>Melinda Wang</li>
+            <li>Pranathi Divakaruni</li>
+          </div>
+        </ul>
       </div>
     </div>
   );

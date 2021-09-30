@@ -7,7 +7,6 @@
 }
 
 .edit {
-  position: absolute;
   top: 14%;
   display: flex;
   align-self: center;
@@ -16,12 +15,21 @@
   font-size: 20px;
   color: black;
 }
+/* 
+.edit :hover {
+  cursor: pointer;
+} */
 
 .pageTitle {
   font-size: 5rem;
   text-align: center;
   color: #001e3d;
 }
+
+.blogCard :hover {
+  cursor: pointer;
+}
+
 .subtext {
   display: inline;
 }
@@ -35,6 +43,6 @@
 
 @media screen and (max-width: 1000px) {
   .gridcontainer {
-    grid-template-columns: 400px;
+    grid-template-columns: 350px;
   }
 }

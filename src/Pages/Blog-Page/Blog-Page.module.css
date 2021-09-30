@@ -4,6 +4,10 @@
   margin-right: 20%;
 }
 
+.blogCard :hover {
+  cursor: pointer;
+}
+
 .blog {
   background-color: white;
   padding: 4%;
@@ -29,7 +33,7 @@
 }
 
 .back {
-  position: absolute;
+  position: fixed;
   top: 14%;
   display: flex;
   align-self: center;
@@ -38,6 +42,11 @@
   font-size: 20px;
   color: black;
 }
+
+.back :hover {
+  cursor: pointer;
+}
+
 .icon {
   display: flex;
   align-self: center;

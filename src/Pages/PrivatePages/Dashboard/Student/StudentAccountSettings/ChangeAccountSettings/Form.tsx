@@ -1,38 +1,25 @@
-import { useRef, useState, MutableRefObject } from "react";
+import { useRef, useState, MutableRefObject, useEffect } from "react";
 import styles from "./SignUp.module.css";
+import { auth, db } from "../../../../../../Backend/Firebase";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../../../Backend/Contexts/AuthContext";
+import { useAuth } from "../../../../../../Backend/Contexts/AuthContext";
 import TimezoneSelect, {
   i18nTimezones,
   ICustomTimezone,
   ITimezone,
 } from "react-timezone-select";
 
-const timezones = [
-  "GMT",
-  "UTC",
-  "ECT",
-  "EET",
-  "ART",
-  "EAT",
-  "MET",
-  "NET",
-  "PLT",
-  "IST",
-  "BST",
-  "VST",
-  "CTT",
-  "JST",
-  "ACT",
-  "AET",
-  "SST",
-  "NST",
-  "MIT",
-  "HST",
-  "AST",
-  "PST",
-  "PNT",
-];
+interface UserInfo {
+  email: string | null;
+  firstName: string;
+  grade: string;
+  lastName: string;
+  parentFirstName: string;
+  parentLastName: string;
+  role: string;
+  subjects: string;
+  timezone: string;
+}
 
 export default function Form() {
   const firstNameRef = useRef() as MutableRefObject<any>;
@@ -48,6 +35,7 @@ export default function Form() {
   const { signup } = useAuth();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
 
   const [volunteer, setVolunteer] = useState(false);
   const [parentEmailPlaceholder, setParentEmailPlaceholder] = useState("Email");
@@ -95,6 +83,34 @@ export default function Form() {
   const selectVolunteer = (e: any) => {
     setVolunteer(!volunteer);
   };
+
+  useEffect(() => {
+    setLoading(true);
+    auth.onAuthStateChanged(function (user) {
+      if (user?.email) {
+        db.collection("students")
+          .doc(user.email)
+          .get()
+          .then((doc) => {
+            setUserInfo({
+              email: user.email,
+              firstName: doc.data()?.firstName,
+              grade: doc.data()?.grade,
+              lastName: doc.data()?.lastName,
+              parentFirstName: doc.data()?.parentFirstName,
+              parentLastName: doc.data()?.parentLastName,
+              role: doc.data()?.role,
+              subjects: doc.data()?.subjects,
+              timezone: doc.data()?.timezone,
+            });
+            setSelectedTimezone(doc.data()?.timezone);
+          })
+          .catch((error) => {
+            console.log("Error getting document:", error);
+          });
+      }
+    });
+  });
 
   function checkInput() {
     if (document.getElementById("grade") != null) {
@@ -166,7 +182,7 @@ export default function Form() {
           name="firstName"
           id="firstName"
           type="string"
-          placeholder="First Name"
+          placeholder={userInfo?.firstName}
           required
           className={styles.typingInput}
           ref={firstNameRef}
@@ -175,7 +191,7 @@ export default function Form() {
           name="lastName"
           id="lastName"
           type="string"
-          placeholder="Last Name"
+          placeholder={userInfo?.lastName}
           required
           className={styles.typingInput}
           ref={lastNameRef}
@@ -184,13 +200,14 @@ export default function Form() {
           onBlur={checkInput}
           name="grade"
           id="grade"
+          placeholder={userInfo?.grade}
           type="number"
-          placeholder="Grade"
           required
           className={styles.typingInput}
           ref={gradeRef}
         />
         <TimezoneSelect
+          placeholder="abc"
           value={selectedTimezone}
           onChange={setSelectedTimezone}
         />
@@ -217,9 +234,11 @@ export default function Form() {
         <input
           name="email"
           id="email"
+          value={userInfo?.email !== null ? userInfo?.email : "Email"}
           type="email"
           placeholder={parentEmailPlaceholder}
           required
+          readOnly
           className={styles.typingInput}
           ref={emailRef}
         />
@@ -241,7 +260,6 @@ export default function Form() {
           style={{ width: "100%" }}
         >
           <option value="member">Member</option>
-          <option value="volunteer">Volunteer</option>
         </select>
         {volunteer ? (
           <div>
@@ -263,12 +281,31 @@ export default function Form() {
               type="text"
               placeholder="Enter subjects you want to be tutored in"
               className={styles.typingInput}
+              value={userInfo?.subjects}
               required
               ref={subjectsRef}
               style={{ width: "100%" }}
             />
           </div>
         )}
+        <input
+          name="newPassword"
+          id="password"
+          type="password"
+          placeholder="New Password (optional)"
+          required
+          className={styles.typingInput}
+          ref={passwordRef}
+        />
+        <input
+          name="newPasswordVerify"
+          id="password"
+          type="password"
+          placeholder="Confirm New Password"
+          required
+          className={styles.typingInput}
+          ref={passwordRef}
+        />
 
         <button
           disabled={loading}
@@ -276,7 +313,7 @@ export default function Form() {
           type="submit"
           style={{ marginLeft: "85%" }}
         >
-          Sign Up
+          Save
         </button>
       </form>
     </div>
