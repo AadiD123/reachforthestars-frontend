@@ -2,11 +2,7 @@ import { useRef, useState, MutableRefObject } from "react";
 import styles from "./SignUp.module.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../Backend/Contexts/AuthContext";
-import TimezoneSelect, {
-  i18nTimezones,
-  ICustomTimezone,
-  ITimezone,
-} from "react-timezone-select";
+import TimezoneSelect, { ITimezone } from "react-timezone-select";
 
 const timezones = [
   "GMT",
