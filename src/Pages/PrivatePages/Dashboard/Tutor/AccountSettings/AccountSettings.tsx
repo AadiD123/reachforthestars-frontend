@@ -74,7 +74,7 @@ export default function AccountSettings() {
         )}
         Your email address cannot be changed <br />
       </p>
-      {user != null ? (
+      {/* {user != null ? (
         <div>
           <form
             style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
@@ -94,7 +94,6 @@ export default function AccountSettings() {
               />
               <br />
               <label>Last Name</label>
-              <br />
               <input
                 placeholder={user.lastName}
                 style={{ width: "80%" }}
@@ -148,7 +147,7 @@ export default function AccountSettings() {
         </div>
       ) : (
         <div>Error loading form</div>
-      )}
+      )} */}
       <button
         className="buttonStyle"
         style={{

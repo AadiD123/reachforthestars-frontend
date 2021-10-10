@@ -43,6 +43,6 @@
 
 @media screen and (max-width: 1000px) {
   .gridcontainer {
-    grid-template-columns: 350px;
+    grid-template-columns: 280px;
   }
 }

@@ -46,6 +46,7 @@ h1 {
 .buttonStyle:hover {
   color: rgb(245, 239, 239);
   background-color: #073563;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 420px) {

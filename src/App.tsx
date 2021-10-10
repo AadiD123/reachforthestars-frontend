@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+} from "react-router-dom";
 
 //Auth
 import PrivateRoute from "./Backend/PrivateAuth";
@@ -42,7 +47,7 @@ function App() {
         <Switch>
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/blog-edit" component={BlogPageEdit} />
-          <Route path="/events" component={Events} />
+          {/* <Route path="/events" component={Events} /> */}
           <Route path="/about" component={About} />
           <Route path="/donate" component={Donate} />
           <Route path="/join-our-team" component={JoinOurTeam} />

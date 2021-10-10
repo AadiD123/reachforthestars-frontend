@@ -21,7 +21,7 @@ export function Donate() {
         your help.
       </p>
       <a href="https://bank.hackclub.com/donations/start/reach-for-the-stars">
-        <div className="buttonStyle">Donate</div>
+        <div className={`${styles.donateButton} buttonStyle`}>Donate</div>
       </a>
       <br />
       <br />
@@ -31,6 +31,7 @@ export function Donate() {
       <div
         style={{
           display: "flex",
+          flexWrap: "wrap",
           width: "80%",
           justifyContent: "space-evenly",
         }}
@@ -113,6 +114,7 @@ export function Donate() {
       </div>
       <br />
       <br />
+
       <div
         style={{
           backgroundColor: "#aab5c5",

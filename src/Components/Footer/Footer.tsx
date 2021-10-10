@@ -16,7 +16,7 @@ function Footer() {
             />
           </div>
         </div>
-        <div className={`${styles.subscribe}`}>
+        {/* <div className={`${styles.subscribe}`}>
           <div className={`${styles.subscribeContent}`}>
             <p>Subscribe to our newsletter</p>
             <input placeholder="Your email" />
@@ -25,13 +25,11 @@ function Footer() {
               style={{ backgroundColor: "#E5D5C7", border: "none" }}
             />
           </div>
-        </div>
+        </div> */}
         <div className={`${styles.copyright}`}>
           <p>
-            ©2021 by Reach For The Stars.
-            <br /> Please subscribe to our weekly emails for updates or any
-            upcoming activities.
-            <br /> Designed by Robert Burris, Aaditya Doiphode, Aryeman Singh,
+            ©2021 Reach For The Starss.
+            <br /> Coded by Aaditya Doiphode, Robert Burris, Aryeman Singh,
             Keerthi Kalyaan, and Aron Thakur{" "}
           </p>
         </div>

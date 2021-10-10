@@ -2,7 +2,7 @@ import { useRef, useState, MutableRefObject } from "react";
 import styles from "./SignUp.module.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../Backend/Contexts/AuthContext";
-import TimezoneSelect, { ITimezone } from "react-timezone-select";
+import TimezoneSelect from "react-timezone-select";
 
 const timezones = [
   "GMT",
@@ -34,7 +34,7 @@ export default function Form() {
   const firstNameRef = useRef() as MutableRefObject<any>;
   const lastNameRef = useRef() as MutableRefObject<any>;
   const gradeRef = useRef() as MutableRefObject<any>;
-  const [selectedTimezone, setSelectedTimezone] = useState<ITimezone>("");
+  const [selectedTimezone, setSelectedTimezone] = useState("");
   const emailRef = useRef() as MutableRefObject<any>;
   const firstNameRefParent = useRef() as MutableRefObject<any>;
   const lastNameRefParent = useRef() as MutableRefObject<any>;

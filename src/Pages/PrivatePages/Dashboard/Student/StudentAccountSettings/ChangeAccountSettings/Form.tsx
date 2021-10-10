@@ -3,11 +3,7 @@ import styles from "./SignUp.module.css";
 import { auth, db } from "../../../../../../Backend/Firebase";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../../../../../Backend/Contexts/AuthContext";
-import TimezoneSelect, {
-  i18nTimezones,
-  ICustomTimezone,
-  ITimezone,
-} from "react-timezone-select";
+import TimezoneSelect from "react-timezone-select";
 
 interface UserInfo {
   email: string | null;
@@ -25,7 +21,7 @@ export default function Form() {
   const firstNameRef = useRef() as MutableRefObject<any>;
   const lastNameRef = useRef() as MutableRefObject<any>;
   const gradeRef = useRef() as MutableRefObject<any>;
-  const [selectedTimezone, setSelectedTimezone] = useState<ITimezone>("");
+  const [selectedTimezone, setSelectedTimezone] = useState("");
   const emailRef = useRef() as MutableRefObject<any>;
   const firstNameRefParent = useRef() as MutableRefObject<any>;
   const lastNameRefParent = useRef() as MutableRefObject<any>;
