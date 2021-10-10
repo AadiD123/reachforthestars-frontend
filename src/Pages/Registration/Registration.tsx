@@ -49,12 +49,20 @@ const Registration = () => {
             </div>
             <div>
               <div className={styles.button}>
-                <a href="/signup">
-                  <button className="buttonStyle">Join as Tutor</button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDq6UYxXdQx_QtJLUpy8setX5qs9SbiFOZ06c1pgoIIz6jvw/viewform?usp=send_form">
+                  <button className="buttonStyle" style={{ width: "150px" }}>
+                    Get Tutored
+                  </button>
                 </a>
               </div>
               <div className={styles.button}>
-                <button className="buttonStyle">Get Tutored</button>
+                <a href="/signup">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScX1UViQOZB1CqHKTB53UkAZMitp9mWl1h-LpKV4OhZ2tH0eA/viewform">
+                    <button className="buttonStyle" style={{ width: "150px" }}>
+                      Join as Tutor
+                    </button>
+                  </a>
+                </a>
               </div>
             </div>
           </div>
@@ -85,10 +93,18 @@ const Registration = () => {
             </div>
             <div>
               <div className={styles.button}>
-                <button className="buttonStyle">Join as Tutor</button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsmMa1E4ksy3s_OIPzCYIOfjJW4olBxcUDWVcHhEjeJj_90g/viewform">
+                  <button className="buttonStyle" style={{ width: "150px" }}>
+                    Get Tutored
+                  </button>
+                </a>
               </div>
               <div className={styles.button}>
-                <button className="buttonStyle">Get Tutored</button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScX1UViQOZB1CqHKTB53UkAZMitp9mWl1h-LpKV4OhZ2tH0eA/viewform">
+                  <button className="buttonStyle" style={{ width: "150px" }}>
+                    Join as Tutor
+                  </button>
+                </a>
               </div>
             </div>
           </div>
