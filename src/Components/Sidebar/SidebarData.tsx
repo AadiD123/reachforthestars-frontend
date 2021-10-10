@@ -12,11 +12,11 @@ export const SidebarData = [
     path: "/blog",
     cName: `${styles.navTextTop}`,
   },
-  {
-    title: "Events",
-    path: "/events",
-    cName: `${styles.navTextTop}`,
-  },
+  // {
+  //   title: "Events",
+  //   path: "/events",
+  //   cName: `${styles.navTextTop}`,
+  // },
   {
     title: "Registration",
     path: "/registration",

@@ -6,7 +6,21 @@
   height: 250px;
   width: 250px;
   border-radius: 50%;
-  border: 2px 2px 2px 2px;
-  border-color: orange;
   background-color: white;
+}
+
+.donateButton {
+  width: 200px;
+  text-align: center;
+  background-color: rgb(181, 67, 67);
+  color: black;
+  border: none;
+}
+
+.donateButton:hover {
+  width: 200px;
+  text-align: center;
+  background-color: firebrick;
+  color: black;
+  border: none;
 }
