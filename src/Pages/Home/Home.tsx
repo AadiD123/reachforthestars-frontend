@@ -139,12 +139,12 @@ const Home = () => {
               }}
             >
               <a href="https://linktr.ee/rfts">
-                <button className="buttonStyle" style={{ minWidth: "8em" }}>
+                <button className="buttonStyle" style={{ width: "100%", marginRight: "1px" }}>
                   Apply Here
                 </button>
               </a>
               <a href="https://docs.google.com/document/d/1SafaLA7AjuhRcoLJuZ2IjKGnm-s62OfXWBSotr_Xv8Q/edit">
-                <div className="buttonStyle" style={{ minWidth: "8em" }}>
+                <div className="buttonStyle" style={{ width: "100%" }}>
                   More Details
                 </div>
               </a>

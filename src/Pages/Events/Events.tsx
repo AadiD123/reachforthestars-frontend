@@ -73,18 +73,18 @@ const Events = () => {
         <div>
           {toggle === false ? (
             <div
-              className="tab-pane "
-              id="past"
+              className={styles.gridcontainer}
+              id="gridcontainer"
               role="tabpanel"
               aria-labelledby="past-tab"
-              style={{
-                marginTop: "20px",
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-                gridGap: "20px",
-                justifyContent: "center",
-                padding: "5%",
-              }}
+              // style={{
+              //   marginTop: "20px",
+              //   display: "grid",
+              //   gridTemplateColumns: "1fr 1fr 1fr",
+              //   gridGap: "20px",
+              //   justifyContent: "center",
+              //   padding: "5%",
+              // }}
             >
               <div className="card" style={{ padding: "20px" }}>
                 <img
@@ -128,20 +128,20 @@ const Events = () => {
             </div>
           ) : (
             <div
-              className="tab-pane"
-              id="future"
+            className={styles.gridcontainer}
+              id="gridcontainer"
               role="tabpanel"
               aria-labelledby="future-tab"
-              style={{
-                marginTop: "20px",
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-                gridGap: "20px",
-                justifyContent: "center",
-                padding: "5%",
-              }}
+              // style={{
+              //   marginTop: "20px",
+              //   display: "grid",
+              //   gridTemplateColumns: "1fr 1fr 1fr",
+              //   gridGap: "20px",
+              //   justifyContent: "center",
+              //   padding: "5%",
+              // }}
             >
-              <div className="card" style={{ padding: "20px" }}>
+              <div className="card " style={{ padding: "20px" }}>
                 <img
                   alt="img"
                   className="card-img-top"
@@ -219,7 +219,7 @@ const Events = () => {
                   </div>
                 </div>
               </div>
-              <div className="card" style={{ padding: "20px" }}>
+              <div className="card " style={{ padding: "20px" }}>
                 <img
                   alt="img"
                   className="card-img-top"
