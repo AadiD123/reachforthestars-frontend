@@ -1,6 +1,11 @@
 import styles from "./Home.module.css";
 import comet from "../../Assets/Images/comet.jpeg";
-import hands from "../../Assets/Images/hands.jpeg";
+import mission from "../../Assets/Images/mission.jpg";
+import recruiting from "../../Assets/Images/recruiting.jpg";
+import peerTutoring from "../../Assets/Images/peer_tutoring.jpg";
+import privateTutoring from "../../Assets/Images/private_tutoring.jpg";
+import summerCamp from "../../Assets/Images/summer_camp.jpg";
+
 import { Link } from "react-scroll";
 
 import { useEffect, useState } from "react";
@@ -104,16 +109,16 @@ const Home = () => {
           <div>
             <img
               className={styles.contimage}
-              src={hands}
-              alt="hands"
+              src={mission}
+              alt="Mission Image"
               style={{ height: "100%", width: "100%", objectFit: "cover" }}
             />
           </div>
           <div>
             <img
               className={styles.contimage}
-              src={hands}
-              alt="hands"
+              src={recruiting}
+              alt="Recruiting Image"
               style={{ maxHeight: "100%", width: "100%", objectFit: "cover" }}
             />
           </div>
@@ -139,7 +144,10 @@ const Home = () => {
               }}
             >
               <a href="https://linktr.ee/rfts">
-                <button className="buttonStyle" style={{ width: "100%", marginRight: "1px" }}>
+                <button
+                  className="buttonStyle"
+                  style={{ width: "100%", marginRight: "1px" }}
+                >
                   Apply Here
                 </button>
               </a>
@@ -163,8 +171,8 @@ const Home = () => {
           <div className={styles.tutoringResourcesCont}>
             <div className={styles.tutoringResourcesCards}>
               <img
-                src={hands}
-                alt="hands"
+                src={peerTutoring}
+                alt="Peer Tutoring Image"
                 style={{ maxHeight: "40%", width: "100%", objectFit: "cover" }}
               />
               <div
@@ -192,8 +200,8 @@ const Home = () => {
             </div>
             <div className={styles.tutoringResourcesCards}>
               <img
-                src={hands}
-                alt="hands"
+                src={privateTutoring}
+                alt="Private Tutoring Image"
                 style={{ maxHeight: "40%", width: "100%", objectFit: "cover" }}
               />
               <div
@@ -254,12 +262,12 @@ const Home = () => {
             <div>
               <img
                 className={styles.contimage}
-                src={hands}
-                alt="hands"
+                src={summerCamp}
+                alt="Summer Camp Image"
                 style={{ height: "100%", width: "100%", objectFit: "cover" }}
               />
             </div>
-            <div>
+            {/* <div>
               <img
                 className={styles.contimage}
                 src={hands}
@@ -278,7 +286,7 @@ const Home = () => {
                 sessions, and diagnostic tests. <br /> <br />
                 Stayed tuned for our 2022 registration!
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* <div id="blog">
