@@ -145,7 +145,7 @@ export function Donate() {
           <p>
             We are always looking for more hands to help our students excel.
           </p>
-          <a href="https://bank.hackclub.com/donations/start/reach-for-the-stars">
+          <a href="">
             <div className="buttonStyle">Volunteer Positions</div>
           </a>
         </div>

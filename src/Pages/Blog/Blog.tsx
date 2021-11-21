@@ -68,6 +68,9 @@ const Blog = () => {
   return (
     <div className="mainContainer">
       <h1 className="title">Blog</h1>
+      <h4 style={{ textAlign: "center", fontSize: "1.2em" }}>
+        *page under construction*
+      </h4>
 
       {isAuthenticatedUser ? (
         <Link className={styles.edit} to="/blog-edit">

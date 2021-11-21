@@ -21,7 +21,7 @@ function Sidebar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <Link to="/" className={styles.logo}>
-            <h3 style={{ fontFamily: "Open Sans" }}>Reach For The Starss</h3>
+            <h3 style={{ fontFamily: "Open Sans" }}>Reach For The Stars</h3>
           </Link>
         </div>
         <nav
